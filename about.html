@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — 2600 Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:       #F7F3EE;
+      --cream-warm:  #EEEAE4;
+      --blush:       #DDD8D0;
+      --rose-light:  #C4AFA8;
+      --rose:        #B8897A;
+      --rose-deep:   #96685A;
+      --ink:         #1C1A18;
+      --ink-mid:     #3A3530;
+      --stone:       #8A8278;
+      --stone-light: #B8B0A8;
+      --white:       #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Raleway', -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ─── Cursor ─── */
+    .cursor {
+      width: 7px; height: 7px;
+      background: var(--rose-deep);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9999;
+      will-change: transform;
+    }
+    .cursor-ring {
+      width: 30px; height: 30px;
+      border: 1px solid var(--rose);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9998;
+      opacity: 0.5;
+      transition: width .3s, height .3s, opacity .3s;
+      will-change: transform;
+    }
+    .cursor-ring.big { width: 52px; height: 52px; opacity: 0.25; }
+
+    /* ─── Nav ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 28px 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: padding .4s, background .4s, backdrop-filter .4s, border-color .4s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      padding: 16px 64px;
+      background: rgba(253,250,248,.92);
+      backdrop-filter: blur(24px);
+      border-color: var(--blush);
+    }
+    .nav-logo {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.2rem; font-weight: 600;
+      letter-spacing: .18em; color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--rose); }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 44px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .72rem; font-weight: 400;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--stone); text-decoration: none;
+      position: relative; transition: color .3s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -3px; left: 0; width: 0; height: 1px;
+      background: var(--rose); transition: width .3s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--ink); }
+    .nav-links a.active::after { width: 100%; }
+
+    .nav-cta {
+      font-size: .72rem !important; font-weight: 500 !important;
+      letter-spacing: .14em !important; text-transform: uppercase !important;
+      color: var(--white) !important; background: var(--ink);
+      padding: 12px 26px; border-radius: 2px;
+      text-decoration: none; transition: background .3s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--rose-deep) !important; color: var(--white) !important; }
+
+    /* hamburger */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: none; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 1px;
+      background: var(--ink); transition: all .3s;
+    }
+
+    /* mobile menu */
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 150;
+      background: var(--cream);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 40px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .4s;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2.2rem; font-weight: 200;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: .04em;
+      transition: color .3s;
+    }
+    .mobile-menu a:hover { color: var(--rose); }
+
+    /* ─── Page Hero ─── */
+    .page-hero {
+      padding: 160px 64px 80px;
+      border-bottom: 1px solid var(--blush);
+    }
+    .page-hero-label {
+      font-size: .6rem; letter-spacing: .24em;
+      text-transform: uppercase; color: var(--rose);
+      display: block; margin-bottom: 20px;
+    }
+    .page-hero-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 4.8rem);
+      font-weight: 700; line-height: 1.0;
+      letter-spacing: -.02em; color: var(--ink);
+    }
+    .page-hero-title em { font-style: italic; color: var(--rose); font-weight: 300; }
+
+    /* ─── Shared section styles ─── */
+    .section { padding: 80px 64px; }
+
+    .label-row {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 72px;
+    }
+    .label-row span {
+      font-size: .64rem; letter-spacing: .26em;
+      text-transform: uppercase; color: var(--rose);
+    }
+    .label-line {
+      width: 56px; height: 1px; background: var(--blush);
+    }
+
+    .section-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.6rem, 3.2vw, 2.9rem);
+      font-weight: 200; line-height: 1.12;
+      letter-spacing: -.01em;
+    }
+    .section-title em { font-style: italic; color: var(--rose); }
+
+    /* ─── About ─── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 100px; align-items: center;
+    }
+    .about-img-wrap { position: relative; aspect-ratio: 4/5; }
+    .about-img-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(145deg, var(--blush) 0%, var(--rose-light) 55%, var(--cream-warm) 100%);
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-img-placeholder span {
+      font-size: .68rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--rose-deep);
+      opacity: .45;
+    }
+    .about-img-real {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+    }
+    .about-accent-box {
+      position: absolute; top: -18px; right: -18px;
+      width: 110px; height: 110px;
+      border: 1px solid var(--blush); z-index: -1;
+    }
+    .about-accent-fill {
+      position: absolute; bottom: -18px; left: -18px;
+      width: 72px; height: 72px;
+      background: var(--blush); z-index: -1;
+    }
+
+    .about-text {
+      font-size: .88rem; font-weight: 300;
+      line-height: 2.05; color: var(--stone);
+      margin-bottom: 18px;
+    }
+    .about-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 28px; margin-top: 52px; padding-top: 44px;
+      border-top: 1px solid var(--blush);
+    }
+    .stat-n {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.9rem; font-weight: 300;
+      color: var(--rose-deep); line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-l {
+      font-size: .66rem; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--stone);
+    }
+
+    /* ─── Process ─── */
+    .process-wrap { background: var(--ink); }
+
+    .process-wrap .label-row span { color: var(--rose-light); }
+    .process-wrap .label-line { background: #3A2E28; }
+
+    .process-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      font-weight: 300; line-height: 1.1;
+      letter-spacing: -.02em;
+      color: var(--cream); margin-bottom: 72px;
+      max-width: 540px;
+    }
+    .process-title em { font-style: italic; color: var(--rose-light); }
+
+    .process-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid #2E231E;
+    }
+    .process-step {
+      padding: 52px 40px;
+      border-right: 1px solid #2E231E;
+      transition: background .3s;
+    }
+    .process-step:last-child { border-right: none; }
+    .process-step:hover { background: rgba(255,255,255,.03); }
+
+    .step-n {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2.6rem; font-weight: 300;
+      color: var(--rose); opacity: .3;
+      line-height: 1; margin-bottom: 28px;
+    }
+    .step-name {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.15rem; font-weight: 400;
+      color: var(--cream); margin-bottom: 14px;
+    }
+    .step-desc {
+      font-size: .82rem; font-weight: 300;
+      line-height: 1.85; color: var(--stone-light);
+      opacity: .75;
+    }
+
+    /* ─── Footer ─── */
+    footer { background: var(--ink); padding: 72px 64px 36px; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 56px; padding-bottom: 56px;
+      border-bottom: 1px solid #2E231E;
+    }
+    .footer-logo {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.15rem; font-weight: 500;
+      color: var(--cream); letter-spacing: .1em;
+      margin-bottom: 18px;
+    }
+    .footer-logo span { color: var(--rose-light); }
+    .footer-tagline {
+      font-size: .82rem; font-weight: 300;
+      line-height: 1.85; color: var(--stone);
+      max-width: 240px;
+    }
+    .footer-col-label {
+      font-size: .62rem; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--stone);
+      margin-bottom: 22px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-links a {
+      font-size: .82rem; font-weight: 300;
+      color: #5A4A43; text-decoration: none; transition: color .3s;
+    }
+    .footer-links a:hover { color: var(--cream); }
+
+    .footer-bottom {
+      display: flex; justify-content: center; align-items: center;
+      padding-top: 28px;
+    }
+    .footer-copy { font-size: .7rem; color: #3A2C26; letter-spacing: .04em; }
+    .abn { font-style: normal; unicode-bidi: plaintext; }
+    .footer-socials { display: flex; gap: 22px; }
+    .footer-socials a {
+      font-size: .66rem; letter-spacing: .16em;
+      text-transform: uppercase; color: #3A2C26;
+      text-decoration: none; transition: color .3s;
+    }
+    .footer-socials a:hover { color: var(--rose-light); }
+
+    /* ─── Animations ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(36px);
+      transition: opacity .85s ease, transform .85s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.d1 { transition-delay: .1s; }
+    .reveal.d2 { transition-delay: .2s; }
+    .reveal.d3 { transition-delay: .3s; }
+    .reveal.d4 { transition-delay: .4s; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 1100px) {
+      nav { padding: 24px 40px; }
+      nav.scrolled { padding: 14px 40px; }
+      .section { padding: 64px 40px; }
+      .page-hero { padding: 140px 40px 60px; }
+      footer { padding: 60px 40px 32px; }
+    }
+
+    @media (max-width: 780px) {
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .section { padding: 50px 24px; }
+      .page-hero { padding: 120px 24px 48px; }
+      .page-hero h1 { font-size: clamp(2rem, 9vw, 3rem); }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-img-wrap { aspect-ratio: 4/5; max-height: 480px; }
+      .process-grid { grid-template-columns: 1fr 1fr; border: none; }
+      .process-step { border: 1px solid #2E231E; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 48px 24px 28px; }
+    }
+
+    @media (max-width: 480px) {
+      .section { padding: 40px 20px; }
+      .page-hero { padding: 110px 20px 40px; }
+      .about-stats { grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+      .stat-n { font-size: 1.4rem; }
+      .process-grid { grid-template-columns: 1fr; }
+      .process-step { padding: 32px 22px; }
+      .step-n { font-size: 1.8rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Mobile overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="services.html" onclick="closeMobile()">Services</a>
+    <a href="services.html#pricing" onclick="closeMobile()">Pricing</a>
+    <a href="work.html" onclick="closeMobile()">Work</a>
+    <a href="about.html" onclick="closeMobile()">About</a>
+    <a href="contact.html" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">2600<span> Design</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="services.html#pricing">Pricing</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <span class="page-hero-label">About Me</span>
+    <h1 class="page-hero-title">About &amp; <em>Process</em></h1>
+  </div>
+
+  <!-- ── About ── -->
+  <section class="section" id="about">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <img src="me.png" alt="Flora — 2600 Design" class="about-img-real">
+        <div class="about-accent-box"></div>
+        <div class="about-accent-fill"></div>
+      </div>
+
+      <div>
+        <div class="label-row">
+          <span>About Me</span>
+          <div class="label-line"></div>
+        </div>
+        <h2 class="section-title reveal" style="margin-bottom: 32px;">
+          Hi, I'm Flora.<br>
+          I make the internet<br>
+          <em>beautiful.</em>
+        </h2>
+        <p class="about-text reveal d1">
+          Based right here in Canberra, I work with local small businesses to create
+          websites that are as polished as they are purposeful. I believe your website
+          should feel like the best version of your business — thoughtful, refined, and
+          completely yours.
+        </p>
+        <p class="about-text reveal d2">
+          Whether you're a boutique café in Kingston, a wellness studio in Braddon, or
+          a consultant in the CBD — I'll create a digital home that makes your audience
+          stop scrolling and start engaging.
+        </p>
+
+        <div class="about-stats reveal d3">
+          <div>
+            <div class="stat-n">20+</div>
+            <div class="stat-l">Projects Delivered</div>
+          </div>
+          <div>
+            <div class="stat-n">100%</div>
+            <div class="stat-l">Happy Clients</div>
+          </div>
+          <div>
+            <div class="stat-n">ACT</div>
+            <div class="stat-l">Based in Canberra</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Process ── -->
+  <div class="process-wrap">
+    <section class="section" id="process">
+      <div class="label-row">
+        <span>How It Works</span>
+        <div class="label-line"></div>
+      </div>
+      <h2 class="process-title reveal">
+        Simple, clear,<br>
+        <em>no surprises.</em>
+      </h2>
+
+      <div class="process-grid">
+        <div class="process-step reveal d1">
+          <div class="step-n">01</div>
+          <div class="step-name">Discovery</div>
+          <p class="step-desc">We start with a conversation. I learn about your business, your vision, and what success looks like for you.</p>
+        </div>
+        <div class="process-step reveal d2">
+          <div class="step-n">02</div>
+          <div class="step-name">Design</div>
+          <p class="step-desc">I create a bespoke design tailored to your brand. You see everything before a single line of code is written.</p>
+        </div>
+        <div class="process-step reveal d3">
+          <div class="step-n">03</div>
+          <div class="step-name">Build</div>
+          <p class="step-desc">Your site comes to life. Fast, responsive, and thoroughly tested across every device and browser.</p>
+        </div>
+        <div class="process-step reveal d4">
+          <div class="step-n">04</div>
+          <div class="step-name">Launch</div>
+          <p class="step-desc">We launch together. I handle all the technical details and make sure you're set up for long-term success.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">2600<span> Design</span></div>
+        <p class="footer-tagline">
+          Bespoke web design for Canberra's small businesses.
+          Beautiful, purposeful, built to last.
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-label">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="services.html#pricing">Pricing</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html">New Website</a></li>
+          <li><a href="services.html">E-Commerce</a></li>
+          <li><a href="services.html">Refresh</a></li>
+          <li><a href="services.html">Maintenance</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Connect</div>
+        <ul class="footer-links">
+          <li><a href="mailto:2600design@gmail.com">2600design@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/2600design.com.au/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Canberra, ACT</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2600design · All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Work Slider guard ──
+    if (document.getElementById('hwTrack')) {
+    const wrap    = document.getElementById('hwTrack').parentElement.parentElement;
+    const stage   = document.getElementById('hwTrack');
+    const counter = document.querySelector('.work-count');
+    const dots    = [document.getElementById('dot0'), document.getElementById('dot1'), document.getElementById('dot2')];
+    const cards   = [...stage.querySelectorAll('.hero-work-card')];
+    const total   = cards.length;
+    let current   = 0, startX = 0, isDragging = false;
+
+    function goTo(idx) {
+      current = ((idx % total) + total) % total;
+      cards.forEach((card, i) => {
+        card.dataset.pos = (i - current + total) % total;
+      });
+      counter.textContent = `0${current + 1} / 0${total}`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    document.getElementById('hwPrev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('hwNext').addEventListener('click', () => goTo(current + 1));
+
+    const dragWrap = stage.parentElement;
+    dragWrap.addEventListener('mousedown',  e => { isDragging = true; startX = e.clientX; dragWrap.classList.add('dragging'); });
+    window.addEventListener('mouseup',      e => {
+      if (!isDragging) return;
+      isDragging = false; dragWrap.classList.remove('dragging');
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 36) goTo(dx < 0 ? current + 1 : current - 1);
+    });
+    dragWrap.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    dragWrap.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 36) goTo(dx < 0 ? current + 1 : current - 1);
+    }, { passive: true });
+
+    cards.forEach(card => {
+      card.addEventListener('click', e => { if (Math.abs(startX - e.clientX) > 6) e.preventDefault(); });
+    });
+    } // end hwTrack check
+
+    // ── Custom Cursor ──
+    const cursor = document.getElementById('cursor');
+    const ring   = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.transform = `translate(${mx - 3.5}px, ${my - 3.5}px)`;
+    });
+
+    (function animRing() {
+      rx += (mx - rx) * 0.11;
+      ry += (my - ry) * 0.11;
+      ring.style.transform = `translate(${rx - 15}px, ${ry - 15}px)`;
+      requestAnimationFrame(animRing);
+    })();
+
+    document.querySelectorAll('a, button, .service-card, .port-item, .testi-card, input, textarea, select').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('big'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('big'));
+    });
+
+    // ── Sticky Nav ──
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    // ── Hamburger ──
+    const hamburger    = document.getElementById('hamburger');
+    const mobileMenu   = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      hamburger.querySelectorAll('span')[0].style.transform = menuOpen ? 'translateY(6px) rotate(45deg)' : '';
+      hamburger.querySelectorAll('span')[1].style.opacity  = menuOpen ? '0' : '1';
+      hamburger.querySelectorAll('span')[2].style.transform = menuOpen ? 'translateY(-6px) rotate(-45deg)' : '';
+    });
+
+    function closeMobile() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = '1'; });
+    }
+
+    // ── Scroll Reveal ──
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(el => io.observe(el));
+
+    // ── Form ──
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = '#1A1210';
+      btn.disabled = true;
+    }
+  </script>
+  <script src="chat-widget.js"></script>
+</body>
+</html>
