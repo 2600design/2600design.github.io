@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services &amp; Pricing — 2600 Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" onload="this.rel='stylesheet'">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap&font-display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:       #efeadf;
+      --cream-warm:  #e8e3d8;
+      --blush:       #d4cfc2;
+      --rose-light:  #9a9790;
+      --rose:        #747167;
+      --rose-deep:   #5a5850;
+      --ink:         #2a2a2a;
+      --ink-mid:     #0d1e42;
+      --stone:       #747167;
+      --stone-light: #9a9790;
+      --white:       #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ─── Cursor ─── */
+    .cursor {
+      width: 7px; height: 7px;
+      background: var(--rose-deep);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9999;
+      will-change: transform;
+    }
+    .cursor-ring {
+      width: 30px; height: 30px;
+      border: 1px solid var(--rose);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9998;
+      opacity: 0.5;
+      transition: width .3s, height .3s, opacity .3s;
+      will-change: transform;
+    }
+    .cursor-ring.big { width: 52px; height: 52px; opacity: 0.25; }
+
+    /* ─── Nav ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 28px 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: padding .4s, background .4s, backdrop-filter .4s, border-color .4s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      padding: 16px 64px;
+      background: rgba(253,250,248,.92);
+      backdrop-filter: blur(24px);
+      border-color: var(--blush);
+    }
+    .nav-logo {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.2rem; font-weight: 600;
+      letter-spacing: .18em; color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--rose); }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 44px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .72rem; font-weight: 400;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--stone); text-decoration: none;
+      position: relative; transition: color .3s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -3px; left: 0; width: 0; height: 1px;
+      background: var(--rose); transition: width .3s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--ink); }
+    .nav-links a.active::after { width: 100%; }
+
+    .nav-cta {
+      font-size: .72rem !important; font-weight: 500 !important;
+      letter-spacing: .14em !important; text-transform: uppercase !important;
+      color: var(--white) !important; background: var(--ink);
+      padding: 12px 26px; border-radius: 2px;
+      text-decoration: none; transition: background .3s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--rose-deep) !important; color: var(--white) !important; }
+
+    /* hamburger */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: none; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 1px;
+      background: var(--ink); transition: all .3s;
+    }
+
+    /* mobile menu */
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 150;
+      background: var(--cream);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 40px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .4s;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.7rem; font-weight: 200;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: .04em;
+      transition: color .3s;
+    }
+    .mobile-menu a:hover { color: var(--rose); }
+
+    /* ─── Page Hero ─── */
+    .page-hero {
+      padding: 100px 64px 48px;
+      border-bottom: 1px solid var(--blush);
+    }
+    .page-hero-label {
+      font-size: .6rem; letter-spacing: .24em;
+      text-transform: uppercase; color: var(--rose);
+      display: block; margin-bottom: 20px;
+    }
+    .page-hero-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 4.8rem);
+      font-weight: 700; line-height: 1.0;
+      letter-spacing: -.02em; color: var(--ink);
+    }
+    .page-hero-title em { font-style: italic; color: var(--rose); font-weight: 300; }
+
+    /* ─── Shared section styles ─── */
+    .section { padding: 50px 64px; }
+    .section-sm { padding: 32px 64px; }
+
+    .label-row {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 72px;
+    }
+    .label-row span {
+      font-size: .64rem; letter-spacing: .26em;
+      text-transform: uppercase; color: var(--rose);
+    }
+    .label-line {
+      width: 56px; height: 1px; background: var(--blush);
+    }
+
+    /* ─── Services ─── */
+    .services-wrap { background: var(--cream-warm); }
+
+    .services-header {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: end;
+      margin-bottom: 64px;
+    }
+    .section-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(1.6rem, 3.2vw, 2.9rem);
+      font-weight: 200; line-height: 1.12;
+      letter-spacing: -.01em;
+    }
+    .section-title em { font-style: italic; color: var(--rose); }
+
+    .services-intro {
+      font-size: .9rem; font-weight: 300;
+      line-height: 1.95; color: var(--stone);
+    }
+
+    .services-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .service-card {
+      background: var(--cream); padding: 28px 24px;
+      position: relative; overflow: hidden;
+      transition: background .4s, transform .3s;
+    }
+    .service-card::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 2px;
+      background: var(--rose);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .4s;
+    }
+    .service-card:hover { background: var(--white); transform: translateY(-5px); }
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .svc-num {
+      font-family: 'Fredoka', sans-serif;
+      font-size: .75rem; color: var(--rose-light);
+      letter-spacing: .1em; margin-bottom: 36px;
+    }
+    .svc-icon { width: 36px; height: 36px; margin-bottom: 28px; }
+    .svc-name {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.23rem; font-weight: 500;
+      margin-bottom: 14px; line-height: 1.2;
+    }
+    .svc-desc {
+      font-size: .82rem; font-weight: 300;
+      line-height: 1.85; color: var(--stone);
+    }
+    .svc-price {
+      margin-top: 36px;
+      font-size: .72rem; letter-spacing: .1em;
+      color: var(--rose-deep); font-weight: 500;
+    }
+
+    /* ─── Pricing ─── */
+    .pricing-wrap { background: var(--cream); }
+
+    .pricing-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+
+    .pricing-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(1.5rem, 2.9vw, 2.6rem);
+      font-weight: 200;
+      line-height: 1.1;
+      letter-spacing: -.01em;
+    }
+
+    .pricing-note {
+      font-size: .82rem;
+      font-weight: 300;
+      line-height: 1.95;
+      color: var(--stone);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .pkg-card {
+      background: var(--cream-warm);
+      border: 1px solid var(--blush);
+      border-radius: 4px;
+      padding: 22px 22px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .3s, box-shadow .3s, background .3s, transform .2s;
+      cursor: pointer;
+    }
+    .pkg-card:hover {
+      background: #fff;
+      border-color: rgba(0,0,0,0.08);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+      transform: translateY(-2px);
+    }
+    .pkg-card.is-active {
+      background: #fff;
+      border-color: rgba(0,0,0,0.1);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .pkg-label {
+      display: inline-flex;
+      align-items: center;
+      background: var(--blush);
+      color: var(--rose-deep);
+      font-size: .56rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 5px 13px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+
+    .pkg-name {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .pkg-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 7px;
+      margin-bottom: 10px;
+    }
+    .pkg-from {
+      font-size: .72rem;
+      letter-spacing: .04em;
+      color: var(--stone);
+    }
+    .pkg-price-num {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .pkg-currency {
+      font-size: .76rem;
+      color: var(--stone);
+      letter-spacing: .06em;
+    }
+
+    .pkg-desc {
+      font-size: .8rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--stone);
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--blush);
+    }
+
+    .pkg-list-title {
+      font-size: .62rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      font-weight: 700;
+      margin-bottom: 11px;
+      margin-top: 4px;
+    }
+
+    .pkg-list {
+      list-style: none;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .pkg-list li {
+      font-size: .78rem;
+      font-weight: 300;
+      color: var(--stone);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.55;
+    }
+    .pkg-list li::before {
+      content: '•';
+      color: var(--rose);
+      font-size: .9rem;
+      line-height: 1.4;
+      flex-shrink: 0;
+    }
+    .pkg-list.not-incl { margin-bottom: 28px; }
+    .pkg-list.not-incl li::before { color: var(--stone-light); }
+
+    .pkg-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-family: 'Fredoka', sans-serif;
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--ink);
+      padding: 15px 24px;
+      border-radius: 2px;
+      text-decoration: none;
+      margin-top: auto;
+      transition: background .3s, transform .2s;
+    }
+    .pkg-btn:hover { background: var(--rose-deep); transform: translateY(-2px); }
+
+    /* ─── Footer ─── */
+    footer { background: var(--ink); padding: 40px 64px 24px; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 36px; padding-bottom: 32px;
+      border-bottom: 1px solid #2E231E;
+    }
+    .footer-logo {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.15rem; font-weight: 500;
+      color: var(--cream); letter-spacing: .1em;
+      margin-bottom: 12px;
+    }
+    .footer-logo span { color: var(--rose-light); }
+    .footer-tagline {
+      font-size: .72rem; font-weight: 300;
+      line-height: 1.7; color: var(--stone);
+      max-width: 220px;
+    }
+    .footer-col-label {
+      font-size: .62rem; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--stone);
+      margin-bottom: 14px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .footer-links a {
+      font-size: .72rem; font-weight: 300;
+      color: #5A4A43; text-decoration: none; transition: color .3s;
+    }
+    .footer-links a:hover { color: var(--cream); }
+
+    .footer-bottom {
+      display: flex; justify-content: center; align-items: center;
+      padding-top: 18px;
+    }
+    .footer-copy { font-size: .7rem; color: #3A2C26; letter-spacing: .04em; }
+    .abn { font-style: normal; unicode-bidi: plaintext; }
+    .footer-socials { display: flex; gap: 22px; }
+    .footer-socials a {
+      font-size: .66rem; letter-spacing: .16em;
+      text-transform: uppercase; color: #3A2C26;
+      text-decoration: none; transition: color .3s;
+    }
+    .footer-socials a:hover { color: var(--rose-light); }
+
+    /* ─── Animations ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(36px);
+      transition: opacity .85s ease, transform .85s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.d1 { transition-delay: .1s; }
+    .reveal.d2 { transition-delay: .2s; }
+    .reveal.d3 { transition-delay: .3s; }
+    .reveal.d4 { transition-delay: .4s; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 1100px) {
+      nav { padding: 24px 40px; }
+      nav.scrolled { padding: 14px 40px; }
+      .section { padding: 44px 40px; }
+      .page-hero { padding: 90px 40px 40px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 36px 40px 20px; }
+    }
+
+    @media (max-width: 780px) {
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .section { padding: 38px 24px; }
+      .page-hero { padding: 80px 24px 32px; }
+      .page-hero h1 { font-size: clamp(2rem, 9vw, 3rem); }
+      .services-header { grid-template-columns: 1fr; gap: 20px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .pricing-header { grid-template-columns: 1fr; gap: 20px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 28px 24px 16px; }
+    }
+
+    @media (max-width: 480px) {
+      .section { padding: 40px 20px; }
+      .section-sm { padding: 36px 20px; }
+      .page-hero { padding: 72px 20px 28px; }
+      .service-card { padding: 32px 22px; }
+      .pkg-card { padding: 28px 22px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Mobile overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">Home</a>
+    <a href="services.html" onclick="closeMobile()">Services</a>
+    <a href="shopify-websites.html" onclick="closeMobile()">Shopify Websites</a>
+    <a href="work.html" onclick="closeMobile()">Work</a>
+    <a href="about.html" onclick="closeMobile()">About</a>
+    <a href="contact.html" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <a href="/" class="nav-logo">2600<span> Design</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="shopify-websites.html">Shopify Websites</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <span class="page-hero-label">What I Offer</span>
+    <h1 class="page-hero-title">Services &amp; <em>Pricing</em></h1>
+  </div>
+
+  <!-- ── Services ── -->
+  <div class="services-wrap">
+    <section class="section" id="services">
+      <div class="label-row">
+        <span>What I Offer</span>
+        <div class="label-line"></div>
+      </div>
+
+      <div class="services-header">
+        <h2 class="section-title reveal">
+          Design that works<br>
+          as hard as <em>you do.</em>
+        </h2>
+        <p class="services-intro reveal d1">
+          I get to know your business before I design anything. Every site I build is made from
+          scratch — tailored to your brand, your customers, and your goals. Clean, considered, and completely yours.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal d1">
+          <div class="svc-num">01</div>
+          <svg class="svc-icon" viewBox="0 0 36 36" fill="none" stroke="#C08070" stroke-width="1" stroke-linecap="round">
+            <rect x="3" y="6" width="30" height="20" rx="2"/>
+            <path d="M3 25h30M13 31h10"/>
+          </svg>
+          <div class="svc-name">Brand New Website</div>
+          <p class="svc-desc">A fully custom website built from scratch — designed to reflect your brand and built to convert visitors into loyal customers.</p>
+        </div>
+
+        <div class="service-card reveal d2">
+          <div class="svc-num">02</div>
+          <svg class="svc-icon" viewBox="0 0 36 36" fill="none" stroke="#C08070" stroke-width="1" stroke-linecap="round">
+            <circle cx="18" cy="18" r="13"/>
+            <path d="M5 18h26M18 5c-4 5-4 21 0 26M18 5c4 5 4 21 0 26"/>
+          </svg>
+          <div class="svc-name">E-Commerce Store</div>
+          <p class="svc-desc">Sell your products online with confidence. Beautiful, conversion-optimised stores that make shopping a genuine pleasure.</p>
+        </div>
+
+        <div class="service-card reveal d3">
+          <div class="svc-num">03</div>
+          <svg class="svc-icon" viewBox="0 0 36 36" fill="none" stroke="#C08070" stroke-width="1" stroke-linecap="round">
+            <path d="M7 28V15l11-8 11 8v13"/>
+            <rect x="13" y="20" width="10" height="8"/>
+          </svg>
+          <div class="svc-name">Website Refresh</div>
+          <p class="svc-desc">Already have a site that feels dated? I'll modernise it thoughtfully — faster, sharper, and more beautiful, without losing what works.</p>
+        </div>
+
+        <div class="service-card reveal d4">
+          <div class="svc-num">04</div>
+          <svg class="svc-icon" viewBox="0 0 36 36" fill="none" stroke="#C08070" stroke-width="1" stroke-linecap="round">
+            <circle cx="18" cy="18" r="7"/>
+            <path d="M18 3v5M18 28v5M3 18h5M28 18h5"/>
+          </svg>
+          <div class="svc-name">Care &amp; Maintenance</div>
+          <p class="svc-desc">Peace of mind, handled. Monthly updates, security checks, and ongoing support — so you can focus on running your business.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── Pricing ── -->
+  <div class="pricing-wrap">
+    <section class="section" id="pricing">
+      <div class="label-row">
+        <span>Services &amp; Pricing</span>
+        <div class="label-line"></div>
+      </div>
+
+      <div class="pricing-header">
+        <h2 class="pricing-title reveal">
+          Flexible packages<br>
+          with clear<br>
+          starting points.
+        </h2>
+        <p class="pricing-note reveal d1">
+          These are starting prices — every project is quoted individually based on scope,
+          number of pages, and content provided. Get in touch for a free, no-obligation quote.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- Package 1 -->
+        <div class="pkg-card reveal d1">
+          <div class="pkg-label">Package 1</div>
+          <div class="pkg-name">Single-Page Website</div>
+          <div class="pkg-price-row">
+            <span class="pkg-from">From</span>
+            <span class="pkg-price-num">900</span>
+            <span class="pkg-currency">AUD</span>
+          </div>
+          <p class="pkg-desc">Best for people who are just starting out and want to launch quickly with one clear page.</p>
+          <div class="pkg-list-title">Includes</div>
+          <ul class="pkg-list">
+            <li>1 page</li>
+            <li>Basic page layout</li>
+            <li>1 contact form</li>
+            <li>Mobile-friendly setup</li>
+            <li>Basic SEO setup</li>
+            <li>1 revision round</li>
+          </ul>
+          <div class="pkg-list-title">Not included</div>
+          <ul class="pkg-list not-incl">
+            <li>Domain and hosting fees</li>
+            <li>Copywriting</li>
+            <li>Professional photography</li>
+            <li>E-commerce features</li>
+          </ul>
+          <a href="contact.html" class="pkg-btn">Get a Quote</a>
+        </div>
+
+        <!-- Package 2 -->
+        <div class="pkg-card reveal d2">
+          <div class="pkg-label">Package 2</div>
+          <div class="pkg-name">Basic Business Website</div>
+          <div class="pkg-price-row">
+            <span class="pkg-from">From</span>
+            <span class="pkg-price-num">1,800</span>
+            <span class="pkg-currency">AUD</span>
+          </div>
+          <p class="pkg-desc">Best for restaurants, studios, consultants, and small service-based businesses that need a fuller website.</p>
+          <div class="pkg-list-title">Includes</div>
+          <ul class="pkg-list">
+            <li>3 to 5 pages</li>
+            <li>Home, About, Services, Contact, and similar core pages</li>
+            <li>Contact form</li>
+            <li>Google Maps embed</li>
+            <li>Basic mobile optimisation</li>
+            <li>Basic SEO setup</li>
+            <li>1 to 2 revision rounds</li>
+          </ul>
+          <div class="pkg-list-title">Not included</div>
+          <ul class="pkg-list not-incl">
+            <li>Domain and hosting fees</li>
+            <li>Advanced custom development</li>
+            <li>Full e-commerce system</li>
+            <li>Large-volume copywriting</li>
+          </ul>
+          <a href="contact.html" class="pkg-btn">Get a Quote</a>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="pkg-card reveal d3">
+          <div class="pkg-label">Package 3</div>
+          <div class="pkg-name">Basic Shopify Store</div>
+          <div class="pkg-price-row">
+            <span class="pkg-from">From</span>
+            <span class="pkg-price-num">2,500</span>
+            <span class="pkg-currency">AUD</span>
+          </div>
+          <p class="pkg-desc">Best for small product brands that want to start selling online with a practical, ready-made Shopify setup.</p>
+          <div class="pkg-list-title">Includes</div>
+          <ul class="pkg-list">
+            <li>Basic Shopify store setup</li>
+            <li>Build using an existing theme</li>
+            <li>Homepage and essential page layout</li>
+            <li>Product page setup</li>
+            <li>Navigation menu setup</li>
+            <li>Basic policy page setup</li>
+            <li>1 to 2 revision rounds</li>
+          </ul>
+          <div class="pkg-list-title">Not included</div>
+          <ul class="pkg-list not-incl">
+            <li>Shopify subscription fees</li>
+            <li>Domain fees</li>
+            <li>Paid themes or paid apps</li>
+            <li>Highly custom features</li>
+            <li>Large-scale product uploads</li>
+          </ul>
+          <a href="contact.html" class="pkg-btn">Get a Quote</a>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- Shared Footer Mount -->
+  <div id="shared-footer"></div>
+
+<script>
+    // ── Work Slider guard ──
+    if (document.getElementById('hwTrack')) {
+    const wrap    = document.getElementById('hwTrack').parentElement.parentElement;
+    const stage   = document.getElementById('hwTrack');
+    const counter = document.querySelector('.work-count');
+    const dots    = [document.getElementById('dot0'), document.getElementById('dot1'), document.getElementById('dot2')];
+    const cards   = [...stage.querySelectorAll('.hero-work-card')];
+    const total   = cards.length;
+    let current   = 0, startX = 0, isDragging = false;
+
+    function goTo(idx) {
+      current = ((idx % total) + total) % total;
+      cards.forEach((card, i) => {
+        card.dataset.pos = (i - current + total) % total;
+      });
+      counter.textContent = `0${current + 1} / 0${total}`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    document.getElementById('hwPrev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('hwNext').addEventListener('click', () => goTo(current + 1));
+
+    const dragWrap = stage.parentElement;
+    dragWrap.addEventListener('mousedown',  e => { isDragging = true; startX = e.clientX; dragWrap.classList.add('dragging'); });
+    window.addEventListener('mouseup',      e => {
+      if (!isDragging) return;
+      isDragging = false; dragWrap.classList.remove('dragging');
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 36) goTo(dx < 0 ? current + 1 : current - 1);
+    });
+    dragWrap.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    dragWrap.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 36) goTo(dx < 0 ? current + 1 : current - 1);
+    }, { passive: true });
+
+    cards.forEach(card => {
+      card.addEventListener('click', e => { if (Math.abs(startX - e.clientX) > 6) e.preventDefault(); });
+    });
+    } // end hwTrack check
+
+    // ── Custom Cursor ──
+    const cursor = document.getElementById('cursor');
+    const ring   = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.transform = `translate(${mx - 3.5}px, ${my - 3.5}px)`;
+    });
+
+    (function animRing() {
+      rx += (mx - rx) * 0.11;
+      ry += (my - ry) * 0.11;
+      ring.style.transform = `translate(${rx - 15}px, ${ry - 15}px)`;
+      requestAnimationFrame(animRing);
+    })();
+
+    document.querySelectorAll('a, button, .service-card, .pkg-card, .port-item, .testi-card, input, textarea, select').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('big'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('big'));
+    });
+
+    // ── Pricing Card Active State ──
+    const pkgCards = document.querySelectorAll('.pkg-card');
+    pkgCards.forEach((card) => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.pkg-btn')) return;
+        pkgCards.forEach((c) => c.classList.remove('is-active'));
+        card.classList.add('is-active');
+      });
+    });
+
+    // ── Sticky Nav ──
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    // ── Hamburger ──
+    const hamburger    = document.getElementById('hamburger');
+    const mobileMenu   = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      hamburger.querySelectorAll('span')[0].style.transform = menuOpen ? 'translateY(6px) rotate(45deg)' : '';
+      hamburger.querySelectorAll('span')[1].style.opacity  = menuOpen ? '0' : '1';
+      hamburger.querySelectorAll('span')[2].style.transform = menuOpen ? 'translateY(-6px) rotate(-45deg)' : '';
+    });
+
+    function closeMobile() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = '1'; });
+    }
+
+    // ── Scroll Reveal ──
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(el => io.observe(el));
+
+    // ── Form ──
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = '#1A1210';
+      btn.disabled = true;
+    }
+  </script>
+  <script src="shared-footer.js"></script>
+  <script src="chat-widget.js"></script>
+</body>
+</html>

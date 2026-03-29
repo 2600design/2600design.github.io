@@ -787,51 +787,10 @@
     </section>
   </main>
 
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo">2600<span> Design</span></div>
-        <p class="footer-tagline">
-          Bespoke web design for Canberra's small businesses.
-          Beautiful, purposeful, built to last.
-        </p>
-      </div>
-      <div>
-        <div class="footer-col-label">Navigate</div>
-        <ul class="footer-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="services.html#pricing">Pricing</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-label">Shopify</div>
-        <ul class="footer-links">
-          <li><a href="#what-i-do">What I Design</a></li>
-          <li><a href="#featured-project">Featured Project</a></li>
-          <li><a href="#design-approach">Design Approach</a></li>
-          <li><a href="#outcome">Outcome</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-label">Connect</div>
-        <ul class="footer-links">
-          <li><a href="mailto:2600design@gmail.com">2600design@gmail.com</a></li>
-          <li><a href="https://www.instagram.com/2600design.com.au/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="#">LinkedIn</a></li>
-          <li><a href="#">Canberra, ACT</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2600design · All rights reserved.</p>
-    </div>
-  </footer>
+  <!-- Shared Footer Mount -->
+  <div id="shared-footer"></div>
 
-  <script>
+<script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 50);
@@ -884,6 +843,7 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(el => io.observe(el));
   </script>
+  <script src="shared-footer.js"></script>
   <script src="chat-widget.js"></script>
 </body>
 </html>

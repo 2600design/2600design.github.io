@@ -1,0 +1,85 @@
+.site-footer {
+  background: #ebe7df;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding: 80px 20px;
+}
+
+.site-footer .sf-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-footer .sf-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.site-footer .sf-brand {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.site-footer .sf-desc {
+  color: #6b6b6b;
+  font-size: .84rem;
+  line-height: 1.7;
+  max-width: 340px;
+}
+
+.site-footer .sf-col-title {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin-bottom: 14px;
+}
+
+.site-footer .sf-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.site-footer .sf-links a,
+.site-footer .sf-links li {
+  color: #333;
+  font-size: .82rem;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.site-footer .sf-links a:hover {
+  color: #000;
+}
+
+.site-footer .sf-bottom {
+  padding-top: 16px;
+  text-align: center;
+}
+
+.site-footer .sf-copy {
+  color: #6b6b6b;
+  font-size: .78rem;
+  letter-spacing: .02em;
+}
+
+@media (max-width: 780px) {
+  .site-footer {
+    padding: 64px 20px;
+  }
+
+  .site-footer .sf-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

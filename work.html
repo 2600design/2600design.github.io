@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work | 2600 Design</title>
+  <meta name="description" content="Selected website and ecommerce projects by 2600 Design.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://2600design.com.au/work">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" onload="this.rel='stylesheet'">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap&font-display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream: #efeadf;
+      --blush: #d4cfc2;
+      --rose: #747167;
+      --rose-deep: #5a5850;
+      --ink: #2a2a2a;
+      --stone: #747167;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    .cursor {
+      width: 7px; height: 7px;
+      background: var(--rose-deep);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9999;
+      will-change: transform;
+    }
+    .cursor-ring {
+      width: 30px; height: 30px;
+      border: 1px solid var(--rose);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9998;
+      opacity: 0.5;
+      transition: width .3s, height .3s, opacity .3s;
+      will-change: transform;
+    }
+    .cursor-ring.big { width: 52px; height: 52px; opacity: 0.25; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 28px 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: padding .35s, background .35s, backdrop-filter .35s, border-color .35s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      padding: 16px 64px;
+      background: rgba(253,250,248,.92);
+      backdrop-filter: blur(24px);
+      border-color: var(--blush);
+    }
+
+    .nav-logo {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.2rem; font-weight: 600;
+      letter-spacing: .18em; color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--rose); }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 44px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .72rem; font-weight: 400;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--stone); text-decoration: none;
+      position: relative; transition: color .3s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -3px; left: 0; width: 0; height: 1px;
+      background: var(--rose); transition: width .3s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--ink); }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+
+    .nav-cta {
+      font-size: .72rem !important; font-weight: 500 !important;
+      letter-spacing: .14em !important; text-transform: uppercase !important;
+      color: var(--white) !important; background: var(--ink);
+      padding: 12px 26px; border-radius: 2px;
+      text-decoration: none; transition: background .3s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--rose-deep) !important; }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: none; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 1px;
+      background: var(--ink); transition: all .3s;
+    }
+
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 150;
+      background: var(--cream);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 40px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .35s;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.7rem; font-weight: 200;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: .04em;
+    }
+
+    .hero,
+    .projects,
+    .final-cta {
+      padding-left: 64px;
+      padding-right: 64px;
+    }
+
+    .hero {
+      padding-top: 108px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid var(--blush);
+    }
+    .hero-inner,
+    .projects-inner,
+    .cta-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      font-weight: 600;
+      letter-spacing: -.02em;
+      line-height: 1.02;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      max-width: 560px;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #4e4a43;
+    }
+
+    .projects {
+      padding-top: 46px;
+      padding-bottom: 54px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      border: 1px solid var(--blush);
+      background: rgba(255,255,255,.25);
+      display: block;
+      min-width: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform .35s ease, border-color .35s ease, background .35s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-2px);
+      border-color: #beb7a9;
+      background: rgba(255,255,255,.4);
+      box-shadow: 0 8px 20px rgba(42, 42, 42, 0.05);
+    }
+
+    .project-media {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #e6dfd0;
+      border-bottom: 1px solid var(--blush);
+    }
+    .project-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(42,42,42,.08), rgba(42,42,42,0));
+      opacity: 0;
+      transition: opacity .35s ease;
+      pointer-events: none;
+    }
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform .55s ease, filter .55s ease;
+    }
+    .project-media img.haru-cover {
+      object-position: left center;
+    }
+    .project-card:hover .project-media::after { opacity: 1; }
+    .project-card:hover .project-media img { transform: scale(1.018); }
+    .project-card:hover .project-media img { filter: brightness(1.015); }
+
+    .project-content {
+      padding: 16px 18px 18px;
+      transition: transform .35s ease;
+    }
+    .project-category {
+      display: block;
+      margin-bottom: 6px;
+      font-size: .64rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+    .project-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.28rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      color: #312f2b;
+      transition: color .35s ease;
+    }
+    .project-summary {
+      font-size: .92rem;
+      line-height: 1.72;
+      color: #545046;
+      margin-bottom: 12px;
+      transition: color .35s ease;
+    }
+    .project-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .project-link {
+      text-decoration: none;
+      font-size: .72rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #605a4f;
+      border-bottom: 1px solid var(--blush);
+      padding-bottom: 2px;
+      transition: color .25s, border-color .25s;
+    }
+    .project-link:hover {
+      color: #3f3b34;
+      border-color: #bdb4a2;
+    }
+    .project-card:hover .project-content { transform: translateY(-1px); }
+    .project-card:hover .project-title { color: #26231f; }
+    .project-card:hover .project-summary { color: #454038; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .project-card,
+      .project-media::after,
+      .project-media img,
+      .project-content,
+      .project-title,
+      .project-summary {
+        transition: none !important;
+      }
+      .project-card:hover,
+      .project-card:hover .project-content {
+        transform: none !important;
+      }
+    }
+
+    .final-cta {
+      padding-top: 0;
+      padding-bottom: 72px;
+    }
+    .cta-box {
+      max-width: 1100px;
+      margin: 0 auto;
+      border: 1px solid var(--blush);
+      background: linear-gradient(135deg, #ebe4d6 0%, #e6dfd1 100%);
+      padding: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .cta-box h2 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(1.35rem, 2.5vw, 2rem);
+      font-weight: 500;
+      letter-spacing: -.01em;
+      color: #35322d;
+    }
+    .cta-btn {
+      text-decoration: none;
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--ink);
+      padding: 13px 24px;
+      border-radius: 2px;
+      transition: background .25s;
+      white-space: nowrap;
+    }
+    .cta-btn:hover { background: var(--rose-deep); }
+
+    footer {
+      background: var(--ink);
+      padding: 40px 64px 24px;
+    }
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #2f2520;
+    }
+    .footer-logo {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      color: #efe6d8;
+      margin-bottom: 10px;
+    }
+    .footer-logo span { color: #9a9790; }
+    .footer-tagline {
+      font-size: .72rem;
+      color: #7d7468;
+      line-height: 1.75;
+      max-width: 260px;
+    }
+    .footer-col-label {
+      font-size: .62rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #7d7468;
+      margin-bottom: 14px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .footer-links a {
+      font-size: .72rem;
+      color: #5d5149;
+      text-decoration: none;
+      transition: color .25s;
+    }
+    .footer-links a:hover { color: #efe6d8; }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 16px;
+      text-align: center;
+    }
+    .footer-copy {
+      font-size: .7rem;
+      color: #3d302a;
+      letter-spacing: .04em;
+    }
+
+    @media (max-width: 1100px) {
+      nav, nav.scrolled { padding-left: 40px; padding-right: 40px; }
+      .hero, .projects, .final-cta { padding-left: 40px; padding-right: 40px; }
+      footer { padding-left: 40px; padding-right: 40px; }
+    }
+
+    @media (max-width: 900px) {
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
+      nav, nav.scrolled { padding: 18px 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu a { font-size: 1.35rem; }
+      .hero, .projects, .final-cta { padding-left: 24px; padding-right: 24px; }
+      .hero { padding-top: 84px; padding-bottom: 32px; }
+      .projects { padding-top: 34px; padding-bottom: 42px; }
+      .projects-grid { grid-template-columns: 1fr; gap: 16px; }
+      .cta-box { padding: 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 30px 24px 20px; }
+    }
+
+    @media (max-width: 520px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-btn { width: 100%; text-align: center; }
+      .project-actions { gap: 10px; }
+      .project-link { font-size: .68rem; letter-spacing: .14em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">Home</a>
+    <a href="services.html" onclick="closeMobile()">Services</a>
+    <a href="shopify-websites.html" onclick="closeMobile()">Shopify Websites</a>
+    <a href="work.html" onclick="closeMobile()">Work</a>
+    <a href="about.html" onclick="closeMobile()">About</a>
+    <a href="contact.html" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <nav id="nav">
+    <a href="/" class="nav-logo">2600<span> Design</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="shopify-websites.html">Shopify Websites</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Work</h1>
+      <p>Selected work across brand websites and Shopify ecommerce.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="projects">
+      <div class="projects-inner">
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-media">
+              <img src="sh.png" alt="Green Bloom Matcha Shopify website preview" loading="lazy">
+            </div>
+            <div class="project-content">
+              <span class="project-category">Shopify / Ecommerce</span>
+              <h2 class="project-title">Green Bloom Matcha</h2>
+              <p class="project-summary">A soft Shopify concept for a modern matcha brand.</p>
+              <div class="project-actions">
+                <a class="project-link" href="shopify-websites.html">View Project →</a>
+                <a class="project-link" href="https://greenbloommatcha.myshopify.com/" target="_blank" rel="noopener">View Live →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img class="haru-cover" src="haru1.webp" alt="Haru Cafe website homepage preview" loading="lazy">
+            </div>
+            <div class="project-content">
+              <span class="project-category">Brand</span>
+              <h2 class="project-title">Haru Cafe</h2>
+              <p class="project-summary">A minimal website for a contemporary café brand.</p>
+              <div class="project-actions">
+                <a class="project-link" href="projects/haru-cafe/index.html">View Project →</a>
+                <a class="project-link" href="https://www.2600design.com.au/haru-cafe/" target="_blank" rel="noopener">View Live →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="elmstudio1.webp" alt="Elm Studio website homepage preview" loading="lazy">
+            </div>
+            <div class="project-content">
+              <span class="project-category">Studio</span>
+              <h2 class="project-title">Elm Studio</h2>
+              <p class="project-summary">A clean studio website with a calm editorial feel.</p>
+              <div class="project-actions">
+                <a class="project-link" href="projects/elm-studio/index.html">View Project →</a>
+                <a class="project-link" href="https://www.2600design.com.au/elm-studio/" target="_blank" rel="noopener">View Live →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="hair1.webp" alt="Boutique Hair Studio website homepage preview" loading="lazy">
+            </div>
+            <div class="project-content">
+              <span class="project-category">Salon</span>
+              <h2 class="project-title">Boutique Hair Studio</h2>
+              <p class="project-summary">A refined salon website with a soft, polished look.</p>
+              <div class="project-actions">
+                <a class="project-link" href="projects/boutique-hair-studio/index.html">View Project →</a>
+                <a class="project-link" href="https://www.2600design.com.au/Boutique-Hair-Studio/" target="_blank" rel="noopener">View Live →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="cta-inner">
+        <div class="cta-box">
+          <h2>Have a project in mind?</h2>
+          <a href="contact.html" class="cta-btn">Start a Project →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Mount -->
+  <div id="shared-footer"></div>
+
+<script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      const lines = hamburger.querySelectorAll('span');
+      lines[0].style.transform = menuOpen ? 'translateY(6px) rotate(45deg)' : '';
+      lines[1].style.opacity = menuOpen ? '0' : '1';
+      lines[2].style.transform = menuOpen ? 'translateY(-6px) rotate(-45deg)' : '';
+    });
+
+    function closeMobile() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      hamburger.querySelectorAll('span').forEach(s => {
+        s.style.transform = '';
+        s.style.opacity = '1';
+      });
+    }
+
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX;
+      my = e.clientY;
+      cursor.style.transform = `translate(${mx - 3.5}px, ${my - 3.5}px)`;
+    });
+
+    (function animateRing() {
+      rx += (mx - rx) * 0.11;
+      ry += (my - ry) * 0.11;
+      ring.style.transform = `translate(${rx - 15}px, ${ry - 15}px)`;
+      requestAnimationFrame(animateRing);
+    })();
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('big'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('big'));
+    });
+  </script>
+  <script src="shared-footer.js"></script>
+  <script src="chat-widget.js"></script>
+</body>
+</html>
