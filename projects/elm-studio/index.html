@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elm Studio | 2600 Design</title>
+  <meta name="description" content="Elm Studio project by 2600 Design. A minimal portfolio website direction with calm structure, clear hierarchy, and refined visual detail.">
+  <link rel="canonical" href="https://2600design.com.au/projects/elm-studio">
+  <link rel="preload" as="image" href="../../elmstudio1.webp" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../project-pages.css">
+</head>
+<body>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../../index.html" onclick="closeMobile()">Home</a>
+    <a href="../../services.html" onclick="closeMobile()">Services</a>
+    <a href="../../shopify-websites.html" onclick="closeMobile()">Shopify Websites</a>
+    <a href="../../work.html" onclick="closeMobile()">Work</a>
+    <a href="../../about.html" onclick="closeMobile()">About</a>
+    <a href="../../contact.html" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <nav id="nav">
+    <a href="../../index.html" class="nav-logo">2600<span> Design</span></a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../services.html">Services</a></li>
+      <li><a href="../../shopify-websites.html">Shopify Websites</a></li>
+      <li><a href="../../work.html" class="active">Work</a></li>
+      <li><a href="../../about.html">About</a></li>
+      <li><a href="../../contact.html" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="page">
+    <div class="page-inner">
+      <header class="project-hero">
+        <h1 class="project-title">Elm Studio</h1>
+        <p class="project-description">A clean digital presence for a modern interior design studio.</p>
+      </header>
+
+      <section class="project-section" aria-labelledby="elm-gallery-heading">
+        <h2 class="section-label" id="elm-gallery-heading">Visuals</h2>
+        <div class="project-gallery">
+          <figure class="gallery-item gallery-item--wide">
+            <a href="https://www.2600design.com.au/elm-studio/" target="_blank" rel="noopener">
+              <img src="../../elmstudio1.webp" alt="Elm Studio homepage showing elegant typography and neutral styling" loading="eager">
+            </a>
+            <figcaption>Homepage</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="../../elmstudio2.webp" alt="Elm Studio section layout with simple composition and calm spacing" loading="lazy">
+            <figcaption>Layout</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="../../elmstudio4.webp" alt="Elm Studio close-up visual detail with restrained design elements" loading="lazy">
+            <figcaption>Visual Detail</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="project-section" aria-labelledby="elm-worked-heading">
+        <h2 class="section-label" id="elm-worked-heading">What I worked on</h2>
+        <ul class="worked-list" aria-labelledby="elm-worked-heading">
+          <li>Website design</li>
+          <li>Layout structure</li>
+          <li>Visual direction</li>
+          <li>Mobile optimisation</li>
+        </ul>
+      </section>
+
+      <section class="project-section" aria-labelledby="elm-note-heading">
+        <h2 class="section-label" id="elm-note-heading">Note</h2>
+        <p class="project-note">Designed with a focus on simplicity, spacing, and a calm visual flow.</p>
+      </section>
+
+      <section class="project-cta" aria-label="Start project call to action">
+        <a href="../../contact.html">Start a Project <span aria-hidden="true">→</span></a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2600 Design</p>
+      <div class="footer-links">
+        <a href="../../index.html">Home</a>
+        <a href="../../work.html">Work</a>
+        <a href="../../contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      const bars = hamburger.querySelectorAll('span');
+      bars[0].style.transform = menuOpen ? 'translateY(6px) rotate(45deg)' : '';
+      bars[1].style.opacity = menuOpen ? '0' : '1';
+      bars[2].style.transform = menuOpen ? 'translateY(-6px) rotate(-45deg)' : '';
+    });
+
+    function closeMobile() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      hamburger.querySelectorAll('span').forEach((bar) => {
+        bar.style.transform = '';
+        bar.style.opacity = '1';
+      });
+    }
+  </script>
+  <script src="../../chat-widget.js"></script>
+</body>
+</html>

@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopify Website Design | 2600design</title>
+  <meta name="description" content="Minimal, premium Shopify website design for modern brands. Ecommerce websites focused on clean design, mobile experience, and strong product presentation.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://2600design.com.au/shopify-websites">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Shopify Websites | 2600 Design">
+  <meta property="og:description" content="Service and portfolio page showcasing minimal Shopify and ecommerce website design by 2600 Design.">
+  <meta property="og:url" content="https://2600design.com.au/shopify-websites">
+  <meta property="og:image" content="https://2600design.com.au/sh.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shopify Websites | 2600 Design">
+  <meta name="twitter:description" content="Service and portfolio page showcasing minimal Shopify and ecommerce website design by 2600 Design.">
+  <meta name="twitter:image" content="https://2600design.com.au/sh.png">
+
+  <link rel="preload" as="image" href="../sh.png" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" onload="this.rel='stylesheet'">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap&font-display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:       #efeadf;
+      --cream-warm:  #e8e3d8;
+      --blush:       #d4cfc2;
+      --rose-light:  #9a9790;
+      --rose:        #747167;
+      --rose-deep:   #5a5850;
+      --ink:         #2a2a2a;
+      --stone:       #747167;
+      --stone-light: #9a9790;
+      --white:       #FFFFFF;
+      --matcha-soft: #87917e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    .cursor {
+      width: 7px; height: 7px;
+      background: var(--rose-deep);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9999;
+      will-change: transform;
+    }
+    .cursor-ring {
+      width: 30px; height: 30px;
+      border: 1px solid var(--rose);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9998;
+      opacity: 0.5;
+      transition: width .3s, height .3s, opacity .3s;
+      will-change: transform;
+    }
+    .cursor-ring.big { width: 52px; height: 52px; opacity: 0.25; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 28px 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: padding .4s, background .4s, backdrop-filter .4s, border-color .4s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      padding: 16px 64px;
+      background: rgba(253,250,248,.92);
+      backdrop-filter: blur(24px);
+      border-color: var(--blush);
+    }
+    .nav-logo {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.2rem; font-weight: 600;
+      letter-spacing: .18em; color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--rose); }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 44px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .72rem; font-weight: 400;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--stone); text-decoration: none;
+      position: relative; transition: color .3s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -3px; left: 0; width: 0; height: 1px;
+      background: var(--rose); transition: width .3s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--ink); }
+    .nav-links a.active::after { width: 100%; }
+
+    .nav-cta {
+      font-size: .72rem !important; font-weight: 500 !important;
+      letter-spacing: .14em !important; text-transform: uppercase !important;
+      color: var(--white) !important; background: var(--ink);
+      padding: 12px 26px; border-radius: 2px;
+      text-decoration: none; transition: background .3s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--rose-deep) !important; color: var(--white) !important; }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: none; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 1px;
+      background: var(--ink); transition: all .3s;
+    }
+
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 150;
+      background: var(--cream);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 40px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .4s;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 2.2rem; font-weight: 200;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: .04em;
+      transition: color .3s;
+    }
+    .mobile-menu a:hover { color: var(--rose); }
+
+    .hero {
+      padding: 100px 64px 48px;
+      border-bottom: 1px solid var(--blush);
+      background:
+        radial-gradient(circle at 85% 15%, rgba(135,145,126,.12) 0%, rgba(135,145,126,0) 43%),
+        radial-gradient(circle at 15% 85%, rgba(232,227,216,.56) 0%, rgba(232,227,216,0) 44%);
+    }
+    .hero h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -.02em;
+      margin-bottom: 14px;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 1.7vw, 1.3rem);
+      color: #596256;
+      max-width: 760px;
+      margin-bottom: 16px;
+    }
+    .hero-copy {
+      max-width: 760px;
+      font-size: 1rem;
+      line-height: 1.9;
+      color: #4f4b44;
+      margin-bottom: 34px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--white); background: var(--ink);
+      padding: 14px 26px; border-radius: 2px;
+      transition: background .3s, transform .2s;
+    }
+    .btn-primary:hover { background: var(--rose-deep); transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--stone); background: transparent;
+      border: 1px solid var(--blush);
+      padding: 14px 22px; border-radius: 2px;
+      transition: color .3s, border-color .3s;
+    }
+    .btn-secondary:hover { color: var(--ink); border-color: var(--rose); }
+
+    .section { padding: 50px 64px; }
+    .section + .section { border-top: 1px solid var(--blush); }
+    .section-inner,
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .label-row {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 28px;
+    }
+    .label-row span {
+      font-size: .62rem; letter-spacing: .24em;
+      text-transform: uppercase; color: var(--rose);
+    }
+    .label-line { width: 56px; height: 1px; background: var(--blush); }
+    .sr-only {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0);
+      white-space: nowrap; border: 0;
+    }
+
+    h2 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(1.25rem, 2.2vw, 1.9rem);
+      font-weight: 200;
+      line-height: 1.18;
+      letter-spacing: -.01em;
+      margin-bottom: 14px;
+    }
+
+    .lead {
+      max-width: 840px;
+      font-size: 1rem;
+      line-height: 1.9;
+      color: #4f4b44;
+    }
+    .lead + .lead { margin-top: 16px; }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 26px;
+    }
+    .overview-item {
+      background: rgba(255,255,255,.35);
+      border: 1px solid var(--blush);
+      padding: 22px;
+      min-height: 170px;
+    }
+    .overview-item h3 {
+      font-size: .66rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--matcha-soft);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    .overview-item p {
+      color: #4f4b44;
+      line-height: 1.85;
+      font-size: .95rem;
+    }
+    .overview-title {
+      font-size: clamp(1.3rem, 2.4vw, 2rem);
+      line-height: 1.2;
+    }
+
+    .what-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+      margin-bottom: 20px;
+      list-style: none;
+    }
+    .what-grid li {
+      background: rgba(255,255,255,.35);
+      border: 1px solid var(--blush);
+      padding: 15px 18px;
+      font-size: .9rem;
+      color: #4f4b44;
+      line-height: 1.65;
+    }
+    .what-grid li::before {
+      content: '\2022';
+      color: var(--rose);
+      margin-right: 8px;
+    }
+
+    .note {
+      font-size: .95rem;
+      color: #5a554d;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    .featured-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .project-tag {
+      display: block;
+      font-size: .62rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--matcha-soft);
+      margin-bottom: 8px;
+    }
+    .project-name {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 10px;
+    }
+    .project-desc {
+      max-width: 760px;
+      font-size: .95rem;
+      line-height: 1.85;
+      color: #4f4b44;
+    }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .66rem; font-weight: 500;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--stone); text-decoration: none;
+      border-bottom: 1px solid var(--blush);
+      padding-bottom: 2px;
+      transition: color .3s, border-color .3s;
+      flex-shrink: 0;
+    }
+    .btn-ghost:hover { color: var(--rose); border-color: var(--rose); }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .media-card {
+      border: 1px solid var(--blush);
+      background: transparent;
+      overflow: hidden;
+    }
+    .media-card img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: center top;
+      background: #ece5d9;
+    }
+    .media-card figcaption {
+      padding: 12px 14px;
+      font-size: .68rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #6f6a60;
+      border-top: 1px solid var(--blush);
+      background: rgba(255,255,255,.58);
+    }
+
+    .span-6 { grid-column: span 6; }
+
+    .approach-list {
+      margin-top: 20px;
+      margin-bottom: 18px;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .approach-list li {
+      border: 1px solid var(--blush);
+      background: rgba(255,255,255,.34);
+      padding: 12px 14px;
+      font-size: .93rem;
+      color: #4f4b44;
+      line-height: 1.7;
+    }
+    .approach-list li::before {
+      content: '\2022';
+      color: var(--rose);
+      margin-right: 8px;
+    }
+
+    .features-grid {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .feature {
+      border: 1px solid var(--blush);
+      background: rgba(255,255,255,.34);
+      padding: 20px;
+    }
+    .feature h3 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+      color: #36322d;
+    }
+    .feature p {
+      font-size: .9rem;
+      color: #59554f;
+      line-height: 1.7;
+    }
+
+    .industry-list {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+    }
+    .industry-list li {
+      border: 1px solid var(--blush);
+      background: rgba(255,255,255,.34);
+      padding: 8px 12px;
+      font-size: .75rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #5f5a52;
+    }
+
+    .final-cta {
+      background: linear-gradient(135deg, #e8dfd1 0%, #e6e2d8 100%);
+      border: 1px solid #d2ccbe;
+      padding: 38px;
+    }
+    .final-cta h2 {
+      margin-bottom: 14px;
+      font-size: clamp(1.45rem, 3.2vw, 2.2rem);
+      font-weight: 400;
+    }
+    .final-cta p {
+      max-width: 700px;
+      color: #4b4740;
+      line-height: 1.85;
+      margin-bottom: 22px;
+    }
+
+    .inline-links {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .inline-links a {
+      font-size: .72rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      border-bottom: 1px solid var(--blush);
+      padding-bottom: 2px;
+      transition: color .3s, border-color .3s;
+    }
+    .inline-links a:hover { color: var(--rose-deep); border-color: var(--rose); }
+
+    footer { background: var(--ink); padding: 40px 64px 24px; margin-top: 72px; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 36px; padding-bottom: 32px;
+      border-bottom: 1px solid #2E231E;
+    }
+    .footer-logo {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.15rem; font-weight: 500;
+      color: var(--cream); letter-spacing: .1em;
+      margin-bottom: 12px;
+    }
+    .footer-logo span { color: var(--rose-light); }
+    .footer-tagline {
+      font-size: .72rem; font-weight: 300;
+      line-height: 1.7; color: var(--stone);
+      max-width: 220px;
+    }
+    .footer-col-label {
+      font-size: .62rem; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--stone);
+      margin-bottom: 14px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .footer-links a {
+      font-size: .72rem; font-weight: 300;
+      color: #5A4A43; text-decoration: none; transition: color .3s;
+    }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-bottom {
+      display: flex; justify-content: center; align-items: center;
+      padding-top: 18px;
+    }
+    .footer-copy { font-size: .7rem; color: #3A2C26; letter-spacing: .04em; }
+
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.d1 { transition-delay: .1s; }
+    .reveal.d2 { transition-delay: .2s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      nav { padding: 24px 40px; }
+      nav.scrolled { padding: 14px 40px; }
+      .hero { padding: 90px 40px 40px; }
+      .section { padding: 44px 40px; }
+      .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      footer { padding: 36px 40px 20px; }
+    }
+
+    @media (max-width: 780px) {
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero { padding: 80px 24px 32px; }
+      .section { padding: 38px 24px; }
+      .label-row { margin-bottom: 20px; }
+      .overview-grid,
+      .what-grid,
+      .approach-list,
+      .features-grid { grid-template-columns: 1fr; }
+      .span-6 { grid-column: span 12; }
+      .featured-header { align-items: flex-start; }
+      .final-cta { padding: 26px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 28px 24px 16px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 72px 20px 28px; }
+      .section { padding: 40px 20px; }
+      .label-row { margin-bottom: 16px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-secondary { width: 100%; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html" onclick="closeMobile()">Home</a>
+    <a href="../services.html" onclick="closeMobile()">Services</a>
+    <a href="../shopify-websites.html" onclick="closeMobile()">Shopify Websites</a>
+    <a href="../work.html" onclick="closeMobile()">Work</a>
+    <a href="../about.html" onclick="closeMobile()">About</a>
+    <a href="../contact.html" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <nav id="nav">
+    <a href="../index.html" class="nav-logo">2600<span> Design</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../services.html">Services</a></li>
+      <li><a href="../shopify-websites.html" class="active">Shopify Websites</a></li>
+      <li><a href="../work.html">Work</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+    <h1>Shopify Websites</h1>
+    <p class="hero-subtitle">I design clean, minimal Shopify stores for brands that care about how they look and feel online.</p>
+    <p class="hero-copy">Soft, intentional layouts. Thoughtful product presentation. Built to feel calm, refined, and easy to use — especially on mobile.</p>
+    <div class="hero-actions">
+      <a href="../contact.html" class="btn-primary">Start a Project</a>
+      <a href="https://greenbloommatcha.myshopify.com/" target="_blank" rel="noopener" class="btn-secondary">Live Website</a>
+    </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section reveal" id="overview">
+      <div class="section-inner">
+      <div class="label-row">
+        <span>Project Overview</span>
+        <div class="label-line"></div>
+      </div>
+      <h2 class="overview-title">A design-led ecommerce project built to showcase real Shopify direction.</h2>
+      <p class="lead">Green Bloom Matcha was developed as a real Shopify project to demonstrate how a premium ecommerce brand can feel editorial, soft, and conversion-aware at the same time. The store balances clean merchandising with lifestyle framing so products feel elevated without overwhelming the user journey.</p>
+      <div class="overview-grid">
+        <article class="overview-item">
+          <h3>Project Direction</h3>
+          <p>A complete Shopify storefront designed to demonstrate ecommerce page structure, storytelling, and product merchandising in a real-world setup.</p>
+        </article>
+        <article class="overview-item">
+          <h3>Visual Direction</h3>
+          <p>Warm beige and muted green tones, restrained typography, and generous whitespace to create a soft premium feel with editorial clarity.</p>
+        </article>
+        <article class="overview-item">
+          <h3>Intended Audience</h3>
+          <p>Design-conscious lifestyle shoppers who expect a polished mobile shopping flow and product pages that feel trustworthy and calm.</p>
+        </article>
+        <article class="overview-item">
+          <h3>Design Goal</h3>
+          <p>Show how a Shopify store can combine elegant brand presence with practical ecommerce UX, clear hierarchy, and intuitive purchase pathways.</p>
+        </article>
+      </div>
+      <div class="inline-links">
+        <a href="../work.html">Back to all projects</a>
+        <a href="../services.html#pricing">See Shopify service options</a>
+      </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="what-i-do">
+      <div class="section-inner">
+      <div class="label-row">
+        <span>What I Design</span>
+        <div class="label-line"></div>
+      </div>
+      <h2>What I Design</h2>
+      <ul class="what-grid">
+        <li>Shopify storefront design</li>
+        <li>Homepage layout &amp; structure</li>
+        <li>Product and collection pages</li>
+        <li>Mobile-first ecommerce experience</li>
+        <li>Visual direction &amp; brand feel</li>
+        <li>Simple, clear content structure</li>
+      </ul>
+      <p class="note">Everything is designed to feel cohesive — not just functional.</p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="featured-project">
+      <div class="section-inner">
+      <h2 class="sr-only">Featured Project</h2>
+      <div class="label-row">
+        <span>Featured Project</span>
+        <div class="label-line"></div>
+      </div>
+
+      <div class="featured-header">
+        <div>
+          <span class="project-tag">Shopify / Ecommerce</span>
+          <h3 class="project-name">Green Bloom Matcha</h3>
+          <p class="project-desc">A real Shopify website I run, built with a softer, more refined ecommerce direction focused on product presentation, calm visual identity, and mobile experience.</p>
+        </div>
+        <a href="https://greenbloommatcha.myshopify.com/" target="_blank" rel="noopener" class="btn-ghost">View Live Website <span>→</span></a>
+      </div>
+
+      <div class="gallery">
+        <figure class="media-card span-6">
+          <img src="../sh.png" alt="Green Bloom Matcha homepage hero screenshot featuring matcha powder texture" loading="lazy">
+          <figcaption>Homepage Hero</figcaption>
+        </figure>
+        <figure class="media-card span-6">
+          <img src="../shop3.webp" alt="Green Bloom Matcha about section with calm editorial brand layout" loading="lazy">
+          <figcaption>About Section</figcaption>
+        </figure>
+        <figure class="media-card span-6">
+          <img src="../shop4.webp" alt="Green Bloom Matcha Shopify product grid and collection presentation" loading="lazy">
+          <figcaption>Product Grid</figcaption>
+        </figure>
+        <figure class="media-card span-6">
+          <img src="../green-bloom-cart-page.png" alt="Green Bloom Matcha cart page and checkout flow on Shopify" loading="lazy">
+          <figcaption>Cart Page</figcaption>
+        </figure>
+      </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="design-approach">
+      <div class="section-inner">
+      <h2 class="sr-only">Design Approach</h2>
+      <div class="label-row">
+        <span>Design Approach</span>
+        <div class="label-line"></div>
+      </div>
+      <p class="lead">This project explores a softer direction for ecommerce.</p>
+      <p class="lead">Instead of high-contrast or aggressive layouts, the design focuses on:</p>
+      <ul class="approach-list">
+        <li>Muted colours (matcha green + warm beige)</li>
+        <li>Calm visual rhythm</li>
+        <li>Strong product focus</li>
+        <li>Minimal distractions</li>
+      </ul>
+      <p class="lead">The goal was to create a store that feels closer to a lifestyle brand than a typical ecommerce website.</p>
+      <p class="lead">Mobile experience was prioritised throughout — ensuring the layout feels natural, spacious, and easy to navigate on smaller screens.</p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="key-features">
+      <div class="section-inner">
+      <h2 class="sr-only">Key Features</h2>
+      <div class="label-row">
+        <span>Key Features</span>
+        <div class="label-line"></div>
+      </div>
+      <div class="features-grid">
+        <article class="feature">
+          <h3>Clean Shopify storefront design</h3>
+          <p>A minimal layout that highlights products without visual noise.</p>
+        </article>
+        <article class="feature">
+          <h3>Product-focused presentation</h3>
+          <p>Large imagery and balanced spacing to elevate perceived quality.</p>
+        </article>
+        <article class="feature">
+          <h3>Mobile-first UX</h3>
+          <p>Designed primarily for mobile browsing and interaction.</p>
+        </article>
+        <article class="feature">
+          <h3>Soft brand identity</h3>
+          <p>A calm, lifestyle-oriented visual direction.</p>
+        </article>
+        <article class="feature">
+          <h3>Clear content hierarchy</h3>
+          <p>Easy-to-scan sections and intuitive flow.</p>
+        </article>
+      </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="outcome">
+      <div class="section-inner">
+      <h2 class="sr-only">Outcome</h2>
+      <div class="label-row">
+        <span>Outcome</span>
+        <div class="label-line"></div>
+      </div>
+      <p class="lead">This project demonstrates my ability to design Shopify stores that feel both refined and functional.</p>
+      <p class="lead">It combines visual direction, layout structure, and product presentation into a cohesive ecommerce experience.</p>
+      <p class="lead">The same approach can be applied to brands in:</p>
+      <ul class="industry-list">
+        <li>Beauty</li>
+        <li>Wellness</li>
+        <li>Fashion</li>
+        <li>Food</li>
+        <li>Lifestyle</li>
+      </ul>
+      </div>
+    </section>
+
+    <section class="section reveal" id="final-cta">
+      <div class="section-inner">
+      <div class="final-cta">
+        <h2>Need a Shopify store like this?</h2>
+        <p>I design clean, visually refined websites for brands that want a more considered online presence.</p>
+        <a href="../contact.html" class="btn-primary">Start a Project</a>
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">2600<span> Design</span></div>
+        <p class="footer-tagline">
+          Bespoke web design for Canberra's small businesses.
+          Beautiful, purposeful, built to last.
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-label">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../services.html">Services</a></li>
+          <li><a href="../services.html#pricing">Pricing</a></li>
+          <li><a href="../work.html">Work</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Shopify</div>
+        <ul class="footer-links">
+          <li><a href="#what-i-do">What I Design</a></li>
+          <li><a href="#featured-project">Featured Project</a></li>
+          <li><a href="#design-approach">Design Approach</a></li>
+          <li><a href="#outcome">Outcome</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Connect</div>
+        <ul class="footer-links">
+          <li><a href="mailto:2600design@gmail.com">2600design@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/2600design.com.au/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Canberra, ACT</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2600design · All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      hamburger.querySelectorAll('span')[0].style.transform = menuOpen ? 'translateY(6px) rotate(45deg)' : '';
+      hamburger.querySelectorAll('span')[1].style.opacity  = menuOpen ? '0' : '1';
+      hamburger.querySelectorAll('span')[2].style.transform = menuOpen ? 'translateY(-6px) rotate(-45deg)' : '';
+    });
+
+    function closeMobile() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = '1'; });
+    }
+
+    const cursor = document.getElementById('cursor');
+    const ring   = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.transform = `translate(${mx - 3.5}px, ${my - 3.5}px)`;
+    });
+
+    (function animRing() {
+      rx += (mx - rx) * 0.11;
+      ry += (my - ry) * 0.11;
+      ring.style.transform = `translate(${rx - 15}px, ${ry - 15}px)`;
+      requestAnimationFrame(animRing);
+    })();
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('big'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('big'));
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => io.observe(el));
+  </script>
+  <script src="../chat-widget.js"></script>
+</body>
+</html>
