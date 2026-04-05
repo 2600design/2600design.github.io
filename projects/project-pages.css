@@ -200,6 +200,10 @@ nav.scrolled {
   gap: 16px;
 }
 
+.project-gallery--video {
+  max-width: 760px;
+}
+
 .gallery-item {
   border: 1px solid var(--blush);
   background: rgba(255, 255, 255, 0.35);
@@ -233,6 +237,14 @@ nav.scrolled {
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--stone);
+}
+
+.gallery-item video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #000;
 }
 
 .project-note {
