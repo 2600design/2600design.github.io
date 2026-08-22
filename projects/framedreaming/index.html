@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FrameDreaming — Web Product | 2600 Design</title>
+  <meta name="description" content="FrameDreaming web product case study by 2600 Design — a calm interface for turning images and prompts into short, cinematic video.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://2600design.com.au/projects/framedreaming">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="2600 Design">
+  <meta property="og:title" content="FrameDreaming — Web Product | 2600 Design">
+  <meta property="og:description" content="A calm interface for turning images and prompts into short, cinematic video.">
+  <meta property="og:url" content="https://2600design.com.au/projects/framedreaming">
+  <meta property="og:image" content="https://2600design.com.au/framedreaming-cover.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FrameDreaming — Web Product | 2600 Design">
+  <meta name="twitter:description" content="A calm interface for turning images and prompts into short, cinematic video.">
+  <meta name="twitter:image" content="https://2600design.com.au/framedreaming-cover.svg">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="preload" as="image" href="../../framedreaming-cover.svg" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../project-pages.css">
+  <style>
+    .framedreaming-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      color: #2d8790;
+      font-size: .62rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    .framedreaming-kicker::after {
+      content: '';
+      width: 48px;
+      height: 1px;
+      background: rgba(45, 135, 144, .32);
+    }
+    .framedreaming-hero .project-title { max-width: 9ch; }
+    .framedreaming-hero .project-description { max-width: 52ch; }
+    .project-hero-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+    .project-hero-meta span,
+    .project-hero-meta a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 9px 14px;
+      border: 1px solid rgba(45, 135, 144, .18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .56);
+      color: #47636a;
+      font-size: .64rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .project-hero-meta a {
+      border-color: transparent;
+      background: linear-gradient(135deg, #247c87, #5eaaa7);
+      color: #f4fbfa;
+      transition: transform .4s cubic-bezier(.34, 1.56, .64, 1), box-shadow .25s ease;
+    }
+    .project-hero-meta a:hover {
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(7, 50, 60, .18);
+      transform: translateY(-3px);
+    }
+    .product-showcase {
+      display: grid;
+      grid-template-columns: minmax(0, 1.28fr) minmax(260px, .72fr);
+      gap: clamp(24px, 5vw, 76px);
+      align-items: center;
+    }
+    .product-cover {
+      overflow: hidden;
+      margin: 0;
+      border: 1px solid rgba(45, 135, 144, .2);
+      border-radius: 28px;
+      background: #062b3a;
+      box-shadow: 0 24px 58px rgba(7, 50, 60, .13);
+    }
+    .product-cover img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .product-cover figcaption {
+      padding: 14px 18px;
+      background: rgba(7, 36, 46, .92);
+      color: rgba(234, 245, 243, .68);
+      font-size: .62rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .product-intro { padding: 12px 0; }
+    .product-intro .eyebrow,
+    .principle-card .eyebrow {
+      display: block;
+      margin-bottom: 16px;
+      color: #2d8790;
+      font-size: .62rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .product-intro h2 {
+      margin-bottom: 18px;
+      color: #0c2530;
+      font-size: clamp(2rem, 4vw, 4rem);
+      font-weight: 500;
+      letter-spacing: -.07em;
+      line-height: .98;
+    }
+    .product-intro p {
+      max-width: 40ch;
+      color: #47636a;
+      font-size: .9rem;
+      line-height: 1.9;
+    }
+    .product-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .product-stat {
+      padding: 15px 16px;
+      border: 1px solid rgba(45, 135, 144, .16);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, .62);
+    }
+    .product-stat strong,
+    .product-stat span { display: block; }
+    .product-stat strong {
+      margin-bottom: 4px;
+      color: #0c2530;
+      font-size: .76rem;
+      font-weight: 600;
+    }
+    .product-stat span {
+      color: #70858b;
+      font-size: .66rem;
+      line-height: 1.5;
+    }
+    .flow-grid,
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .flow-card,
+    .principle-card {
+      min-height: 210px;
+      padding: 24px;
+      border: 1px solid rgba(45, 135, 144, .16);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .62);
+      box-shadow: 0 10px 26px rgba(7, 50, 60, .05);
+    }
+    .flow-number {
+      display: block;
+      margin-bottom: 34px;
+      color: #2d8790;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+    }
+    .flow-card h3,
+    .principle-card h3 {
+      margin-bottom: 10px;
+      color: #0c2530;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -.02em;
+    }
+    .flow-card p,
+    .principle-card p {
+      color: #47636a;
+      font-size: .78rem;
+      line-height: 1.75;
+    }
+    .principle-card { min-height: 180px; }
+    .principle-card .eyebrow { margin-bottom: 28px; }
+    .framedreaming-note {
+      max-width: 64ch;
+      margin: 0;
+      color: #47636a;
+      font-size: .92rem;
+      line-height: 1.9;
+    }
+    @media (max-width: 860px) {
+      .product-showcase { grid-template-columns: 1fr; }
+      .product-intro { padding-top: 8px; }
+      .flow-grid,
+      .principles-grid { grid-template-columns: 1fr; }
+      .flow-card,
+      .principle-card { min-height: 0; }
+    }
+    @media (max-width: 520px) {
+      .framedreaming-hero .project-title {
+        max-width: 100%;
+        font-size: clamp(2.1rem, 11vw, 3.2rem) !important;
+        letter-spacing: -.055em;
+      }
+      .product-cover { border-radius: 22px; }
+      .product-stat-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../../index.html" onclick="closeMobile()">Home</a>
+    <a href="../../services.html" onclick="closeMobile()">Services</a>
+    <a href="../../shopify-websites.html" onclick="closeMobile()">Shopify Websites</a>
+    <a href="../../work.html" onclick="closeMobile()">Work</a>
+    <a href="../../about.html" onclick="closeMobile()">About</a>
+    <a href="../../contact.html" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <nav id="nav">
+    <a href="../../index.html" class="nav-logo">2600<span> Design</span></a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../services.html">Services</a></li>
+      <li><a href="../../shopify-websites.html">Shopify Websites</a></li>
+      <li><a href="../../work.html" class="active">Work</a></li>
+      <li><a href="../../about.html">About</a></li>
+      <li><a href="../../contact.html" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="page">
+    <div class="page-inner">
+      <header class="project-hero framedreaming-hero">
+        <div class="framedreaming-kicker">Featured Product · Web</div>
+        <h1 class="project-title">FrameDreaming</h1>
+        <p class="project-description">A calm, cinematic web product for turning images and prompts into short video — designed to make the creative process feel immediate and inviting.</p>
+        <div class="project-hero-meta" aria-label="Project details">
+          <span>Web app</span>
+          <span>Product UI</span>
+          <span>AI creative tools</span>
+        </div>
+      </header>
+
+      <section class="project-section" aria-labelledby="framedreaming-direction-heading">
+        <h2 class="section-label" id="framedreaming-direction-heading">Product direction</h2>
+        <div class="product-showcase">
+          <figure class="product-cover">
+            <img src="../../framedreaming-cover.svg" alt="FrameDreaming web product direction preview" loading="eager">
+            <figcaption>Web product direction · FrameDreaming</figcaption>
+          </figure>
+          <div class="product-intro">
+            <span class="eyebrow">The idea</span>
+            <h2>Make ideas move.</h2>
+            <p>FrameDreaming brings image-to-video and text-to-video creation into one focused web workspace. The interface keeps the magic visible while making the next action obvious.</p>
+            <div class="product-stat-grid">
+              <div class="product-stat"><strong>Prompt in</strong><span>Start with a visual or a simple idea.</span></div>
+              <div class="product-stat"><strong>Motion out</strong><span>Generate a short clip ready to share.</span></div>
+              <div class="product-stat"><strong>Clear controls</strong><span>Choose model, ratio and duration.</span></div>
+              <div class="product-stat"><strong>Built for repeat</strong><span>Save, refine and make the next version.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-section" aria-labelledby="framedreaming-flow-heading">
+        <h2 class="section-label" id="framedreaming-flow-heading">Core flow</h2>
+        <div class="flow-grid">
+          <article class="flow-card">
+            <span class="flow-number">01 / INPUT</span>
+            <h3>Upload or describe</h3>
+            <p>Bring in a starting image or write a short prompt that captures the scene you want to see.</p>
+          </article>
+          <article class="flow-card">
+            <span class="flow-number">02 / DIRECT</span>
+            <h3>Shape the result</h3>
+            <p>Pick the model, aspect ratio and duration without burying the creative decision under settings.</p>
+          </article>
+          <article class="flow-card">
+            <span class="flow-number">03 / GENERATE</span>
+            <h3>Download and iterate</h3>
+            <p>Watch the generation progress, review the result and keep moving through the next idea.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="project-section" aria-labelledby="framedreaming-principles-heading">
+        <h2 class="section-label" id="framedreaming-principles-heading">Interface principles</h2>
+        <div class="principles-grid">
+          <article class="principle-card">
+            <span class="eyebrow">01 · Focus</span>
+            <h3>One clear next step</h3>
+            <p>The workspace guides people from idea to output without making the product feel technical or intimidating.</p>
+          </article>
+          <article class="principle-card">
+            <span class="eyebrow">02 · Confidence</span>
+            <h3>Show the cost up front</h3>
+            <p>Model, quality and duration stay understandable, so people know what they are choosing before they generate.</p>
+          </article>
+          <article class="principle-card">
+            <span class="eyebrow">03 · Atmosphere</span>
+            <h3>Calm, cinematic energy</h3>
+            <p>Deep ocean tones, soft light and generous spacing give the product a creative mood without distracting from the work.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="project-section" aria-labelledby="framedreaming-worked-heading">
+        <h2 class="section-label" id="framedreaming-worked-heading">What I worked on</h2>
+        <ul class="worked-list" aria-labelledby="framedreaming-worked-heading">
+          <li>Product positioning and visual direction</li>
+          <li>Information architecture and page structure</li>
+          <li>Prompt-to-generation user flow</li>
+          <li>Generation settings and credit clarity</li>
+          <li>Responsive web interface</li>
+          <li>Product landing and pricing experience</li>
+        </ul>
+      </section>
+
+      <section class="project-section" aria-labelledby="framedreaming-note-heading">
+        <h2 class="section-label" id="framedreaming-note-heading">A product with room to grow</h2>
+        <p class="framedreaming-note">FrameDreaming is designed as a focused web experience: simple enough to start in seconds, considered enough to support a creative habit. The system can continue to grow around the same core promise — less friction between an idea and the moment it starts moving.</p>
+      </section>
+
+      <section class="project-cta" aria-label="Start project call to action">
+        <a href="../../contact.html">Build a digital product <span aria-hidden="true">→</span></a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2600 Design</p>
+      <div class="footer-links">
+        <a href="../../index.html">Home</a>
+        <a href="../../work.html">Work</a>
+        <a href="../../contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      hamburger.setAttribute('aria-expanded', String(menuOpen));
+      const bars = hamburger.querySelectorAll('span');
+      bars[0].style.transform = menuOpen ? 'translateY(6px) rotate(45deg)' : '';
+      bars[1].style.opacity = menuOpen ? '0' : '1';
+      bars[2].style.transform = menuOpen ? 'translateY(-6px) rotate(-45deg)' : '';
+    });
+
+    function closeMobile() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.querySelectorAll('span').forEach((bar) => {
+        bar.style.transform = '';
+        bar.style.opacity = '1';
+      });
+    }
+  </script>
+  <script src="../../chat-widget.js"></script>
+</body>
+</html>

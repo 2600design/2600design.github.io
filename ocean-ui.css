@@ -1,0 +1,1086 @@
+/* Shared ocean UI for the pages linked from the navigation. */
+
+body.ocean-ui {
+  --ocean-deep: #062b3a;
+  --ocean-mid: #0c5364;
+  --ocean-teal: #3f9292;
+  --ocean-ink: #0c2530;
+  --ocean-body: #445b63;
+  --ocean-muted: #70858b;
+  --ocean-accent: #2d8790;
+  --ocean-mist: #f3f7f6;
+  --ocean-line: rgba(45, 135, 144, .18);
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  color: var(--ocean-ink) !important;
+  background:
+    radial-gradient(ellipse 70% 42% at 8% 0%, rgba(91, 175, 175, .13), transparent 70%),
+    radial-gradient(ellipse 62% 48% at 100% 44%, rgba(63, 146, 146, .10), transparent 72%),
+    linear-gradient(180deg, #f5faf9 0%, #edf6f5 52%, #f8fbfa 100%) !important;
+  overflow-x: hidden;
+}
+
+body.ocean-ui > .bg {
+  display: none !important;
+}
+
+/* Keep the desktop custom cursor visible on ocean-styled inner pages. */
+body.ocean-ui > .cursor {
+  display: block !important;
+  width: 7px;
+  height: 7px;
+  background: #f2f7f5 !important;
+}
+body.ocean-ui > .cursor-ring {
+  display: block !important;
+  border-color: #9bd5d1 !important;
+}
+@media (max-width: 780px) {
+  body.ocean-ui > .cursor,
+  body.ocean-ui > .cursor-ring { display: none !important; }
+}
+
+body.ocean-ui h1,
+body.ocean-ui h2,
+body.ocean-ui h3,
+body.ocean-ui h4,
+body.ocean-ui p,
+body.ocean-ui a,
+body.ocean-ui button,
+body.ocean-ui input,
+body.ocean-ui textarea,
+body.ocean-ui select,
+body.ocean-ui label,
+body.ocean-ui li,
+body.ocean-ui span {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+body.ocean-ui nav {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 300 !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px clamp(20px, 5vw, 56px) !important;
+  background: rgba(7, 36, 46, .70) !important;
+  border-bottom: 1px solid rgba(216, 239, 237, .16) !important;
+  box-shadow: 0 12px 30px rgba(0, 25, 35, .08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: padding .35s ease, background .35s ease, box-shadow .35s ease;
+}
+
+body.ocean-ui nav.scrolled {
+  padding: 15px clamp(20px, 5vw, 56px) !important;
+  background: rgba(7, 36, 46, .92) !important;
+  border-bottom-color: rgba(216, 239, 237, .20) !important;
+  box-shadow: 0 14px 34px rgba(0, 25, 35, .16);
+}
+
+body.ocean-ui .nav-logo {
+  color: #eef6f6 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 1.16rem !important;
+  font-weight: 500 !important;
+  letter-spacing: .18em !important;
+  text-decoration: none !important;
+}
+
+body.ocean-ui .nav-logo span { color: #9bd5d1 !important; }
+
+body.ocean-ui .nav-links {
+  display: none !important;
+  align-items: center;
+  gap: clamp(18px, 3vw, 38px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.ocean-ui .nav-links a {
+  position: relative;
+  color: rgba(234, 245, 243, .78) !important;
+  font-size: .68rem !important;
+  font-weight: 500 !important;
+  letter-spacing: .13em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  transition: color .25s ease, transform .35s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+body.ocean-ui .nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: #a8dfda;
+  transition: width .3s ease;
+}
+
+body.ocean-ui .nav-links a:hover,
+body.ocean-ui .nav-links a.active {
+  color: #fff !important;
+}
+
+body.ocean-ui .nav-links a:hover::after,
+body.ocean-ui .nav-links a.active::after { width: 100%; }
+
+body.ocean-ui .nav-links .nav-cta,
+body.ocean-ui .nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 20px !important;
+  border: 1px solid rgba(242, 247, 245, .22) !important;
+  border-radius: 999px !important;
+  background: #f2f7f5 !important;
+  color: #0c2530 !important;
+  box-shadow: 0 8px 20px rgba(0, 25, 35, .14);
+}
+
+body.ocean-ui .nav-links .nav-cta::after,
+body.ocean-ui .nav-cta::after { display: none !important; }
+
+body.ocean-ui .nav-links .nav-cta:hover,
+body.ocean-ui .nav-cta:hover {
+  background: #fff !important;
+  color: #0c2530 !important;
+  transform: translateY(-3px) scale(1.03);
+}
+
+body.ocean-ui .hamburger {
+  display: flex !important;
+  flex-direction: column;
+  gap: 5px;
+  width: auto;
+  height: auto;
+  padding: 6px !important;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  cursor: pointer;
+  z-index: 401;
+}
+
+body.ocean-ui .hamburger span {
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: #eef6f6 !important;
+  transition: transform .3s ease, opacity .2s ease;
+}
+
+body.ocean-ui .mobile-menu {
+  position: fixed !important;
+  top: 78px !important;
+  right: 28px !important;
+  left: auto !important;
+  bottom: auto !important;
+  inset: auto 28px auto auto !important;
+  z-index: 400 !important;
+  width: min(280px, calc(100vw - 48px)) !important;
+  height: auto !important;
+  max-height: calc(100vh - 100px);
+  overflow: auto;
+  padding: 18px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  gap: 3px !important;
+  border: 1px solid rgba(184, 224, 222, .22) !important;
+  border-radius: 18px !important;
+  background: rgba(7, 36, 46, .96) !important;
+  box-shadow: 0 20px 54px rgba(0, 25, 35, .28) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  opacity: 0 !important;
+  transform: translateY(-10px) scale(.98);
+  pointer-events: none !important;
+  transition: opacity .25s ease, transform .35s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+body.ocean-ui .mobile-menu.open {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1);
+  pointer-events: auto !important;
+}
+
+body.ocean-ui .mobile-menu a {
+  display: block;
+  padding: 12px 14px !important;
+  border-radius: 14px;
+  color: rgba(234, 245, 243, .84) !important;
+  font-size: .76rem !important;
+  font-weight: 500 !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  transition: color .2s ease, background .2s ease, transform .3s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+body.ocean-ui .mobile-menu a:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, .09) !important;
+  transform: translateX(4px);
+}
+
+body.ocean-ui .page-hero,
+body.ocean-ui > .hero,
+body.ocean-ui > header.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 390px;
+  padding: 156px clamp(24px, 7vw, 96px) 84px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(145deg, #062b3a 0%, #0c5364 52%, #3f9292 100%) !important;
+  border: 0 !important;
+  border-radius: 0 0 34px 34px;
+  color: #f2f7f5 !important;
+}
+
+body.ocean-ui .page-hero::before,
+body.ocean-ui > .hero::before,
+body.ocean-ui > header.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 64% 72% at 82% 8%, rgba(146, 222, 215, .20), transparent 68%),
+    radial-gradient(ellipse 58% 56% at 12% 78%, rgba(12, 83, 100, .48), transparent 72%);
+}
+
+body.ocean-ui .page-hero > *,
+body.ocean-ui > .hero > *,
+body.ocean-ui > header.hero > * { position: relative; z-index: 1; }
+
+body.ocean-ui .page-hero-label {
+  display: block;
+  margin-bottom: 18px;
+  color: rgba(230, 245, 245, .78) !important;
+  font-size: .68rem !important;
+  font-weight: 500 !important;
+  letter-spacing: .26em !important;
+  text-transform: uppercase !important;
+}
+
+body.ocean-ui .page-hero-title,
+body.ocean-ui .hero h1 {
+  max-width: 980px;
+  margin: 0 !important;
+  color: #f2f7f5 !important;
+  font-size: clamp(2.25rem, 6vw, 5rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.045em !important;
+  text-shadow: 0 4px 32px rgba(0, 25, 35, .28);
+}
+
+body.ocean-ui .page-hero-title em,
+body.ocean-ui .page-hero-title .highlight,
+body.ocean-ui .hero h1 em,
+body.ocean-ui .hero h1 .highlight { color: #b4e4df !important; font-style: normal !important; }
+
+body.ocean-ui .hero-inner {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+body.ocean-ui .hero-inner p,
+body.ocean-ui .hero-subtitle,
+body.ocean-ui .hero-copy {
+  max-width: 58ch;
+  margin: 20px 0 0;
+  color: rgba(226, 240, 240, .84) !important;
+  font-size: .92rem !important;
+  line-height: 1.8 !important;
+}
+
+body.ocean-ui .page-hero-intro {
+  max-width: 58ch;
+  margin: 22px 0 0;
+  color: rgba(226, 240, 240, .84) !important;
+  font-size: .9rem !important;
+  line-height: 1.8 !important;
+}
+
+body.ocean-ui main,
+body.ocean-ui .services-page-flow,
+body.ocean-ui .projects,
+body.ocean-ui .section,
+body.ocean-ui .services-wrap,
+body.ocean-ui .pricing-wrap,
+body.ocean-ui .process-wrap,
+body.ocean-ui .final-cta {
+  background: transparent !important;
+  color: var(--ocean-ink) !important;
+}
+
+body.ocean-ui .section {
+  padding: clamp(64px, 8vw, 112px) clamp(24px, 6vw, 84px) !important;
+}
+
+body.ocean-ui .section-inner,
+body.ocean-ui .projects-inner,
+body.ocean-ui .services-header,
+body.ocean-ui .services-grid,
+body.ocean-ui .pricing-grid,
+body.ocean-ui .contact-inner,
+body.ocean-ui .process-grid,
+body.ocean-ui .focus-grid,
+body.ocean-ui .focus-header {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.ocean-ui .label-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+body.ocean-ui .label-row span {
+  color: var(--ocean-accent) !important;
+  font-size: .64rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .22em !important;
+  text-transform: uppercase !important;
+}
+
+body.ocean-ui .label-line {
+  width: 56px;
+  height: 1px;
+  background: rgba(45, 135, 144, .28) !important;
+}
+
+body.ocean-ui .section-title,
+body.ocean-ui .process-title,
+body.ocean-ui .pricing-title,
+body.ocean-ui .overview-title,
+body.ocean-ui .contact-info-title,
+body.ocean-ui .featured-header h3,
+body.ocean-ui .feature h3,
+body.ocean-ui .overview-item h3,
+body.ocean-ui .focus-card h3,
+body.ocean-ui .project-title,
+body.ocean-ui .project-name {
+  color: var(--ocean-ink) !important;
+  font-weight: 500 !important;
+  letter-spacing: -.025em !important;
+}
+
+body.ocean-ui p,
+body.ocean-ui .services-intro,
+body.ocean-ui .pkg-desc,
+body.ocean-ui .step-desc,
+body.ocean-ui .about-text,
+body.ocean-ui .contact-info-text,
+body.ocean-ui .project-summary,
+body.ocean-ui .project-desc,
+body.ocean-ui .lead,
+body.ocean-ui .note,
+body.ocean-ui .feature p,
+body.ocean-ui .overview-item p {
+  color: var(--ocean-body) !important;
+}
+
+body.ocean-ui .service-card,
+body.ocean-ui .pkg-card,
+body.ocean-ui .process-step,
+body.ocean-ui .process-card,
+body.ocean-ui .project-card,
+body.ocean-ui .overview-item,
+body.ocean-ui .feature,
+body.ocean-ui .media-card,
+body.ocean-ui .focus-card,
+body.ocean-ui .contact-form,
+body.ocean-ui .contact-detail,
+body.ocean-ui .final-cta {
+  background: rgba(255, 255, 255, .70) !important;
+  border: 1px solid var(--ocean-line) !important;
+  border-radius: 26px !important;
+  box-shadow: 0 12px 30px rgba(7, 50, 60, .06) !important;
+  transition: transform .45s cubic-bezier(.34, 1.56, .64, 1), background .25s ease, border-color .25s ease, box-shadow .3s ease;
+}
+
+body.ocean-ui .service-card:hover,
+body.ocean-ui .pkg-card:hover,
+body.ocean-ui .process-step:hover,
+body.ocean-ui .process-card:hover,
+body.ocean-ui .project-card:hover,
+body.ocean-ui .overview-item:hover,
+body.ocean-ui .feature:hover,
+body.ocean-ui .media-card:hover,
+body.ocean-ui .focus-card:hover,
+body.ocean-ui .contact-detail:hover,
+body.ocean-ui .final-cta:hover {
+  background: rgba(255, 255, 255, .92) !important;
+  border-color: rgba(45, 135, 144, .34) !important;
+  box-shadow: 0 20px 38px rgba(7, 50, 60, .12) !important;
+  transform: translateY(-6px);
+}
+
+body.ocean-ui .service-card,
+body.ocean-ui .pkg-card,
+body.ocean-ui .process-step,
+body.ocean-ui .project-card,
+body.ocean-ui .feature,
+body.ocean-ui .overview-item { height: 100%; }
+
+body.ocean-ui .services-grid,
+body.ocean-ui .pricing-grid,
+body.ocean-ui .projects-grid,
+body.ocean-ui .process-grid,
+body.ocean-ui .features-grid,
+body.ocean-ui .overview-grid { align-items: stretch; }
+
+body.ocean-ui .project-card,
+body.ocean-ui .media-card { overflow: hidden; }
+
+body.ocean-ui .project-media,
+body.ocean-ui .media-card img {
+  border-radius: 24px 24px 0 0 !important;
+}
+
+body.ocean-ui .project-category,
+body.ocean-ui .project-tag,
+body.ocean-ui .pkg-label,
+body.ocean-ui .focus-card-number,
+body.ocean-ui .focus-card-type {
+  color: var(--ocean-accent) !important;
+  font-size: .64rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase !important;
+}
+
+body.ocean-ui .svc-icon { stroke: #5eaaa7 !important; }
+body.ocean-ui .pkg-name,
+body.ocean-ui .pkg-price-num,
+body.ocean-ui .pkg-currency,
+body.ocean-ui .pkg-from { color: var(--ocean-ink) !important; }
+body.ocean-ui .pkg-list-title { color: var(--ocean-accent) !important; }
+body.ocean-ui .pkg-list,
+body.ocean-ui .pkg-list li { color: var(--ocean-body) !important; }
+body.ocean-ui .pkg-list.not-incl,
+body.ocean-ui .pkg-list.not-incl li { color: var(--ocean-muted) !important; }
+
+body.ocean-ui .project-link,
+body.ocean-ui .inline-links a,
+body.ocean-ui .port-meta-link {
+  color: var(--ocean-accent) !important;
+  text-decoration: none !important;
+  transition: color .2s ease, transform .3s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+body.ocean-ui .project-link:hover,
+body.ocean-ui .inline-links a:hover,
+body.ocean-ui .port-meta-link:hover { color: var(--ocean-ink) !important; }
+
+body.ocean-ui .btn-primary,
+body.ocean-ui .pkg-btn,
+body.ocean-ui .cta-btn,
+body.ocean-ui .form-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, #247c87, #5eaaa7) !important;
+  color: #f4fbfa !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: .72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  box-shadow: 0 10px 24px rgba(22, 101, 111, .18);
+  transition: transform .42s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s ease, background .25s ease;
+}
+
+body.ocean-ui .btn-primary:hover,
+body.ocean-ui .pkg-btn:hover,
+body.ocean-ui .cta-btn:hover,
+body.ocean-ui .form-submit:hover {
+  background: linear-gradient(135deg, #17656f, #3f9292) !important;
+  color: #fff !important;
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 16px 30px rgba(22, 101, 111, .24);
+}
+
+body.ocean-ui .btn-secondary,
+body.ocean-ui .btn-ghost {
+  border: 1px solid rgba(45, 135, 144, .34) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, .34) !important;
+  color: var(--ocean-accent) !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: .72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .10em !important;
+  text-decoration: none !important;
+  transition: transform .42s cubic-bezier(.34, 1.56, .64, 1), background .25s ease, color .25s ease, border-color .25s ease;
+}
+
+body.ocean-ui .btn-secondary:hover,
+body.ocean-ui .btn-ghost:hover {
+  background: rgba(255, 255, 255, .82) !important;
+  border-color: var(--ocean-accent) !important;
+  color: var(--ocean-ink) !important;
+  transform: translateY(-3px);
+}
+
+body.ocean-ui input,
+body.ocean-ui textarea,
+body.ocean-ui select {
+  border: 1px solid rgba(45, 135, 144, .20) !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, .78) !important;
+  color: var(--ocean-ink) !important;
+  font-family: 'Montserrat', sans-serif !important;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .35s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+body.ocean-ui input:focus,
+body.ocean-ui textarea:focus,
+body.ocean-ui select:focus {
+  border-color: var(--ocean-accent) !important;
+  box-shadow: 0 0 0 4px rgba(45, 135, 144, .12) !important;
+  outline: none;
+  transform: translateY(-2px);
+}
+
+body.ocean-ui #shared-footer .site-footer {
+  background: linear-gradient(145deg, #062b3a 0%, #0b4656 58%, #17656f 100%) !important;
+  border-top: 1px solid rgba(190, 231, 226, .16) !important;
+  color: #eaf5f3 !important;
+}
+
+body.ocean-ui #shared-footer .sf-brand { color: #f2f7f5 !important; }
+body.ocean-ui #shared-footer .sf-desc { color: rgba(226, 240, 240, .72) !important; }
+body.ocean-ui #shared-footer .sf-col-title { color: #a8dfda !important; }
+body.ocean-ui #shared-footer .sf-links a,
+body.ocean-ui #shared-footer .sf-links li { color: rgba(234, 245, 243, .78) !important; }
+body.ocean-ui #shared-footer .sf-copy { color: rgba(226, 240, 240, .52) !important; }
+body.ocean-ui #shared-footer .sf-links a:hover { color: #fff !important; }
+
+@media (max-width: 860px) {
+  body.ocean-ui .nav-links { display: none !important; }
+  body.ocean-ui .hamburger { display: flex !important; }
+  body.ocean-ui .page-hero,
+  body.ocean-ui > .hero,
+  body.ocean-ui > header.hero {
+    min-height: 360px;
+    padding: 136px 24px 64px !important;
+  }
+  body.ocean-ui .section { padding: 64px 24px !important; }
+  body.ocean-ui .services-grid,
+  body.ocean-ui .pricing-grid,
+  body.ocean-ui .projects-grid,
+  body.ocean-ui .process-grid,
+  body.ocean-ui .features-grid,
+  body.ocean-ui .overview-grid { grid-template-columns: 1fr !important; }
+  body.ocean-ui .focus-header { grid-template-columns: 1fr !important; gap: 22px !important; }
+  body.ocean-ui .project-card,
+  body.ocean-ui .service-card,
+  body.ocean-ui .pkg-card,
+  body.ocean-ui .process-step,
+  body.ocean-ui .feature,
+  body.ocean-ui .overview-item { height: auto; }
+}
+
+/* Specialist service paths on the Services page. */
+body.ocean-ui .specialty-header,
+body.ocean-ui .specialty-grid {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+body.ocean-ui .specialty-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 38px;
+}
+body.ocean-ui .specialty-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+body.ocean-ui .specialty-card {
+  position: relative;
+  min-height: 470px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: clamp(28px, 4vw, 52px);
+  background: linear-gradient(145deg, rgba(255,255,255,.86), rgba(225,241,240,.72)) !important;
+  border: 1px solid rgba(45, 135, 144, .20) !important;
+  border-radius: 30px !important;
+  box-shadow: 0 14px 34px rgba(7, 50, 60, .07) !important;
+  transition: transform .48s cubic-bezier(.34, 1.56, .64, 1), box-shadow .35s ease, border-color .25s ease;
+}
+body.ocean-ui .specialty-card::before {
+  content: '';
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  top: -115px;
+  right: -70px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(111, 194, 188, .24), transparent 68%);
+  pointer-events: none;
+}
+body.ocean-ui .specialty-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(45, 135, 144, .38) !important;
+  box-shadow: 0 22px 42px rgba(7, 50, 60, .14) !important;
+}
+body.ocean-ui .specialty-card-featured {
+  background: linear-gradient(145deg, rgba(6, 43, 58, .98), rgba(12, 83, 100, .94)) !important;
+  border-color: rgba(168, 223, 218, .30) !important;
+}
+body.ocean-ui .specialty-card-featured::before {
+  background: radial-gradient(circle, rgba(240, 197, 140, .28), transparent 68%);
+}
+body.ocean-ui .specialty-card-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 58px;
+}
+body.ocean-ui .specialty-index,
+body.ocean-ui .specialty-price,
+body.ocean-ui .specialty-detail-label,
+body.ocean-ui .specialty-case > span {
+  font-size: .62rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .16em !important;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+body.ocean-ui .specialty-index { color: var(--ocean-accent) !important; }
+body.ocean-ui .specialty-price { color: var(--ocean-ink) !important; white-space: nowrap; }
+body.ocean-ui .specialty-card-featured .specialty-index,
+body.ocean-ui .specialty-card-featured .specialty-price,
+body.ocean-ui .specialty-card-featured .specialty-detail-label,
+body.ocean-ui .specialty-card-featured .specialty-case > span { color: #a8dfda !important; }
+body.ocean-ui .specialty-card h3 {
+  position: relative;
+  z-index: 1;
+  max-width: 10ch;
+  margin-bottom: 16px;
+  color: var(--ocean-ink) !important;
+  font-size: clamp(1.8rem, 3.2vw, 3rem) !important;
+  font-weight: 500 !important;
+  letter-spacing: -.035em !important;
+  line-height: 1.02 !important;
+}
+body.ocean-ui .specialty-card-featured h3 { color: #f2f7f5 !important; }
+body.ocean-ui .specialty-desc {
+  position: relative;
+  z-index: 1;
+  max-width: 42ch;
+  margin-bottom: 26px;
+  color: var(--ocean-body) !important;
+  font-size: .82rem !important;
+  line-height: 1.8 !important;
+}
+body.ocean-ui .specialty-card-featured .specialty-desc { color: rgba(226, 240, 240, .82) !important; }
+body.ocean-ui .specialty-detail-label {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 12px;
+  color: var(--ocean-accent) !important;
+}
+body.ocean-ui .specialty-list {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body.ocean-ui .specialty-list li {
+  display: flex;
+  gap: 10px;
+  color: var(--ocean-body) !important;
+  font-size: .76rem !important;
+  line-height: 1.55;
+}
+body.ocean-ui .specialty-list li::before {
+  content: '↗';
+  flex: 0 0 auto;
+  color: var(--ocean-accent);
+}
+body.ocean-ui .specialty-card-featured .specialty-list li { color: rgba(234, 245, 243, .82) !important; }
+body.ocean-ui .specialty-card-featured .specialty-list li::before { color: #f0c58c; }
+body.ocean-ui .specialty-case {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 7px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(168, 223, 218, .22);
+}
+body.ocean-ui .specialty-case > span { color: var(--ocean-accent) !important; }
+body.ocean-ui .specialty-case a {
+  color: var(--ocean-ink) !important;
+  font-size: .76rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .02em;
+  text-decoration: none !important;
+  transition: color .25s ease, transform .35s cubic-bezier(.34, 1.56, .64, 1);
+}
+body.ocean-ui .specialty-card-featured .specialty-case a { color: #f2f7f5 !important; }
+body.ocean-ui .specialty-case a:hover { color: var(--ocean-accent) !important; transform: translateX(4px); }
+body.ocean-ui .specialty-card-featured .specialty-case a:hover { color: #a8dfda !important; }
+body.ocean-ui .specialty-cta {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  margin-top: auto;
+  padding-top: 28px;
+  color: var(--ocean-accent) !important;
+  font-size: .68rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  transition: gap .35s cubic-bezier(.34, 1.56, .64, 1), color .25s ease;
+}
+body.ocean-ui .specialty-card-featured .specialty-cta { color: #a8dfda !important; }
+body.ocean-ui .specialty-cta:hover { gap: 18px; color: var(--ocean-ink) !important; }
+body.ocean-ui .specialty-card-featured .specialty-cta:hover { color: #fff !important; }
+
+@media (max-width: 860px) {
+  body.ocean-ui .specialty-header { grid-template-columns: 1fr; gap: 22px; }
+  body.ocean-ui .specialty-grid { grid-template-columns: 1fr; }
+  body.ocean-ui .specialty-card { min-height: 0; }
+}
+@media (max-width: 480px) {
+  body.ocean-ui .specialty-card { padding: 28px 24px; border-radius: 26px !important; }
+  body.ocean-ui .specialty-card-top { align-items: flex-start; flex-direction: column; gap: 10px; margin-bottom: 44px; }
+}
+
+/* Contact page: high-contrast split layout that matches the ocean homepage. */
+/* Featured product treatment for the Work page. */
+body.ocean-ui .project-card.featured-product {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+  align-items: stretch;
+  overflow: hidden;
+}
+body.ocean-ui .project-card.featured-product .project-media {
+  min-height: 350px;
+  aspect-ratio: auto;
+  border-bottom: 0 !important;
+  border-right: 1px solid rgba(45, 135, 144, .16) !important;
+}
+body.ocean-ui .project-card.featured-product .project-media img {
+  height: 100%;
+  object-fit: cover;
+}
+body.ocean-ui .project-card.featured-product .project-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(28px, 4vw, 58px);
+}
+body.ocean-ui .project-card.featured-product .project-title {
+  font-size: clamp(1.45rem, 2.2vw, 2.2rem) !important;
+  margin-bottom: 12px;
+}
+body.ocean-ui .project-card.featured-product .project-summary {
+  max-width: 31ch;
+  font-size: .84rem;
+  line-height: 1.8;
+}
+@media (max-width: 860px) {
+  body.ocean-ui .project-card.featured-product { grid-template-columns: 1fr; }
+  body.ocean-ui .project-card.featured-product .project-media {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(45, 135, 144, .16) !important;
+  }
+  body.ocean-ui .project-card.featured-product .project-content { padding: 28px 24px; }
+}
+
+body.ocean-ui #contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(72px, 8vw, 132px) clamp(24px, 6vw, 88px) !important;
+  background: linear-gradient(135deg, #dceceb 0%, #edf6f5 54%, #f7faf9 100%) !important;
+  border-top: 1px solid rgba(45, 135, 144, .12);
+  border-radius: 34px 34px 0 0 !important;
+}
+body.ocean-ui #contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 50% 70% at 88% 12%, rgba(96, 181, 178, .22), transparent 70%),
+    radial-gradient(ellipse 48% 66% at 2% 92%, rgba(12, 83, 100, .12), transparent 74%);
+}
+body.ocean-ui #contact .contact-inner {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(460px, 1.1fr);
+  gap: clamp(44px, 7vw, 112px);
+  max-width: 1320px;
+  align-items: start;
+}
+body.ocean-ui #contact .label-row { margin-bottom: 34px; }
+body.ocean-ui #contact .label-row span { color: var(--ocean-accent) !important; }
+body.ocean-ui #contact .label-line { background: rgba(45, 135, 144, .28) !important; }
+body.ocean-ui #contact .contact-info-title {
+  max-width: 9ch;
+  margin-bottom: 30px;
+  color: var(--ocean-ink) !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: clamp(3.2rem, 6vw, 6.8rem) !important;
+  font-weight: 500 !important;
+  letter-spacing: -.08em !important;
+  line-height: .94 !important;
+}
+body.ocean-ui #contact .contact-info-title em {
+  color: var(--ocean-accent) !important;
+  font-style: normal;
+  font-weight: 400;
+}
+body.ocean-ui #contact .contact-info-text {
+  max-width: 48ch;
+  margin-bottom: 40px;
+  color: var(--ocean-body) !important;
+  font-size: .88rem !important;
+  line-height: 1.85 !important;
+}
+body.ocean-ui #contact .contact-details { gap: 12px; }
+body.ocean-ui #contact .contact-detail {
+  min-height: 58px;
+  padding: 10px 18px 10px 12px;
+  background: rgba(255, 255, 255, .62) !important;
+  border: 1px solid rgba(45, 135, 144, .16) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 20px rgba(7, 50, 60, .04) !important;
+}
+body.ocean-ui #contact .contact-detail:hover {
+  background: rgba(255, 255, 255, .92) !important;
+  transform: translateX(5px) !important;
+}
+body.ocean-ui #contact .detail-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(45, 135, 144, .10) !important;
+}
+body.ocean-ui #contact .detail-icon svg { stroke: var(--ocean-accent) !important; }
+body.ocean-ui #contact .detail-label {
+  color: var(--ocean-muted) !important;
+  font-size: .58rem !important;
+  letter-spacing: .16em !important;
+}
+body.ocean-ui #contact .detail-value {
+  color: var(--ocean-ink) !important;
+  font-size: .78rem !important;
+}
+body.ocean-ui #contact a.detail-value:hover { color: var(--ocean-accent) !important; }
+body.ocean-ui #contact .contact-form {
+  display: flex;
+  gap: 18px;
+  padding: clamp(26px, 4vw, 52px) !important;
+  background: rgba(255, 255, 255, .82) !important;
+  border: 1px solid rgba(45, 135, 144, .18) !important;
+  border-radius: 32px !important;
+  box-shadow: 0 24px 62px rgba(7, 50, 60, .11) !important;
+}
+body.ocean-ui #contact .form-group { gap: 8px; }
+body.ocean-ui #contact .form-group label {
+  color: var(--ocean-accent) !important;
+  font-size: .6rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .16em !important;
+}
+body.ocean-ui #contact .form-help {
+  color: var(--ocean-body) !important;
+  font-size: .72rem !important;
+}
+body.ocean-ui #contact .form-group input,
+body.ocean-ui #contact .form-group select,
+body.ocean-ui #contact .form-group textarea {
+  min-height: 54px;
+  padding: 15px 18px !important;
+  background: rgba(249, 252, 251, .94) !important;
+  border: 1px solid rgba(45, 135, 144, .20) !important;
+  border-radius: 18px !important;
+  color: var(--ocean-ink) !important;
+  font-size: .82rem !important;
+}
+body.ocean-ui #contact .form-group input::placeholder,
+body.ocean-ui #contact .form-group textarea::placeholder { color: rgba(68, 91, 99, .62) !important; }
+body.ocean-ui #contact .form-group textarea { min-height: 150px; }
+body.ocean-ui #contact .weeks-grid { gap: 10px; }
+body.ocean-ui #contact .week-option span {
+  min-height: 48px;
+  padding: 10px 8px;
+  background: #edf6f5 !important;
+  border: 1px solid rgba(45, 135, 144, .14) !important;
+  border-radius: 14px !important;
+  color: var(--ocean-body) !important;
+  font-size: .68rem !important;
+  transition: background .25s ease, color .25s ease, border-color .25s ease, transform .35s cubic-bezier(.34, 1.56, .64, 1);
+}
+body.ocean-ui #contact .week-option input[type="radio"]:checked + span {
+  background: var(--ocean-accent) !important;
+  border-color: var(--ocean-accent) !important;
+  color: #f4fbfa !important;
+}
+body.ocean-ui #contact .week-option:hover span {
+  border-color: var(--ocean-accent) !important;
+  color: var(--ocean-ink) !important;
+  transform: translateY(-2px);
+}
+body.ocean-ui #contact .form-submit {
+  min-height: 56px;
+  margin-top: 4px;
+  border-radius: 18px !important;
+}
+@media (max-width: 860px) {
+  body.ocean-ui #contact .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+  body.ocean-ui #contact .contact-info-title { max-width: 11ch; font-size: clamp(3rem, 12vw, 5.2rem) !important; }
+  body.ocean-ui #contact .contact-form { padding: 28px 22px !important; }
+}
+@media (max-width: 480px) {
+  body.ocean-ui #contact { padding: 58px 20px !important; }
+  body.ocean-ui #contact .contact-form { border-radius: 24px !important; }
+  body.ocean-ui #contact .contact-detail { border-radius: 22px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.ocean-ui *,
+  body.ocean-ui *::before,
+  body.ocean-ui *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+/* Mobile hardening: keep every linked page inside the viewport. */
+@media (max-width: 780px) {
+  html,
+  body.ocean-ui {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body.ocean-ui main,
+  body.ocean-ui section,
+  body.ocean-ui header,
+  body.ocean-ui footer,
+  body.ocean-ui .page-hero,
+  body.ocean-ui .page-hero-inner,
+  body.ocean-ui .section-inner,
+  body.ocean-ui .contact-inner,
+  body.ocean-ui .pricing-grid,
+  body.ocean-ui .services-grid,
+  body.ocean-ui .features-grid,
+  body.ocean-ui .project-grid {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  body.ocean-ui img,
+  body.ocean-ui video,
+  body.ocean-ui iframe,
+  body.ocean-ui canvas {
+    display: block;
+    max-width: 100%;
+  }
+
+  body.ocean-ui .specialty-card-top {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+
+  body.ocean-ui .specialty-price,
+  body.ocean-ui .pkg-price,
+  body.ocean-ui .detail-value {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  body.ocean-ui .contact-form,
+  body.ocean-ui .contact-detail,
+  body.ocean-ui .project-card,
+  body.ocean-ui .service-card,
+  body.ocean-ui .pkg-card,
+  body.ocean-ui .feature-card {
+    min-width: 0;
+  }
+
+  body.ocean-ui .contact-form input,
+  body.ocean-ui .contact-form select,
+  body.ocean-ui .contact-form textarea,
+  body.ocean-ui .contact-form button {
+    max-width: 100%;
+  }
+
+  body.ocean-ui .contact-info-text,
+  body.ocean-ui .detail-value,
+  body.ocean-ui .service-description,
+  body.ocean-ui .project-description,
+  body.ocean-ui .page-hero-intro,
+  body.ocean-ui .section-intro,
+  body.ocean-ui .feature-card p,
+  body.ocean-ui .pkg-card li {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 480px) {
+  body.ocean-ui nav {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: max(14px, env(safe-area-inset-top)) !important;
+  }
+
+  body.ocean-ui .mobile-menu {
+    right: 20px !important;
+    width: min(280px, calc(100vw - 40px)) !important;
+    max-height: calc(100svh - 96px);
+  }
+
+  body.ocean-ui #contact .contact-form {
+    padding: 24px 18px !important;
+    border-radius: 24px !important;
+  }
+
+  body.ocean-ui input,
+  body.ocean-ui select,
+  body.ocean-ui textarea {
+    font-size: 16px !important;
+  }
+}

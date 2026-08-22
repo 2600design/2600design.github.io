@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://2600design.com.au/sitemap.xml

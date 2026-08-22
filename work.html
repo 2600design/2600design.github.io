@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work | 2600 Design</title>
+  <meta name="description" content="Selected website, ecommerce and digital product projects by 2600 Design.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://2600design.com.au/work">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="2600 Design">
+  <meta property="og:title" content="Selected Work — 2600 Design">
+  <meta property="og:description" content="Selected website, ecommerce and digital product projects by 2600 Design.">
+  <meta property="og:url" content="https://2600design.com.au/work">
+  <meta property="og:image" content="https://2600design.com.au/framedreaming-cover.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Selected Work — 2600 Design">
+  <meta name="twitter:description" content="Selected website, ecommerce and digital product projects by 2600 Design.">
+  <meta name="twitter:image" content="https://2600design.com.au/framedreaming-cover.svg">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="v2-bg.css">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:       #EAE6E0;
+      --cream-warm:  #F2E7D6;
+      --blush:       #DFE6EF;
+      --rose-light:  #91A5BB;
+      --rose:        #E2C3C0;
+      --rose-deep:   #B2A89A;
+      --ink:         #5E7287;
+      --ink-mid:     #3A3F47;
+      --stone:       #B2A89A;
+      --stone-light: #DFE6EF;
+      --white:       #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    body::before {
+      content:''; position:fixed; inset:0;
+      opacity:0.10; pointer-events:none; z-index:9999;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.70' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .cursor {
+      width: 7px; height: 7px;
+      background: #B2A89A;
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 10000;
+      will-change: transform;
+    }
+    .cursor-ring {
+      width: 30px; height: 30px;
+      border: 1px solid #E2C3C0;
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9998;
+      opacity: 0.5;
+      transition: width .3s, height .3s, opacity .3s;
+      will-change: transform;
+    }
+    .cursor-ring.big { width: 52px; height: 52px; opacity: 0.25; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      padding: 28px 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: #faf8f4;
+      transition: padding .35s, background .35s, backdrop-filter .35s, border-color .35s;
+      border-bottom: 1px solid rgba(28,26,23,0.08);
+      box-shadow: 0 1px 0 rgba(28,26,23,0.05);
+    }
+    nav.scrolled {
+      padding: 16px 64px;
+      background: #faf8f4;
+      backdrop-filter: none;
+      border-color: rgba(28,26,23,0.08);
+    }
+
+    .nav-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem; font-weight: 600;
+      letter-spacing: .18em; color: #EAE6E0;
+      text-decoration: none;
+    }
+    .nav-logo span { color: #E2C3C0; }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 44px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .72rem; font-weight: 400;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(242,231,214,0.8); text-decoration: none;
+      position: relative; transition: color .3s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -3px; left: 0; width: 0; height: 1px;
+      background: #E2C3C0; transition: width .3s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: #F2E7D6; }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+
+    .nav-cta {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .72rem !important; font-weight: 500 !important;
+      letter-spacing: .14em !important; text-transform: uppercase !important;
+      color: #3A3F47 !important; background: #E2C3C0;
+      padding: 12px 26px; border-radius: 2px;
+      text-decoration: none; transition: background .3s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: #F2E7D6 !important; color: #3A3F47 !important; }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: none; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 1px;
+      background: #F2E7D6; transition: all .3s;
+    }
+
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 150;
+      background: #5E7287;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 40px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .35s;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.7rem; font-weight: 300;
+      color: #F2E7D6; text-decoration: none;
+      letter-spacing: .04em;
+    }
+
+    .hero,
+    .projects,
+    .final-cta {
+      padding-left: 64px;
+      padding-right: 64px;
+    }
+
+    .hero {
+      padding-top: 116px;
+      padding-bottom: 44px;
+      background: #EAE6E0;
+      border-bottom: 1px solid #DFE6EF;
+    }
+    .hero-inner,
+    .projects-inner,
+    .cta-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      font-weight: 500;
+      letter-spacing: -.02em;
+      line-height: 1.02;
+      margin-bottom: 12px;
+      color: #3A3F47;
+    }
+    .hero p {
+      font-family: 'Montserrat', sans-serif;
+      max-width: 560px;
+      font-size: .9rem;
+      line-height: 1.8;
+      color: #5E7287;
+    }
+
+    .projects {
+      padding-top: 46px;
+      padding-bottom: 54px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      border: 1px solid #DFE6EF;
+      background: #F2E7D6;
+      display: block;
+      min-width: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform .35s ease, border-color .35s ease, background .35s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-2px);
+      border-color: #91A5BB;
+      background: #EAE6E0;
+      box-shadow: 0 8px 20px rgba(94,114,135,0.1);
+    }
+
+    .project-media {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #DFE6EF;
+      border-bottom: 1px solid #DFE6EF;
+    }
+    .project-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(42,42,42,.08), rgba(42,42,42,0));
+      opacity: 0;
+      transition: opacity .35s ease;
+      pointer-events: none;
+    }
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform .55s ease, filter .55s ease;
+    }
+    .project-media img.haru-cover {
+      object-position: left center;
+    }
+    .project-card:hover .project-media::after { opacity: 1; }
+    .project-card:hover .project-media img { transform: scale(1.018); }
+    .project-card:hover .project-media img { filter: brightness(1.015); }
+
+    .project-content {
+      padding: 16px 18px 18px;
+      transition: transform .35s ease;
+    }
+    .project-category {
+      display: block;
+      margin-bottom: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .64rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #91A5BB;
+    }
+    .project-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.28rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      color: #3A3F47;
+      transition: color .35s ease;
+    }
+    .project-summary {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .82rem;
+      line-height: 1.72;
+      color: #5E7287;
+      margin-bottom: 12px;
+      transition: color .35s ease;
+    }
+    .project-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .project-link {
+      font-family: 'Montserrat', sans-serif;
+      text-decoration: none;
+      font-size: .72rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #5E7287;
+      border-bottom: 1px solid #DFE6EF;
+      padding-bottom: 2px;
+      transition: color .25s, border-color .25s;
+    }
+    .project-link:hover {
+      color: #3A3F47;
+      border-color: #91A5BB;
+    }
+    .project-card:hover .project-content { transform: translateY(-1px); }
+    .project-card:hover .project-title { color: #3A3F47; }
+    .project-card:hover .project-summary { color: #5E7287; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .project-card,
+      .project-media::after,
+      .project-media img,
+      .project-content,
+      .project-title,
+      .project-summary {
+        transition: none !important;
+      }
+      .project-card:hover,
+      .project-card:hover .project-content {
+        transform: none !important;
+      }
+    }
+
+    .final-cta {
+      padding-top: 0;
+      padding-bottom: 72px;
+    }
+    .cta-box {
+      max-width: 1100px;
+      margin: 0 auto;
+      border: none;
+      background: #5E7287;
+      padding: 48px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      border-radius: 4px;
+    }
+    .cta-box h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.35rem, 2.5vw, 2rem);
+      font-weight: 500;
+      letter-spacing: -.01em;
+      color: #EAE6E0;
+    }
+    .cta-btn {
+      font-family: 'Montserrat', sans-serif;
+      text-decoration: none;
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #3A3F47;
+      background: #E2C3C0;
+      padding: 13px 24px;
+      border-radius: 2px;
+      transition: background .25s;
+      white-space: nowrap;
+    }
+    .cta-btn:hover { background: #F2E7D6; color: #3A3F47; }
+
+    footer {
+      background: #5E7287;
+      padding: 40px 64px 24px;
+    }
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(242,231,214,0.15);
+    }
+    .footer-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      color: #EAE6E0;
+      margin-bottom: 10px;
+    }
+    .footer-logo span { color: #E2C3C0; }
+    .footer-tagline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .72rem;
+      color: rgba(242,231,214,0.65);
+      line-height: 1.75;
+      max-width: 260px;
+    }
+    .footer-col-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .62rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #DFE6EF;
+      margin-bottom: 14px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .footer-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .72rem;
+      color: rgba(242,231,214,0.65);
+      text-decoration: none;
+      transition: color .25s;
+    }
+    .footer-links a:hover { color: #F2E7D6; }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 16px;
+      text-align: center;
+    }
+    .footer-copy {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .7rem;
+      color: rgba(242,231,214,0.4);
+      letter-spacing: .04em;
+    }
+
+    @media (max-width: 1100px) {
+      nav, nav.scrolled { padding-left: 40px; padding-right: 40px; }
+      .hero, .projects, .final-cta { padding-left: 40px; padding-right: 40px; }
+      footer { padding-left: 40px; padding-right: 40px; }
+    }
+
+    @media (max-width: 900px) {
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
+      nav, nav.scrolled { padding: 18px 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu a { font-size: 1.35rem; }
+      .hero, .projects, .final-cta { padding-left: 24px; padding-right: 24px; }
+      .hero { padding-top: 84px; padding-bottom: 32px; }
+      .projects { padding-top: 34px; padding-bottom: 42px; }
+      .projects-grid { grid-template-columns: 1fr; gap: 16px; }
+      .cta-box { padding: 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 30px 24px 20px; }
+    }
+
+    @media (max-width: 520px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-btn { width: 100%; text-align: center; }
+      .project-actions { gap: 10px; }
+      .project-link { font-size: .68rem; letter-spacing: .14em; }
+    }
+    /* ===== v2 Theme Sync ===== */
+    :root {
+      --bg: #faf8f4;
+      --text: #1c1a17;
+      --body: rgba(28,26,23,0.55);
+      --faint: rgba(28,26,23,0.08);
+      --line: rgba(28,26,23,0.06);
+      --gold: #b59a6a;
+      --gold2: rgba(181,154,106,0.15);
+      --cream: #f0ebe2;
+      --white: #ffffff;
+    }
+    body {
+      font-family: 'Manrope', sans-serif !important;
+      background:
+        linear-gradient(180deg, rgba(243, 237, 231, 0.90) 0%, rgba(241, 235, 229, 0.88) 46%, rgba(239, 234, 230, 0.92) 100%),
+        radial-gradient(140% 78% at 78% 14%, rgba(210, 220, 232, 0.13) 0%, rgba(210, 220, 232, 0) 68%),
+        radial-gradient(110% 70% at 26% 72%, rgba(236, 210, 200, 0.12) 0%, rgba(236, 210, 200, 0) 66%),
+        radial-gradient(80% 52% at 52% 34%, rgba(244, 230, 214, 0.11) 0%, rgba(244, 230, 214, 0) 70%),
+        url('cloud.webp') 58% 0% / cover no-repeat fixed,
+        linear-gradient(180deg, #F3EDE7 0%, #F1EBE5 48%, #EFEAE6 100%) !important;
+      color: var(--text) !important;
+      cursor: auto !important;
+      position: relative;
+      isolation: isolate;
+      overflow-x: hidden;
+    }
+    body::before {
+      content:'' !important;
+      position: fixed !important;
+      inset: 0 !important;
+      opacity: 0.04 !important;
+      pointer-events: none !important;
+      z-index: 9999 !important;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.70' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E") !important;
+    }
+    body::after {
+      content: '' !important;
+      position: fixed !important;
+      inset: 0 !important;
+      pointer-events: none !important;
+      z-index: 0 !important;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.08) 40%, rgba(255, 255, 255, 0.14) 100%),
+        radial-gradient(120% 80% at 54% 4%, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0) 74%),
+        radial-gradient(95% 76% at 92% 68%, rgba(167, 178, 192, 0.04) 0%, rgba(167, 178, 192, 0) 74%) !important;
+    }
+    body > *:not(.bg) { z-index: 1; }
+    h1, h2, h3, h4, .hero h1, .project-title, .cta-box h2 {
+      font-family: 'Playfair Display', serif !important;
+      color: var(--text) !important;
+      font-weight: 400 !important;
+    }
+    .project-summary, .footer-copy, .footer-tagline { color: rgba(28,26,23,0.92) !important; }
+    .hero p { color: rgba(28,26,23,0.84) !important; }
+    .cursor, .cursor-ring { display: none !important; }
+    nav {
+      position: fixed !important;
+      top: 0 !important;
+      z-index: 9999 !important;
+      background: #faf8f4 !important;
+      backdrop-filter: none !important;
+      border-bottom: 1px solid rgba(28,26,23,0.08) !important;
+    }
+    nav.scrolled {
+      background: rgba(250,248,244,0.8) !important;
+      backdrop-filter: blur(12px) !important;
+      border-color: var(--line) !important;
+    }
+    .nav-logo { color: var(--text) !important; font-family: 'Manrope', sans-serif !important; }
+    .nav-logo span { color: var(--gold) !important; }
+    .nav-links a:not(.nav-cta) {
+      color: rgba(28,26,23,0.92) !important;
+      font-family: 'Manrope', sans-serif !important;
+      font-weight: 500 !important;
+    }
+    .nav-links a::after { background: var(--gold) !important; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text) !important; }
+    .nav-cta {
+      background: var(--text) !important;
+      color: var(--bg) !important;
+      border-radius: 0 !important;
+      font-family: 'Manrope', sans-serif !important;
+    }
+    .nav-links .nav-cta,
+    .nav-links .nav-cta:hover,
+    .nav-links .nav-cta:focus {
+      color: var(--bg) !important;
+      opacity: 1 !important;
+    }
+    .mobile-menu {
+      background: rgba(250,248,244,0.98) !important;
+    }
+    .mobile-menu a { color: var(--text) !important; font-family: 'Playfair Display', serif !important; }
+    .hero, .projects, .final-cta { background: transparent !important; border-color: var(--line) !important; }
+    header, main, section, .hero, .projects, .final-cta, #shared-footer {
+      position: relative;
+      z-index: 2;
+    }
+    .project-card {
+      border: 1px solid var(--line) !important;
+      background: rgba(255,255,255,0.78) !important;
+      box-shadow: none !important;
+    }
+    .project-card:hover {
+      border-color: rgba(181,154,106,0.3) !important;
+      background: rgba(255,255,255,0.9) !important;
+      box-shadow: none !important;
+    }
+    .project-media { background: var(--cream) !important; border-bottom-color: var(--line) !important; }
+    .project-title { color: rgba(28,26,23,0.96) !important; font-weight: 500 !important; }
+    .project-category { color: rgba(136,110,70,0.98) !important; }
+    .project-link {
+      border-bottom: 1px solid var(--line) !important;
+      color: rgba(112,86,50,1) !important;
+      opacity: 1 !important;
+      font-weight: 600 !important;
+    }
+    .project-link:hover { color: var(--text) !important; border-color: var(--gold) !important; }
+    .cta-box {
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+    .cta-btn {
+      background: var(--text) !important;
+      color: var(--bg) !important;
+      border-radius: 0 !important;
+      font-family: 'Manrope', sans-serif !important;
+      font-weight: 500 !important;
+      opacity: 1 !important;
+    }
+    .cta-btn:hover { background: var(--gold) !important; color: var(--bg) !important; }
+    #shared-footer .site-footer {
+      background: rgba(250,248,244,0.72) !important;
+      border-top: 1px solid var(--line) !important;
+      backdrop-filter: blur(8px);
+    }
+    #shared-footer .site-footer .sf-brand { color: var(--text) !important; }
+    #shared-footer .site-footer .sf-desc,
+    #shared-footer .site-footer .sf-links a,
+    #shared-footer .site-footer .sf-links li,
+    #shared-footer .site-footer .sf-copy { color: var(--body) !important; }
+    #shared-footer .site-footer .sf-col-title { color: var(--gold) !important; }
+  </style>
+  <link rel="stylesheet" href="ocean-ui.css">
+</head>
+<body class="ocean-ui">
+  <div class="bg" aria-hidden="true">
+    <div class="bg-paper"></div>
+    <div class="bg-cloud"></div>
+    <div class="bg-cloud2"></div>
+    <div class="bg-fabric"></div>
+    <div class="bg-water"></div>
+    <div class="bg-glow"></div>
+    <div class="bg-grain"></div>
+    <div class="bg-specks"></div>
+  </div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">Home</a>
+    <a href="services.html" onclick="closeMobile()">Services</a>
+    <a href="shopify-websites.html" onclick="closeMobile()">Shopify Websites</a>
+    <a href="work.html" onclick="closeMobile()">Work</a>
+    <a href="about.html" onclick="closeMobile()">About</a>
+    <a href="contact.html" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <nav id="nav">
+    <a href="/" class="nav-logo">2600<span> Design</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="shopify-websites.html">Shopify Websites</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Work</h1>
+      <p>Selected work across brand websites, ecommerce and digital products.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="projects">
+      <div class="projects-inner">
+        <div class="projects-grid">
+          <article class="project-card featured-product">
+            <div class="project-media">
+              <img src="framedreaming-cover.svg" alt="FrameDreaming web product interface preview" loading="eager">
+            </div>
+            <div class="project-content">
+              <span class="project-category">Featured Product · Web</span>
+              <h2 class="project-title">FrameDreaming</h2>
+              <p class="project-summary">A calm web product for turning images and prompts into short, cinematic video.</p>
+              <div class="project-actions">
+                <a class="project-link" href="projects/framedreaming/index.html">View Case Study →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="sh.png" alt="Green Bloom Matcha Shopify website preview" loading="lazy">
+            </div>
+            <div class="project-content">
+              <span class="project-category">Shopify / Ecommerce</span>
+              <h2 class="project-title">Green Bloom Matcha</h2>
+              <p class="project-summary">A soft Shopify concept for a modern matcha brand.</p>
+              <div class="project-actions">
+                <a class="project-link" href="shopify-websites.html">View Project →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img class="haru-cover" src="haru1.webp" alt="Haru Cafe website homepage preview" loading="lazy">
+            </div>
+            <div class="project-content">
+              <span class="project-category">Brand</span>
+              <h2 class="project-title">Haru Cafe</h2>
+              <p class="project-summary">A minimal website for a contemporary café brand.</p>
+              <div class="project-actions">
+                <a class="project-link" href="projects/haru-cafe/index.html">View Project →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="elmstudio1.webp" alt="Elm Studio website homepage preview" loading="lazy">
+            </div>
+            <div class="project-content">
+              <span class="project-category">Studio</span>
+              <h2 class="project-title">Elm Studio</h2>
+              <p class="project-summary">A clean studio website with a calm editorial feel.</p>
+              <div class="project-actions">
+                <a class="project-link" href="projects/elm-studio/index.html">View Project →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="hair1.webp" alt="Boutique Hair Studio website homepage preview" loading="lazy">
+            </div>
+            <div class="project-content">
+              <span class="project-category">Salon</span>
+              <h2 class="project-title">Boutique Hair Studio</h2>
+              <p class="project-summary">A refined salon website with a soft, polished look.</p>
+              <div class="project-actions">
+                <a class="project-link" href="projects/boutique-hair-studio/index.html">View Project →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="cta-inner">
+        <div class="cta-box">
+          <h2>Have a project in mind?</h2>
+          <a href="contact.html" class="cta-btn">Start a Project →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Mount -->
+  <div id="shared-footer"></div>
+
+<script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      const lines = hamburger.querySelectorAll('span');
+      lines[0].style.transform = menuOpen ? 'translateY(6px) rotate(45deg)' : '';
+      lines[1].style.opacity = menuOpen ? '0' : '1';
+      lines[2].style.transform = menuOpen ? 'translateY(-6px) rotate(-45deg)' : '';
+    });
+
+    function closeMobile() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      hamburger.querySelectorAll('span').forEach(s => {
+        s.style.transform = '';
+        s.style.opacity = '1';
+      });
+    }
+
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX;
+      my = e.clientY;
+      cursor.style.transform = `translate(${mx - 3.5}px, ${my - 3.5}px)`;
+    });
+
+    (function animateRing() {
+      rx += (mx - rx) * 0.11;
+      ry += (my - ry) * 0.11;
+      ring.style.transform = `translate(${rx - 15}px, ${ry - 15}px)`;
+      requestAnimationFrame(animateRing);
+    })();
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('big'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('big'));
+    });
+  </script>
+  <script src="shared-footer.js"></script>
+  <script src="chat-widget.js"></script>
+</body>
+</html>

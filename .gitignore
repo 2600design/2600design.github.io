@@ -1,0 +1,18 @@
+# macOS metadata and local editor files
+.DS_Store
+._*
+.claude/
+
+# Drafts / visual experiments (not part of the published site)
+2600-design-v2.html
+2600design_colour_system.html
+clouds_hero.html
+service2.html
+style-preview.html
+
+# Local-only legacy media and oversized videos
+cloudyclothing.mp4
+cloudyclothing.mov
+hero-video.mp4
+hero区域视频.mp4
+

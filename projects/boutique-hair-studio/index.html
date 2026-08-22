@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boutique Hair Studio | 2600 Design</title>
+  <meta name="description" content="Boutique Hair Studio project by 2600 Design. A minimal website direction with refined spacing, strong visual hierarchy, and clean presentation.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://2600design.com.au/projects/boutique-hair-studio">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="2600 Design">
+  <meta property="og:title" content="Boutique Hair Studio — 2600 Design">
+  <meta property="og:description" content="A minimal website direction with refined spacing, strong visual hierarchy, and clean presentation.">
+  <meta property="og:url" content="https://2600design.com.au/projects/boutique-hair-studio">
+  <meta property="og:image" content="https://2600design.com.au/hair1.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Boutique Hair Studio — 2600 Design">
+  <meta name="twitter:description" content="A minimal website direction with refined spacing, strong visual hierarchy, and clean presentation.">
+  <meta name="twitter:image" content="https://2600design.com.au/hair1.webp">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="preload" as="image" href="../../hair1.webp" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../project-pages.css">
+</head>
+<body>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../../index.html" onclick="closeMobile()">Home</a>
+    <a href="../../services.html" onclick="closeMobile()">Services</a>
+    <a href="../../shopify-websites.html" onclick="closeMobile()">Shopify Websites</a>
+    <a href="../../work.html" onclick="closeMobile()">Work</a>
+    <a href="../../about.html" onclick="closeMobile()">About</a>
+    <a href="../../contact.html" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <nav id="nav">
+    <a href="../../index.html" class="nav-logo">2600<span> Design</span></a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../services.html">Services</a></li>
+      <li><a href="../../shopify-websites.html">Shopify Websites</a></li>
+      <li><a href="../../work.html" class="active">Work</a></li>
+      <li><a href="../../about.html">About</a></li>
+      <li><a href="../../contact.html" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="page">
+    <div class="page-inner">
+      <header class="project-hero">
+        <h1 class="project-title">Boutique Hair Studio</h1>
+        <p class="project-description">A refined website for a boutique salon with a modern, minimal feel.</p>
+      </header>
+
+      <section class="project-section" aria-labelledby="hair-gallery-heading">
+          <h2 class="section-label" id="hair-gallery-heading">Visuals</h2>
+        <div class="project-gallery">
+          <figure class="gallery-item gallery-item--wide">
+            <img src="../../hair1.webp" alt="Boutique Hair Studio homepage with clean layout and premium styling" loading="eager">
+            <figcaption>Homepage</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="../../hair2.webp" alt="Boutique Hair Studio layout detail showing clear section hierarchy" loading="lazy">
+            <figcaption>Layout</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="../../hair3.webp" alt="Boutique Hair Studio visual detail with balanced typography and imagery" loading="lazy">
+            <figcaption>Visual Detail</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="project-section" aria-labelledby="hair-worked-heading">
+        <h2 class="section-label" id="hair-worked-heading">What I worked on</h2>
+        <ul class="worked-list" aria-labelledby="hair-worked-heading">
+          <li>Website design</li>
+          <li>Layout structure</li>
+          <li>Visual direction</li>
+          <li>Mobile optimisation</li>
+        </ul>
+      </section>
+
+      <section class="project-section" aria-labelledby="hair-note-heading">
+        <h2 class="section-label" id="hair-note-heading">Note</h2>
+        <p class="project-note">Designed with a focus on simplicity, spacing, and a calm visual flow.</p>
+      </section>
+
+      <section class="project-cta" aria-label="Start project call to action">
+        <a href="../../contact.html">Start a Project <span aria-hidden="true">→</span></a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2600 Design</p>
+      <div class="footer-links">
+        <a href="../../index.html">Home</a>
+        <a href="../../work.html">Work</a>
+        <a href="../../contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      const bars = hamburger.querySelectorAll('span');
+      bars[0].style.transform = menuOpen ? 'translateY(6px) rotate(45deg)' : '';
+      bars[1].style.opacity = menuOpen ? '0' : '1';
+      bars[2].style.transform = menuOpen ? 'translateY(-6px) rotate(-45deg)' : '';
+    });
+
+    function closeMobile() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      hamburger.querySelectorAll('span').forEach((bar) => {
+        bar.style.transform = '';
+        bar.style.opacity = '1';
+      });
+    }
+  </script>
+  <script src="../../chat-widget.js"></script>
+</body>
+</html>
