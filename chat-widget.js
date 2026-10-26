@@ -8,7 +8,7 @@
   const FAQS = [
     {
       q: '💰 How much does a website cost?',
-      a: 'Packages start from <strong>A$700</strong> for a Launch Website, <strong>A$1,700</strong> for a Business Website, and <strong>A$2,500</strong> for a Shopify store. Brand Identity starts from <strong>A$1,200</strong> and Digital Product UI from <strong>A$3,500</strong>. Every project is quoted individually — <a href="contact.html">get a free quote →</a>'
+      a: 'Packages start from <strong>A$700</strong> for a Launch Website, <strong>A$1,700</strong> for a Business Website, and <strong>A$2,500</strong> for a Shopify store. Brand Identity starts from <strong>A$1,200</strong> and Digital Product UI from <strong>A$3,500</strong>. Every project is quoted individually — <a href="/contact.html">get a free quote →</a>'
     },
     {
       q: '📅 How many weeks do you need it done in?',
@@ -33,19 +33,19 @@
     },
     {
       q: '📞 How do I get started?',
-      a: 'Fill in the <a href="contact.html">contact form</a> or email me at <a href="mailto:hello@2600design.com.au">hello@2600design.com.au</a> — I\'ll get back to you within 24 hours!'
+      a: 'Fill in the <a href="/contact.html">contact form</a> or email me at <a href="mailto:hello@2600design.com.au">hello@2600design.com.au</a> — I\'ll get back to you within 24 hours!'
     }
   ];
 
   const WEEK_REPLIES = {
-    1: "Ooh, that's a very tight timeline! 😅 It's possible for a simple single-page site — let's chat urgently and see what we can do. <a href='contact.html'>Get in touch →</a>",
-    2: "2 weeks is doable for a single-page or simple site! Let's get the ball rolling. <a href='contact.html'>Start a project →</a>",
-    3: "3 weeks works well for a single-page or small business site. Let's chat! <a href='contact.html'>Get in touch →</a>",
-    4: "4 weeks is a great timeline for a multi-page business website. Plenty of time to get it right. <a href='contact.html'>Let's start →</a>",
-    5: "5 weeks is perfect — no rush, and enough time for a really polished result. <a href='contact.html'>Let's start →</a>",
-    6: "6 weeks gives us great breathing room for a beautiful, well-considered site. <a href='contact.html'>Book a free chat →</a>",
-    7: "7 weeks — perfect! We can do this really thoroughly. <a href='contact.html'>Book a free chat →</a>",
-    8: "8 weeks is a comfortable timeline. We can plan everything carefully and get a brilliant result. <a href='contact.html'>Book a free chat →</a>"
+    1: "Ooh, that's a very tight timeline! 😅 It's possible for a simple single-page site — let's chat urgently and see what we can do. <a href='/contact.html'>Get in touch →</a>",
+    2: "2 weeks is doable for a single-page or simple site! Let's get the ball rolling. <a href='/contact.html'>Start a project →</a>",
+    3: "3 weeks works well for a single-page or small business site. Let's chat! <a href='/contact.html'>Get in touch →</a>",
+    4: "4 weeks is a great timeline for a multi-page business website. Plenty of time to get it right. <a href='/contact.html'>Let's start →</a>",
+    5: "5 weeks is perfect — no rush, and enough time for a really polished result. <a href='/contact.html'>Let's start →</a>",
+    6: "6 weeks gives us great breathing room for a beautiful, well-considered site. <a href='/contact.html'>Book a free chat →</a>",
+    7: "7 weeks — perfect! We can do this really thoroughly. <a href='/contact.html'>Book a free chat →</a>",
+    8: "8 weeks is a comfortable timeline. We can plan everything carefully and get a brilliant result. <a href='/contact.html'>Book a free chat →</a>"
   };
 
   // ── CSS ────────────────────────────────────────────────────

@@ -824,3 +824,10 @@ footer {
     font-size: 16px;
   }
 }
+
+/* Static breadcrumb links keep project context available without JavaScript. */
+.project-breadcrumb { margin-bottom: 18px; font-size: .75rem; color: var(--ink-soft); }
+.project-breadcrumb ol { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+.project-breadcrumb li + li::before { content: "/"; margin-right: 8px; opacity: .5; }
+.project-breadcrumb a { text-underline-offset: 3px; }
+.project-section .project-note + .project-note { margin-top: 16px; }

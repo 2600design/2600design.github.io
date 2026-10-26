@@ -1,10 +1,8 @@
 (function () {
   var mount = document.getElementById('shared-footer');
-  if (!mount) return;
+  if (!mount || mount.querySelector('footer')) return;
 
-  var path = window.location.pathname || '';
-  var isSubdir = /\/shopify-websites\//.test(path) || /\/projects\//.test(path);
-  var prefix = isSubdir ? '../' : '';
+  var prefix = '/';
 
   if (!document.querySelector('link[data-shared-footer="1"]')) {
     var link = document.createElement('link');
