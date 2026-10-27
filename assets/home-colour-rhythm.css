@@ -1,0 +1,58 @@
+/* Homepage palette rhythm. Each transition uses the colour of its adjoining section. */
+body.ocean-theme {
+ --home-paper: #f6f3ee;
+ --home-blue-paper: #e9eef4;
+ --home-contact-blush: #f6e9ec;
+ --home-work-ink: #0b121b;
+}
+/* Quiet neutral sections balance the darker work and image-led sections. */
+body.ocean-theme .process-wrap,
+body.ocean-theme .services-wrap,
+body.ocean-theme .faq-section,
+body.ocean-theme #shared-footer .site-footer {
+ background-color: var(--home-paper) !important;
+ background-image: none !important;
+}
+body.ocean-theme .hero > .wave-divider path { fill: var(--home-paper) !important; }
+body.ocean-theme .process-step,
+body.ocean-theme .process-step:nth-child(2) { background: #fffdfb !important; border-color: #d6dce4 !important; }
+body.ocean-theme .process-step:nth-child(2) { border-color: #ddc5cd !important; }
+body.ocean-theme .services-studio-panel,
+body.ocean-theme .service-row.is-open { background-color: #fbfaf7 !important; background-image: none !important; }
+body.ocean-theme .pricing-wrap { background-color: var(--home-blue-paper) !important; background-image: none !important; }
+body.ocean-theme .pricing-wrap .pkg-card.is-active { background: #fffdfb !important; border-color: #9bacc3 !important; }
+body.ocean-theme .process-wrap .label-row span,
+body.ocean-theme .services-wrap .label-row span,
+body.ocean-theme .pricing-wrap .label-row span,
+body.ocean-theme .faq-section .label-row span { color: #526c8d !important; }
+body.ocean-theme .process-wrap .label-line,
+body.ocean-theme .pricing-wrap .label-line,
+body.ocean-theme .faq-section .label-line { background-color: #b7c4d4 !important; }
+/* Blush is reserved for the contact invitation, with the subtle paper grain retained. */
+body.ocean-theme #contact { background-color: var(--home-contact-blush) !important; }
+/* Dark portfolio → ivory wave → first film → mist-blue pricing. */
+body.ocean-theme .section-wave-divider-dark { background: var(--home-work-ink); color: var(--home-paper); }
+body.ocean-theme .framedreaming-sequence {
+ --media-entry: #f6f3ee;
+ --media-entry-rgb: 246,243,238;
+ --media-exit: #e9eef4;
+ --media-exit-rgb: 233,238,244;
+ background-color: var(--media-exit) !important;
+}
+body.ocean-theme .immersive-media { background-color: var(--media-exit) !important; }
+body.ocean-theme .immersive-media::before {
+ background: linear-gradient(to bottom,var(--media-entry) 0%,rgba(var(--media-entry-rgb),.94) 24%,rgba(var(--media-entry-rgb),.5) 58%,transparent 100%);
+}
+body.ocean-theme .immersive-media::after {
+ background: linear-gradient(to top,var(--media-exit) 0%,rgba(var(--media-exit-rgb),.94) 24%,rgba(var(--media-exit-rgb),.5) 58%,transparent 100%);
+}
+/* Mist-blue pricing → second film → ivory FAQ. */
+body.ocean-theme .framedreaming-sequence-secondary {
+ --media-entry: #e9eef4;
+ --media-entry-rgb: 233,238,244;
+ --media-exit: #f6f3ee;
+ --media-exit-rgb: 246,243,238;
+ background-color: var(--media-entry) !important;
+}
+body.ocean-theme .framedreaming-media-secondary { padding-top: 0; }
+body.ocean-theme .section-wave-divider-soft { background: var(--home-paper); color: var(--home-paper); }

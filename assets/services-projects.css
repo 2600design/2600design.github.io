@@ -1,0 +1,49 @@
+/* Original compact project thumbnails and three-column service layout. */
+body.ocean-ui .services-page-flow .expertise-item { min-height: 0; }
+body.ocean-ui .services-page-flow .expertise-panel,
+body.ocean-ui .services-page-flow .expertise-panel[aria-hidden="true"] { grid-template-columns: minmax(0,1.05fr) minmax(0,.8fr) 260px; min-height: 0; padding: 42px 48px 54px; gap: 34px; align-items: start; }
+body.ocean-ui .services-page-flow .expertise-visual { width: 260px; height: 260px; max-width: 100%; min-height: 0; margin: 0; align-self: start; aspect-ratio: 1; padding: 12px; background: #f3f0eb; box-shadow: none; }
+body.ocean-ui .services-page-flow .expertise-visual::after { display: none; }
+body.ocean-ui .services-page-flow .expertise-visual a { display: grid; place-items: center; width: 100%; height: 100%; }
+body.ocean-ui .services-page-flow .expertise-visual img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; object-position: center; padding: 0; background: transparent; border-radius: 4px; }
+body.ocean-ui .services-page-flow .expertise-visual a:focus-visible { outline: 2px solid #526c8d; outline-offset: 5px; }
+@media (max-width: 860px) {
+body.ocean-ui .services-page-flow .expertise-panel,
+body.ocean-ui .services-page-flow .expertise-panel[aria-hidden="true"] { grid-template-columns: minmax(0,1fr) minmax(0,1fr); padding: 28px 24px 32px; gap: 24px; }
+body.ocean-ui .services-page-flow .expertise-visual { grid-column: 1 / -1; width: min(260px,100%); height: auto; aspect-ratio: 1; }
+}
+@media (max-width: 560px) {
+body.ocean-ui .services-page-flow .expertise-panel,
+body.ocean-ui .services-page-flow .expertise-panel[aria-hidden="true"] { grid-template-columns: minmax(0,1fr); padding: 24px 20px 28px; gap: 22px; }
+body.ocean-ui .services-page-flow .expertise-visual { grid-column: auto; }
+}
+body.ocean-ui .services-page-flow .brand-concept { overflow: visible; padding: 0; background: transparent; border: 0; }
+body.ocean-ui .services-page-flow .brand-concept a { border-radius: 12px; overflow: hidden; }
+body.ocean-ui .services-page-flow .brand-concept figcaption { margin-top: 8px; color: #56606d; font-size: 10px; line-height: 1.5; letter-spacing: .06em; text-align: center; }
+
+/* FAQ: centered section with a cool paper-blue surface. */
+body.ocean-ui .services-page-flow .seo-faq {
+ background-color: #e9eef4 !important;
+ background-image: url('/assets/paper-grain.svg') !important;
+ background-size: 180px 180px !important;
+ background-blend-mode: multiply;
+ padding: 64px clamp(24px,6vw,84px) 72px !important;
+}
+body.ocean-ui .services-page-flow .seo-faq .label-row { justify-content: center; margin-bottom: 24px; }
+body.ocean-ui .services-page-flow .seo-faq .label-row span { color: #526c8d !important; }
+body.ocean-ui .services-page-flow .seo-faq .label-line { background: #a5b7cb !important; }
+body.ocean-ui .services-page-flow .seo-faq .section-title {
+ max-width: 24ch; margin: 0 auto 36px; text-align: center; color: #314b69 !important;
+}
+body.ocean-ui .services-page-flow .seo-faq-list { width: 100%; max-width: 850px; margin-inline: auto; }
+body.ocean-ui .services-page-flow .seo-faq details { border-bottom-color: #c5d1df; }
+body.ocean-ui .services-page-flow .seo-faq summary { color: #27364b; }
+body.ocean-ui .services-page-flow .seo-faq summary::marker { color: #526c8d; }
+body.ocean-ui .services-page-flow .seo-faq details p { color: #46576d; }
+body.ocean-ui .services-page-flow .seo-faq summary:focus-visible { outline: 2px solid #526c8d; outline-offset: 6px; }
+@media(max-width:560px) {
+ body.ocean-ui .services-page-flow .seo-faq { padding: 40px 24px 44px !important; }
+ body.ocean-ui .services-page-flow .seo-faq .section-title { font-size: 28px !important; margin-bottom: 26px; }
+ body.ocean-ui .services-page-flow .seo-faq summary { font-size: 14px; line-height: 1.7; }
+ body.ocean-ui .services-page-flow .seo-faq details { padding-block: 18px; }
+}

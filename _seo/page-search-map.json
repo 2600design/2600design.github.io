@@ -1,0 +1,178 @@
+[
+  {
+    "path": "/",
+    "title": "Web Design & Shopify Websites Australia | 2600 Design",
+    "description": "Custom websites and Shopify stores for small businesses across Australia. Work directly with Flora at 2600 Design, an independent studio based in Canberra.",
+    "intent": "web design Australia; custom small business websites",
+    "social_image": "/assets/social/home.jpg",
+    "social_alt": "2600 Design homepage with custom web design and Shopify services for Australian businesses",
+    "social_width": 1200,
+    "social_height": 630,
+    "social_bytes": 105265
+  },
+  {
+    "path": "/services.html",
+    "title": "Web Design Services & Pricing Australia | 2600 Design",
+    "description": "Explore custom websites, Shopify stores, brand identity and product UI for Australian businesses. Compare website packages from A$700 and see what is included.",
+    "intent": "small business web design services and pricing",
+    "social_image": "/assets/social/services.jpg",
+    "social_alt": "Cloud artwork used in the 2600 Design services header",
+    "social_width": 1200,
+    "social_height": 400,
+    "social_bytes": 74407
+  },
+  {
+    "path": "/work.html",
+    "title": "Web Design Portfolio & Case Studies | 2600 Design",
+    "description": "Explore website, Shopify and digital product design by 2600 Design. View responsive websites, ecommerce storefronts and web and app interface projects.",
+    "intent": "web design portfolio; Shopify and product UI case studies",
+    "social_image": "/assets/social/work.jpg",
+    "social_alt": "Responsive wedding website shown on desktop and mobile",
+    "social_width": 1200,
+    "social_height": 821,
+    "social_bytes": 62611
+  },
+  {
+    "path": "/about.html",
+    "title": "About Flora | Canberra Web Designer | 2600 Design",
+    "description": "Meet Flora, the Canberra designer behind 2600 Design. A Macquarie and UTS graduate creating websites, Shopify stores and digital products for Australian businesses.",
+    "intent": "Flora; independent Canberra web designer",
+    "social_image": "/assets/social/about.jpg",
+    "social_alt": "Cloud artwork used in the 2600 Design About header",
+    "social_width": 1200,
+    "social_height": 400,
+    "social_bytes": 74407
+  },
+  {
+    "path": "/contact.html",
+    "title": "Contact 2600 Design | Website & Shopify Enquiries",
+    "description": "Tell Flora about your website, Shopify store or product UI project. Share your goals, budget and timing with 2600 Design, working online across Australia.",
+    "intent": "web design project enquiry Australia",
+    "social_image": "/assets/social/contact.jpg",
+    "social_alt": "Cloud artwork used in the 2600 Design contact header",
+    "social_width": 1200,
+    "social_height": 400,
+    "social_bytes": 74407
+  },
+  {
+    "path": "/shopify-websites.html",
+    "title": "Shopify Website Design Australia | 2600 Design",
+    "description": "Custom Shopify store design for Australian brands. Explore fashion and accessories storefronts, mobile shopping layouts and store packages starting at A$2,500.",
+    "intent": "Shopify website design Australia; custom storefronts",
+    "social_image": "/assets/social/shopify-websites.jpg",
+    "social_alt": "Fashion storefront concept Shopify fashion storefront concept with editorial imagery",
+    "social_width": 1200,
+    "social_height": 680,
+    "social_bytes": 195814
+  },
+  {
+    "path": "/projects/haru-cafe/",
+    "title": "Haru Cafe | Cafe Website Design Concept | 2600 Design",
+    "description": "A cafe website concept by 2600 Design, with editorial typography, a calm homepage and responsive content layouts. Explore the visual direction and design decisions.",
+    "intent": "cafe website design concept",
+    "social_image": "/assets/social/projects-haru-cafe.jpg",
+    "social_alt": "Haru Cafe homepage concept with editorial typography and coffee imagery",
+    "social_width": 1200,
+    "social_height": 732,
+    "social_bytes": 43191
+  },
+  {
+    "path": "/projects/elm-studio/",
+    "title": "Elm Studio | Interior Design Website Concept | 2600 Design",
+    "description": "An interior studio website concept by 2600 Design. Explore the portfolio layout, natural colour palette, visual hierarchy and responsive design approach.",
+    "intent": "interior design studio website concept",
+    "social_image": "/assets/social/projects-elm-studio.jpg",
+    "social_alt": "Elm Studio interior design website concept with natural tones and project imagery",
+    "social_width": 1200,
+    "social_height": 826,
+    "social_bytes": 59887
+  },
+  {
+    "path": "/projects/boutique-hair-studio/",
+    "title": "Boutique Hair Studio | Salon Website Concept | 2600 Design",
+    "description": "A salon website concept by 2600 Design, combining refined typography, service presentation and responsive layouts. Explore the visual direction for a hair studio.",
+    "intent": "hair salon website design concept",
+    "social_image": "/assets/social/projects-boutique-hair-studio.jpg",
+    "social_alt": "Boutique Hair Studio salon website concept with refined typography and hair imagery",
+    "social_width": 1200,
+    "social_height": 796,
+    "social_bytes": 95584
+  },
+  {
+    "path": "/projects/cloudy-clothing/",
+    "title": "Cloudy Clothing | WooCommerce Store Design | 2600 Design",
+    "description": "Explore a WordPress and WooCommerce fashion store by 2600 Design, covering child theme customisation, product styling, cart flow and responsive storefront layouts.",
+    "intent": "WooCommerce fashion store design",
+    "social_image": "/assets/social/projects-cloudy-clothing.jpg",
+    "social_alt": "Cloudy Clothing WordPress and WooCommerce fashion storefront",
+    "social_width": 1200,
+    "social_height": 690,
+    "social_bytes": 78012
+  },
+  {
+    "path": "/projects/framedreaming/",
+    "title": "FrameDreaming | Web & iOS Product UI Design | 2600 Design",
+    "description": "Explore FrameDreaming, a creative AI product designed and built by Flora. See the web and iOS interfaces for image inputs, generation settings and output browsing.",
+    "intent": "web and iOS product UI design case study",
+    "social_image": "/assets/social/projects-framedreaming.jpg",
+    "social_alt": "FrameDreaming creative AI product interfaces across web and iOS",
+    "social_width": 1200,
+    "social_height": 800,
+    "social_bytes": 105903
+  },
+  {
+    "path": "/projects/lettrine/",
+    "title": "Lettrine | Wedding Website Platform Design | 2600 Design",
+    "description": "Lettrine brings 61 wedding website designs, a shared editor and household RSVPs together. Explore product design, art direction and frontend work by 2600 Design.",
+    "intent": "wedding website platform design case study",
+    "social_image": "/assets/social/projects-lettrine.jpg",
+    "social_alt": "Lettrine MORROW wedding website shown on desktop and mobile",
+    "social_width": 1200,
+    "social_height": 821,
+    "social_bytes": 62611
+  },
+  {
+    "path": "/projects/ptescore/",
+    "title": "PTE Score | Education App & UI Design | 2600 Design",
+    "description": "A PTE practice product designed and built by 2600 Design. Explore web and iOS interfaces for exam-style tasks, audio practice, AI-assisted feedback and progress.",
+    "intent": "education app UI and product design case study",
+    "social_image": "/assets/social/projects-ptescore.jpg",
+    "social_alt": "PTE Score practice dashboard and iOS education app interface",
+    "social_width": 1200,
+    "social_height": 800,
+    "social_bytes": 115840
+  },
+  {
+    "path": "/projects/my-little-shop/",
+    "title": "My Little Shop | Shopify Storefront Design | 2600 Design",
+    "description": "An independent Shopify accessories store by 2600 Design. Explore custom theme development, collection browsing, colour swatches and editorial product presentation.",
+    "intent": "Shopify accessories store design case study",
+    "social_image": "/assets/social/projects-my-little-shop.jpg",
+    "social_alt": "My Little Shop Shopify accessories storefront and product presentation",
+    "social_width": 1200,
+    "social_height": 800,
+    "social_bytes": 70439
+  },
+  {
+    "path": "/projects/green-bloom-matcha/",
+    "title": "Green Bloom Matcha | Shopify Store Concept | 2600 Design",
+    "description": "A Shopify storefront concept by 2600 Design for Green Bloom Matcha, with editorial storytelling, collection layouts, cart design and a calm mobile shopping direction.",
+    "intent": "Shopify food and beverage storefront concept",
+    "social_image": "/assets/social/projects-green-bloom-matcha.jpg",
+    "social_alt": "Green Bloom Matcha Shopify homepage concept with muted green imagery",
+    "social_width": 1200,
+    "social_height": 654,
+    "social_bytes": 181145
+  },
+  {
+    "path": "/projects/somer-house/",
+    "title": "Somer House | Fashion Shopify Theme Concept | 2600 Design",
+    "description": "A self-initiated fashion Shopify theme concept by 2600 Design, combining editorial art direction, collection browsing and editable Online Store 2.0 sections.",
+    "intent": "fashion Shopify theme design concept",
+    "social_image": "/assets/social/projects-somer-house.jpg",
+    "social_alt": "Somer House fashion Shopify theme concept with an editorial campaign and product grid",
+    "social_width": 1200,
+    "social_height": 680,
+    "social_bytes": 195814
+  }
+]

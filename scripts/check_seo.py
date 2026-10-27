@@ -5,6 +5,7 @@ Run from any directory: python3 scripts/check_seo.py
 No packages or network access required. Canonical pages come from sitemap.xml.
 """
 from collections import Counter
+from datetime import date
 from html import unescape
 from html.parser import HTMLParser
 import json
@@ -79,11 +80,15 @@ def check_css(source, source_url, where):
 
 
 def main():
-    urls = [n.text for n in ET.parse(ROOT / "sitemap.xml").findall(
+    sitemap = ET.parse(ROOT / "sitemap.xml")
+    urls = [n.text for n in sitemap.findall(
         "{http://www.sitemaps.org/schemas/sitemap/0.9}url/"
         "{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
+    plan = json.loads((ROOT / "_seo/page-search-map.json").read_text())
+    planned = {BASE + row["path"]: row for row in plan}
+    check(set(planned) == set(urls), "search map", "page plan and sitemap differ")
     check(len(urls) == len(set(urls)), "sitemap", "duplicate URLs")
-    check(len(urls) == 11, "sitemap", "expected all eleven public content pages")
+    check(len(urls) == 16, "sitemap", "expected all sixteen public content pages")
     check(f"Sitemap: {BASE}/sitemap.xml" in (ROOT / "robots.txt").read_text(), "robots", "wrong sitemap host")
     check((ROOT / "CNAME").read_text().strip() == urlsplit(BASE).netloc, "CNAME", "canonical host differs from Pages host")
     titles, descriptions, pages = [], [], {}
@@ -112,6 +117,9 @@ def main():
         if page.titles:
             titles.extend(page.titles)
             check(page.meta("og:title") == page.titles == page.meta("twitter:title"), url, "social titles differ")
+            check(page.titles == [planned.get(url, {}).get("title")], url, "title differs from page search plan")
+        check(page.meta("description") == [planned.get(url, {}).get("description")], url, "description differs from page search plan")
+        check(len(page.meta("viewport")) == 1 and "width=device-width" in page.meta("viewport")[0], url, "missing responsive viewport")
         descriptions.extend(page.meta("description"))
         check(page.meta("og:description") == page.meta("description") == page.meta("twitter:description"), url, "social descriptions differ")
         for key in ("og:image", "twitter:image"):
@@ -127,8 +135,25 @@ def main():
         graph = page.schemas[0].get("@graph", []) if len(page.schemas) == 1 else []
         check(bool(graph), url, "expected a static JSON-LD graph")
         nodes = {n.get("@id"): n for n in graph}
+        check(len(nodes) == len(graph), url, "duplicate schema entity IDs")
         check(url + "#webpage" in nodes, url, "missing WebPage entity")
         check(BASE + "/#organization" in nodes and BASE + "/#website" in nodes, url, "missing studio or website entity")
+        web = nodes.get(url + "#webpage", {})
+        check(web.get("name") == (page.titles[0] if page.titles else None), url, "schema page title differs from HTML")
+        check(web.get("description") in page.meta("description"), url, "schema description differs from HTML")
+        check(BASE + "/#flora" in nodes, url, "missing designer entity")
+        check(nodes.get(BASE + "/#organization", {}).get("founder") == {"@id": BASE + "/#flora"}, url, "studio founder reference differs")
+        if url == BASE + "/about.html":
+            alumni = nodes.get(BASE + "/#flora", {}).get("alumniOf", [])
+            check({n.get("name") for n in alumni} == {"Macquarie University", "University of Technology Sydney"}, url, "designer education differs from confirmed background")
+        for node in graph:
+            if node.get("@type") == "CreativeWork":
+                check(node.get("mainEntityOfPage") == {"@id": url + "#webpage"}, url, "case study lacks its page reference")
+                check(bool(node.get("image")) and local_file(urlsplit(node.get("image", "")).path).exists(), url, "case study image is missing")
+            if node.get("@type") == "ItemList":
+                links = {urljoin(url, a.get("href", "")) for t, a in page.tags if t == "a"}
+                for item in node.get("itemListElement", []):
+                    check(item.get("url") in links, url, "schema lists a project that is not linked on the page")
         if url != BASE + "/":
             crumb = nodes.get(url + "#breadcrumb", {})
             items = crumb.get("itemListElement", [])
@@ -156,6 +181,55 @@ def main():
                 check(ref in page.ids, url, f"missing aria-labelledby target {ref}")
         check("data:image/jpeg;base64," not in source, url, "embedded raster background duplicates HTML payload")
         check_css(source, url, url)
+        for t, attrs in page.tags:
+            if t == "link" and attrs.get("rel") == "stylesheet" and local_url(attrs.get("href", "")):
+                target = urljoin(url, attrs["href"])
+                css = local_file(urlsplit(target).path)
+                if css.exists():
+                    check_css(css.read_text(), target, css.name)
+            if t == "img" and attrs.get("srcset"):
+                for candidate in attrs["srcset"].split(","):
+                    value = candidate.strip().split()[0]
+                    check(local_file(urlsplit(urljoin(url, value)).path).exists(), url, f"missing responsive image {value}")
+    # A valid sitemap must also describe real image assets and modification dates.
+    sns = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
+    ins = "{http://www.google.com/schemas/sitemap-image/1.1}"
+    for entry in sitemap.findall(sns + "url"):
+        url = entry.findtext(sns + "loc")
+        try:
+            date.fromisoformat(entry.findtext(sns + "lastmod", ""))
+        except ValueError:
+            errors.append(f"{url}: sitemap lastmod must be a real ISO date")
+        for image in entry.findall(ins + "image/" + ins + "loc"):
+            check(image.text.startswith(BASE + "/") and local_file(urlsplit(image.text).path).exists(), url, "sitemap references a missing image")
+    # Every page must be reachable from the homepage through ordinary HTML links.
+    reachable, pending = set(), [BASE + "/"]
+    while pending:
+        current = pending.pop()
+        if current in reachable:
+            continue
+        reachable.add(current)
+        for tag, attrs in pages[current].tags:
+            if tag == "a":
+                target = urlsplit(urljoin(current, attrs.get("href", "")))
+                clean = target._replace(query="", fragment="").geturl()
+                if clean in pages and clean not in reachable:
+                    pending.append(clean)
+    check(reachable == set(pages), "internal links", "one or more canonical pages are unreachable from the homepage")
+    canonical_files = {local_file(urlsplit(url).path).resolve() for url in urls}
+    for candidate in ROOT.rglob("*.html"):
+        relative = candidate.relative_to(ROOT)
+        if any(part.startswith(".") or part == "node_modules" for part in relative.parts):
+            continue
+        if candidate.resolve() in canonical_files:
+            continue
+        source = candidate.read_text()
+        if "<html" not in source.lower():
+            continue
+        other = Page(source)
+        is_alias = other.canonical() and other.canonical()[0] in urls and any(
+            t == "meta" and a.get("http-equiv", "").lower() == "refresh" for t, a in other.tags)
+        check(is_alias or any("noindex" in value for value in other.meta("robots")), str(relative), "preview or obsolete page could be indexed")
     for css in (ROOT / "v2-bg.css", ROOT / "shared-footer.css", ROOT / "projects/project-pages.css"):
         check_css(css.read_text(), BASE + "/" + str(css.relative_to(ROOT)), css.name)
     widget = (ROOT / "chat-widget.js").read_text()
@@ -173,7 +247,7 @@ def main():
         print("SEO checks failed:")
         print("\n".join("- " + error for error in errors))
         return 1
-    print(f"PASS: {len(pages)} canonical pages; unique metadata; JSON-LD; social images; sitemap; internal links, fragments and CSS assets; Shopify alias; 404.")
+    print(f"PASS: {len(pages)} reachable canonical pages; search plan; unique metadata; entity/schema consistency; social and responsive images; sitemap dates/images; internal links, fragments and linked CSS assets; Shopify alias; 404.")
     return 0
 
 

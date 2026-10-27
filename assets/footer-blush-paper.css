@@ -1,0 +1,27 @@
+/* The existing blush footer, with quiet paper grain and readable dark text. */
+body #shared-footer .site-footer,
+body.ocean-theme #shared-footer .site-footer,
+body.ocean-ui #shared-footer .site-footer,
+body.portfolio-page #shared-footer .site-footer,
+body.studio-project-legacy > footer {
+ background-color: #f2e8e9 !important;
+ background-image: url('/assets/paper-grain.svg') !important;
+ background-repeat: repeat !important;
+ background-size: 180px 180px !important;
+ background-blend-mode: multiply;
+ border-top-color: #dfcdd2 !important;
+ color: #27364b !important;
+}
+body #shared-footer .site-footer .sf-brand,
+body #shared-footer .site-footer .sf-col-title { color: #27364b !important; }
+body #shared-footer .site-footer .sf-desc,
+body #shared-footer .site-footer .sf-copy,
+body.studio-project-legacy > footer .footer-inner p { color: #536176 !important; }
+body #shared-footer .site-footer .sf-links a,
+body #shared-footer .site-footer .sf-links li,
+body.studio-project-legacy > footer .footer-inner a { color: #3d536f !important; }
+body #shared-footer .site-footer .sf-links a:hover,
+body.studio-project-legacy > footer .footer-inner a:hover { color: #8f5e6a !important; }
+body #shared-footer .site-footer .sf-grid { border-bottom-color: #d9c5cd !important; }
+body #shared-footer .site-footer a:focus-visible,
+body.studio-project-legacy > footer a:focus-visible { outline: 2px solid #8f5e6a; outline-offset: 5px; }

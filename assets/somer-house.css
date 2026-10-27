@@ -1,0 +1,18 @@
+/* Somer House: show complete screens inside the studio's existing portfolio. */
+.commerce-study-card--somer { grid-column: 1 / -1; }
+.commerce-study-card--somer .work-cover--somer { aspect-ratio: auto; padding: clamp(16px, 3vw, 40px); background: #e9dfd2; }
+.commerce-study-card--somer .work-cover--somer > img { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 3px; box-shadow: 0 16px 40px #5c453321; }
+.commerce-study-card--somer:hover .work-cover > img:only-child { transform: none; }
+.somer-study-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; padding-top: 6px; }
+.somer-study-copy small { display: block; margin-top: 16px; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; opacity: .6; }
+.somer-study-copy h3 { margin-top: 8px; }
+.case-page--somer-house { --story-tint: #e9dfd2; }
+.somer-screen-link { display: block; cursor: zoom-in; }
+.somer-gallery { margin-top: 12px; padding: clamp(18px, 4vw, 54px); background: #e9dfd2; border-radius: 6px; }
+.somer-gallery img { border: 0; box-shadow: 0 16px 40px #5c453321; }
+.somer-gallery figcaption { margin-top: 18px; }
+.somer-palette { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 28px; }
+.somer-palette span { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: 10px; }
+.somer-palette i { width: 22px; height: 22px; border-radius: 50%; border: 1px solid #33323020; background: var(--swatch); }
+.somer-project-note { margin-top: 28px !important; padding-top: 20px; border-top: 1px solid var(--line); font-size: 11px !important; }
+@media (max-width: 600px) { .somer-study-copy { grid-template-columns: 1fr; gap: 10px; } .somer-study-copy p { margin-top: 0; } }

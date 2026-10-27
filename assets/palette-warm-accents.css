@@ -1,0 +1,125 @@
+/* Blush accents across the studio. Primary actions stay dark blue. */
+body.ocean-theme, body.ocean-ui, body.portfolio-page {
+ --warm-blush: #e8cdd3;
+ --warm-blush-paper: #f6e9ec;
+ --warm-rose-ink: #8f5e6a;
+}
+/* Consistent actions: no yellow fills. */
+body.ocean-theme .btn-primary,
+body.ocean-theme .cta-button,
+body.ocean-theme .pkg-btn,
+body.ocean-theme .form-submit,
+body.ocean-ui .pkg-btn,
+body.ocean-ui .form-submit,
+.portfolio-page .folio-button {
+ background: #3d536f !important;
+ color: #fffaf7 !important;
+ border-color: #3d536f !important;
+}
+body.ocean-theme .btn-primary:hover,
+body.ocean-theme .cta-button:hover,
+body.ocean-theme .pkg-btn:hover,
+body.ocean-theme .form-submit:hover,
+body.ocean-ui .pkg-btn:hover,
+body.ocean-ui .form-submit:hover,
+.portfolio-page .folio-button:hover {
+ background: #2c405a !important;
+ color: #fffaf7 !important;
+ border-color: #2c405a !important;
+}
+/* Home: blush appears in the page's rhythm, rather than only in the hero. */
+body.ocean-theme .hero-title .highlight { color: var(--warm-blush); }
+body.ocean-theme .process-wrap { background: linear-gradient(180deg,#f6f3ee 0%,#f7edf0 100%) !important; }
+body.ocean-theme .process-step:nth-child(2),
+body.ocean-ui .process-step:nth-child(2) { background: #fcf7f8 !important; border-color: #dfc6cd !important; }
+body.ocean-theme .service-row.is-open { background: #f8eef1 !important; }
+body.ocean-theme .service-row.is-open .service-row-index { color: var(--warm-rose-ink); }
+body.ocean-theme .service-row.is-open .service-row-panel-inner li::before { background: var(--warm-rose-ink); }
+body.ocean-theme .pricing-wrap,
+body.ocean-ui .services-page-flow .pricing-wrap { background: #faf3f4 !important; }
+body.ocean-theme .pkg-card.is-active,
+body.ocean-ui .pkg-card.is-active { border-color: #c99da9 !important; background: #fcf7f8 !important; }
+body.ocean-theme .faq-section { background: linear-gradient(145deg,#f8f1f3,#f6f3ee) !important; border-top-color: #e3cfd5 !important; }
+body.ocean-theme .faq-item:hover,
+body.ocean-theme .faq-item.is-open { border-color: #cfabb6 !important; }
+body.ocean-theme #contact,
+body.ocean-ui #contact { background: #f6e9ec !important; }
+body.ocean-theme .contact-form,
+body.ocean-ui .contact-form { background: #fffaf9 !important; border-color: #e1cbd2 !important; }
+/* Inner pages and shared details repeat the same accents. */
+body.ocean-theme .label-row span,
+body.ocean-ui .label-row span,
+body.ocean-ui .expertise-detail-label,
+body.ocean-ui .expertise-meta span,
+body.ocean-ui .pkg-label,
+body.ocean-ui .pkg-list-title { color: var(--warm-rose-ink) !important; }
+body.ocean-theme .label-line,
+body.ocean-ui .label-line { background-color: #dcc0c9 !important; }
+body.ocean-ui .section-title em { color: var(--warm-rose-ink) !important; }
+body.ocean-ui .services-page-flow .expertise-item:nth-child(3) { border-color: #dfc6cd !important; }
+body.ocean-ui .about-accent-fill { background: #e8cdd3 !important; }
+body.ocean-ui .about-accent-box { border-color: #cda5b1 !important; }
+body.ocean-theme .nav-logo span,
+body.ocean-ui .nav-logo span { color: #ead4d9 !important; }
+.portfolio-page .studio-brand span,
+.portfolio-page .folio-eyebrow,
+.portfolio-page .work-intro h1 span { color: var(--warm-rose-ink); }
+.portfolio-page .folio-contact { background: #f3e7ea; border-color: #dfc6cd; }
+body.ocean-theme #shared-footer .site-footer,
+body.ocean-ui #shared-footer .site-footer,
+.portfolio-page #shared-footer .site-footer { background: #f2e8e9 !important; border-top-color: #dfcdd2 !important; }
+body.ocean-theme a:focus-visible,
+body.ocean-ui a:focus-visible,
+body.portfolio-page a:focus-visible { outline-color: #8f5e6a; }
+
+.portfolio-page .studio-nav { background: #f6f3ee; border-bottom-color: #dfcdd2; }
+@media(max-width:780px) { .portfolio-page .studio-links { background-color: #f6f3ee; border-color: #dfcdd2; } }
+
+/* Quiet inner-page headers: warm paper, ink typography, restrained rose emphasis. */
+body.ocean-ui nav#nav,
+body.ocean-ui nav#nav.scrolled,
+body.studio-project-legacy nav,
+body.studio-project-legacy nav.scrolled {
+ background: rgba(246,243,238,.98) !important;
+ border-bottom-color: #ded8d5 !important;
+ box-shadow: 0 4px 18px rgba(39,54,75,.04) !important;
+}
+body.ocean-ui nav#nav .nav-logo,
+body.studio-project-legacy nav .nav-logo { color: #27364b !important; }
+body.ocean-ui nav#nav .nav-logo span,
+body.studio-project-legacy nav .nav-logo span { color: #8f5e6a !important; }
+body.ocean-ui nav#nav .nav-links a,
+body.studio-project-legacy nav .nav-links a { color: #536176 !important; }
+body.ocean-ui nav#nav .hamburger span,
+body.studio-project-legacy nav .hamburger span { background: #27364b !important; }
+body.ocean-ui .page-hero,
+body.ocean-ui > .hero,
+body.ocean-ui > header.hero {
+ background: #f6f3ee !important;
+ color: #27364b !important;
+ box-shadow: none !important;
+}
+body.ocean-ui .page-hero::before,
+body.ocean-ui > .hero::before,
+body.ocean-ui > header.hero::before { background: none !important; }
+body.ocean-ui .page-hero-title,
+body.ocean-ui .hero h1 { color: #27364b !important; text-shadow: none !important; }
+body.ocean-ui .page-hero-title em,
+body.ocean-ui .page-hero-title .highlight,
+body.ocean-ui .hero h1 em,
+body.ocean-ui .hero h1 .highlight { color: #8f5e6a !important; }
+body.ocean-ui .page-hero-label,
+body.ocean-ui .hero .eyebrow { color: #8f5e6a !important; }
+body.ocean-ui .page-hero-intro,
+body.ocean-ui .hero-inner p,
+body.ocean-ui .hero-subtitle,
+body.ocean-ui .hero-copy { color: #536176 !important; text-shadow: none !important; }
+body.ocean-ui .page-hero-actions a { color: #27364b !important; border-color: #c7bdc2 !important; }
+body.ocean-ui .page-hero-actions a:first-child { background: #3d536f !important; color: #fffaf7 !important; border-color: #3d536f !important; }
+body.ocean-ui .hero .btn-ghost { color: #27364b !important; border-color: #a9b2c0 !important; }
+body.ocean-ui .mobile-menu,
+body.studio-project-legacy .mobile-menu { background: #f6f3ee !important; border-color: #d9cbd1 !important; }
+body.ocean-ui .mobile-menu a,
+body.studio-project-legacy .mobile-menu a { color: #27364b !important; }
+body.ocean-ui .mobile-menu a:hover,
+body.studio-project-legacy .mobile-menu a:hover { color: #8f5e6a !important; background: #f0e1e5 !important; }

@@ -1,0 +1,44 @@
+/* Quiet monochrome paper grain on blush surfaces; foreground content stays crisp. */
+body.ocean-theme .process-wrap { background-color: #f7edf0 !important; }
+body.ocean-theme .faq-section { background-color: #f8f1f3 !important; }
+body.ocean-theme .process-wrap,
+body.ocean-theme .pricing-wrap,
+body.ocean-theme .faq-section,
+body.ocean-theme #contact,
+body.ocean-theme .service-row.is-open,
+body.ocean-ui .services-page-flow .pricing-wrap,
+body.ocean-ui #contact,
+body.portfolio-page .folio-contact,
+body.ocean-theme #shared-footer .site-footer,
+body.ocean-ui #shared-footer .site-footer,
+body.portfolio-page #shared-footer .site-footer {
+ background-image: url('/assets/paper-grain.svg') !important;
+ background-repeat: repeat !important;
+ background-size: 180px 180px !important;
+ background-blend-mode: multiply;
+}
+/* Dark text belongs with the blush footer on every theme. */
+body #shared-footer .site-footer { color: #27364b !important; }
+body #shared-footer .site-footer .sf-brand,
+body #shared-footer .site-footer .sf-col-title { color: #27364b !important; opacity: 1; }
+body #shared-footer .site-footer .sf-desc,
+body #shared-footer .site-footer .sf-copy { color: #536176 !important; opacity: 1; }
+body #shared-footer .site-footer .sf-links a,
+body #shared-footer .site-footer .sf-links li { color: #3d536f !important; opacity: 1; }
+body #shared-footer .site-footer .sf-links a:hover { color: #8f5e6a !important; }
+body #shared-footer .site-footer .sf-grid { border-bottom-color: #d9c5cd !important; }
+/* Readability corrections found while checking the new light and dark surfaces. */
+body.ocean-theme .featured-work-section .home-work-card p { color: #c5cedb !important; }
+body.ocean-theme .featured-work-section .home-work-card .work-meta { color: #b6c0d0 !important; }
+body.ocean-theme .service-row:not(.is-open) .service-row-panel-inner p,
+body.ocean-theme .service-row:not(.is-open) .service-row-panel-inner li,
+body.ocean-theme .service-row:not(.is-open) .service-row-panel-inner a { color: #d3dbe6 !important; }
+body.ocean-ui .pkg-list.not-incl,
+body.ocean-ui .pkg-list.not-incl li { color: #606b7d !important; }
+body.portfolio-page { --muted: #536176; }
+body.portfolio-page .folio-contact p { color: #536176; }
+body.portfolio-page .folio-contact .folio-eyebrow { color: #855562; }
+body.ocean-theme input::placeholder,
+body.ocean-theme textarea::placeholder,
+body.ocean-ui input::placeholder,
+body.ocean-ui textarea::placeholder { color: #657084 !important; opacity: 1; }

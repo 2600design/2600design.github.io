@@ -1,0 +1,28 @@
+/* Scoped case-study presentation. Native 2x captures, no decorative screen overlays. */
+.case-page--my-little-shop { --paper: #fafbf8; }
+.case-page--my-little-shop .case-heading-grid { grid-template-columns: 1.1fr 1fr; gap: 48px; }
+.case-page--my-little-shop .case-heading h1 { font-size: clamp(44px,6.3vw,88px); line-height: 1.08; letter-spacing: -.06em; }
+.case-page--my-little-shop .case-lead { font-size: 14px; line-height: 1.85; }
+.shop-presentation { margin: 0; }
+.shop-presentation img { width: 100%; height: auto; border: 1px solid #e6e7e1; border-radius: 0; }
+.shop-presentation figcaption { display: flex; justify-content: space-between; gap: 12px; padding: 16px 0 0; font-size: 10px; color: var(--muted); line-height: 1.8; }
+.shop-presentation figcaption span:first-child { color: var(--ink); }
+.shop-presentation--section { margin: 64px 0 0; }
+.case-page--my-little-shop .case-chapter h2 { max-width: 17ch; font-size: clamp(28px,2.8vw,38px); }
+.case-page--my-little-shop .case-chapter { gap: 64px; padding-block: 72px; }
+.case-chapter-copy .shop-project-note { margin-top: 28px; padding-left: 18px; border-left: 2px solid #b2c6bd; font-size: 11px; }
+@media (max-width: 900px) {
+ .case-page--my-little-shop .case-heading-grid { gap: 28px; }
+ .case-page--my-little-shop .case-chapter { gap: 32px; }
+}
+@media (max-width: 600px) {
+ .case-page--my-little-shop .case-heading-grid { grid-template-columns: 1fr; gap: 24px; }
+ .case-page--my-little-shop .case-heading h1 { font-size: clamp(42px,11.7vw,64px); }
+ .case-page--my-little-shop .case-lead { font-size: 13px; }
+ .case-page--my-little-shop .case-chapter { gap: 24px; padding-block: 46px; }
+ .shop-presentation { margin-inline: -8px; }
+ .shop-presentation--section { margin-top: 36px; }
+ .shop-presentation figcaption { margin-inline: 8px; font-size: 9px; flex-direction: column; gap: 2px; padding-top: 12px; }
+}
+
+.shop-presentation picture { display: block; }

@@ -408,21 +408,21 @@ footer {
    Keeps the four project pages visually aligned with the homepage.
    ───────────────────────────────────────────────────────────── */
 :root {
-  --cream: #f3f7f6;
-  --cream-warm: #eaf3f2;
-  --blush: rgba(145, 201, 200, .24);
-  --stone: #8ba4a8;
-  --stone-light: #b4d3d1;
-  --ink: #0c2530;
-  --ink-soft: #47636a;
-  --white: #f4fbfa;
-  --ocean-deep: #062b3a;
-  --ocean-mid: #0c5364;
-  --ocean-teal: #3f9292;
-  --ocean-accent: #2d8790;
+  --cream: #f6f3ee;
+  --cream-warm: #eceff3;
+  --blush: rgba(174, 190, 210, .24);
+  --stone: #9098a3;
+  --stone-light: #b8c2cf;
+  --ink: #27364b;
+  --ink-soft: #4d5764;
+  --white: #f9f8f6;
+  --ocean-deep: #1d2b41;
+  --ocean-mid: #405b79;
+  --ocean-teal: #7c94af;
+  --ocean-accent: #526c8d;
 }
 
-html { background: #062b3a; }
+html { background: #1d2b41; }
 
 body {
   position: relative;
@@ -430,9 +430,9 @@ body {
   min-height: 100vh;
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
   background:
-    radial-gradient(ellipse 70% 42% at 8% 0%, rgba(91, 175, 175, .14), transparent 70%),
-    radial-gradient(ellipse 62% 48% at 100% 44%, rgba(63, 146, 146, .12), transparent 72%),
-    linear-gradient(180deg, #f5faf9 0%, #edf6f5 52%, #f8fbfa 100%) !important;
+    radial-gradient(ellipse 70% 42% at 8% 0%, rgba(106, 128, 160, .14), transparent 70%),
+    radial-gradient(ellipse 62% 48% at 100% 44%, rgba(124, 148, 175, .12), transparent 72%),
+    linear-gradient(180deg, #f9f8f6 0%, #f4f3ef 52%, #fbfaf7 100%) !important;
   color: var(--ink) !important;
   line-height: 1.75;
 }
@@ -444,43 +444,43 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 58% 46% at 74% 12%, rgba(168, 223, 218, .13), transparent 72%),
-    radial-gradient(ellipse 60% 48% at 18% 86%, rgba(12, 83, 100, .08), transparent 72%);
+    radial-gradient(ellipse 58% 46% at 74% 12%, rgba(184, 194, 207, .13), transparent 72%),
+    radial-gradient(ellipse 60% 48% at 18% 86%, rgba(64, 91, 121, .08), transparent 72%);
 }
 
 nav {
   padding: 22px clamp(20px, 5vw, 56px) !important;
-  background: rgba(7, 36, 46, .74) !important;
-  border-bottom: 1px solid rgba(216, 239, 237, .16) !important;
-  box-shadow: 0 12px 30px rgba(0, 25, 35, .08) !important;
+  background: rgba(34, 48, 72, .74) !important;
+  border-bottom: 1px solid rgba(234, 230, 221, .16) !important;
+  box-shadow: 0 12px 30px rgba(11, 16, 24, .08) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
 
 nav.scrolled {
   padding: 15px clamp(20px, 5vw, 56px) !important;
-  background: rgba(7, 36, 46, .94) !important;
-  border-bottom-color: rgba(216, 239, 237, .22) !important;
+  background: rgba(34, 48, 72, .94) !important;
+  border-bottom-color: rgba(234, 230, 221, .22) !important;
 }
 
 .nav-logo {
-  color: #eef6f6 !important;
+  color: #f5f3ef !important;
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 500 !important;
   letter-spacing: .18em;
 }
 
-.nav-logo span { color: #9bd5d1 !important; }
+.nav-logo span { color: #d7e0ec !important; }
 
 .nav-links { display: none !important; }
 
 .nav-links a {
-  color: rgba(234, 245, 243, .78) !important;
+  color: rgba(243, 241, 236, .78) !important;
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 500;
 }
 
-.nav-links a::after { background: #a8dfda; }
+.nav-links a::after { background: #b8c2cf; }
 .nav-links a:hover,
 .nav-links a.active { color: #fff !important; }
 
@@ -489,16 +489,16 @@ nav.scrolled {
   align-items: center;
   justify-content: center;
   padding: 11px 20px !important;
-  border: 1px solid rgba(242, 247, 245, .22) !important;
+  border: 1px solid rgba(247, 245, 242, .22) !important;
   border-radius: 999px !important;
-  background: #f2f7f5 !important;
-  color: #0c2530 !important;
-  box-shadow: 0 8px 20px rgba(0, 25, 35, .14);
+  background: #f7f5f2 !important;
+  color: #27364b !important;
+  box-shadow: 0 8px 20px rgba(11, 16, 24, .14);
 }
 
 .nav-cta:hover {
   background: #fff !important;
-  color: #0c2530 !important;
+  color: #27364b !important;
   transform: translateY(-2px);
 }
 
@@ -518,7 +518,7 @@ nav.scrolled {
   width: 28px;
   height: 1px;
   margin: 0;
-  background: #eef6f6 !important;
+  background: #f5f3ef !important;
 }
 
 .mobile-menu {
@@ -526,7 +526,7 @@ nav.scrolled {
   right: 28px !important;
   left: auto !important;
   bottom: auto !important;
-  inset: auto 28px auto auto !important;
+  inset: 78px 28px auto auto !important;
   width: min(280px, calc(100vw - 48px)) !important;
   height: auto !important;
   max-height: calc(100vh - 100px);
@@ -535,10 +535,10 @@ nav.scrolled {
   align-items: stretch !important;
   justify-content: flex-start !important;
   gap: 3px !important;
-  border: 1px solid rgba(184, 224, 222, .22) !important;
+  border: 1px solid rgba(194, 202, 214, .22) !important;
   border-radius: 18px !important;
-  background: rgba(7, 36, 46, .97) !important;
-  box-shadow: 0 20px 54px rgba(0, 25, 35, .28) !important;
+  background: rgba(34, 48, 72, .97) !important;
+  box-shadow: 0 20px 54px rgba(11, 16, 24, .28) !important;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   opacity: 0;
@@ -555,7 +555,7 @@ nav.scrolled {
 .mobile-menu a {
   padding: 12px 14px !important;
   border-radius: 14px;
-  color: rgba(234, 245, 243, .84) !important;
+  color: rgba(243, 241, 236, .84) !important;
   font-family: 'Montserrat', sans-serif !important;
   font-size: .76rem !important;
   font-weight: 500 !important;
@@ -578,7 +578,7 @@ nav.scrolled {
 
 .project-hero {
   padding: 44px 0 72px;
-  border-bottom: 1px solid rgba(45, 135, 144, .20);
+  border-bottom: 1px solid rgba(82, 108, 141, .20);
 }
 
 .project-title {
@@ -602,7 +602,7 @@ nav.scrolled {
 
 .project-section {
   padding: clamp(52px, 7vw, 92px) 0;
-  border-bottom: 1px solid rgba(45, 135, 144, .16);
+  border-bottom: 1px solid rgba(82, 108, 141, .16);
 }
 
 .section-label {
@@ -617,7 +617,7 @@ nav.scrolled {
 
 .section-label::after {
   width: 52px;
-  background: rgba(45, 135, 144, .30);
+  background: rgba(82, 108, 141, .30);
 }
 
 .project-gallery {
@@ -628,22 +628,22 @@ nav.scrolled {
 
 .gallery-item {
   overflow: hidden;
-  border: 1px solid rgba(45, 135, 144, .18);
+  border: 1px solid rgba(82, 108, 141, .18);
   border-radius: 28px;
   background: rgba(255, 255, 255, .68);
-  box-shadow: 0 18px 46px rgba(7, 50, 60, .08);
+  box-shadow: 0 18px 46px rgba(20, 31, 47, .08);
   transition: transform .45s cubic-bezier(.34, 1.56, .64, 1), box-shadow .35s ease, border-color .3s ease;
 }
 
 .gallery-item:hover {
-  border-color: rgba(45, 135, 144, .38);
-  box-shadow: 0 24px 58px rgba(7, 50, 60, .14);
+  border-color: rgba(82, 108, 141, .38);
+  box-shadow: 0 24px 58px rgba(20, 31, 47, .14);
   transform: translateY(-6px);
 }
 
 .gallery-item img,
 .gallery-item video {
-  background: #0b3442;
+  background: #172436;
 }
 
 .gallery-item img { transition: transform .7s cubic-bezier(.34, 1.2, .64, 1); }
@@ -651,8 +651,8 @@ nav.scrolled {
 
 .gallery-item figcaption {
   padding: 14px 18px;
-  border-top: 1px solid rgba(45, 135, 144, .14);
-  background: rgba(247, 252, 251, .78);
+  border-top: 1px solid rgba(82, 108, 141, .14);
+  background: rgba(251, 250, 248, .78);
   color: var(--ink-soft);
   font-family: 'Montserrat', sans-serif !important;
   font-size: .62rem;
@@ -673,19 +673,19 @@ nav.scrolled {
 }
 
 .worked-list li {
-  border: 1px solid rgba(45, 135, 144, .16);
+  border: 1px solid rgba(82, 108, 141, .16);
   border-radius: 18px;
   background: rgba(255, 255, 255, .68);
   padding: 16px 18px;
   color: var(--ink-soft) !important;
   font-family: 'Montserrat', sans-serif !important;
   font-size: .78rem;
-  box-shadow: 0 8px 22px rgba(7, 50, 60, .04);
+  box-shadow: 0 8px 22px rgba(20, 31, 47, .04);
   transition: transform .4s cubic-bezier(.34, 1.56, .64, 1), background .25s ease, border-color .25s ease;
 }
 
 .worked-list li:hover {
-  border-color: rgba(45, 135, 144, .38);
+  border-color: rgba(82, 108, 141, .38);
   background: rgba(255, 255, 255, .92);
   transform: translateY(-3px);
 }
@@ -699,42 +699,42 @@ nav.scrolled {
 .project-cta a {
   min-height: 56px;
   padding: 16px 26px;
-  border: 1px solid rgba(45, 135, 144, .18);
+  border: 1px solid rgba(82, 108, 141, .18);
   border-radius: 999px;
-  background: linear-gradient(135deg, #247c87, #5eaaa7);
-  color: #f4fbfa;
+  background: linear-gradient(135deg, #3e526d, #6b809d);
+  color: #f9f8f6;
   font-family: 'Montserrat', sans-serif !important;
   font-size: .7rem;
   font-weight: 600;
   letter-spacing: .14em;
-  box-shadow: 0 12px 30px rgba(7, 50, 60, .16);
+  box-shadow: 0 12px 30px rgba(20, 31, 47, .16);
   transition: transform .4s cubic-bezier(.34, 1.56, .64, 1), background .25s ease, box-shadow .25s ease;
 }
 
 .project-cta a:hover {
   color: #fff;
-  background: linear-gradient(135deg, #17656f, #3f9292);
-  box-shadow: 0 16px 36px rgba(7, 50, 60, .22);
+  background: linear-gradient(135deg, #3d536f, #7c94af);
+  box-shadow: 0 16px 36px rgba(20, 31, 47, .22);
   transform: translateY(-4px);
 }
 
 footer {
   padding: 28px clamp(24px, 6vw, 88px);
-  background: #062b3a;
-  border-top: 1px solid rgba(184, 224, 222, .18);
+  background: #1d2b41;
+  border-top: 1px solid rgba(194, 202, 214, .18);
 }
 
 .footer-inner { max-width: 1320px; }
 
 .footer-inner p,
 .footer-inner a {
-  color: rgba(234, 245, 243, .62);
+  color: rgba(243, 241, 236, .62);
   font-family: 'Montserrat', sans-serif !important;
   font-size: .62rem;
   letter-spacing: .14em;
 }
 
-.footer-inner a:hover { color: #a8dfda; }
+.footer-inner a:hover { color: #b8c2cf; }
 
 @media (max-width: 780px) {
   .hamburger { display: flex !important; }
@@ -746,7 +746,7 @@ footer {
 }
 
 @media (max-width: 520px) {
-  .mobile-menu { right: 20px !important; inset: auto 20px auto auto !important; }
+  .mobile-menu { right: 20px !important; inset: 78px 20px auto auto !important; }
   .page { padding: 104px 20px 0 !important; }
   .project-title { font-size: clamp(2.4rem, 13vw, 3.8rem) !important; }
   .worked-list { grid-template-columns: 1fr; }
@@ -813,7 +813,7 @@ footer {
   }
 
   .mobile-menu {
-    max-height: calc(100svh - 32px);
+    max-height: calc(100svh - 110px);
   }
 
   input,

@@ -1,6 +1,6 @@
 .site-footer {
-  background: #e5efee;
-  border-top: 1px solid rgba(12,37,48,0.12);
+  background: #f2e8e9;
+  border-top: 1px solid rgba(39, 54, 75,0.12);
   padding: 80px 20px;
 }
 
@@ -14,7 +14,7 @@
   grid-template-columns: 1.6fr 1fr 1fr;
   gap: 36px;
   padding-bottom: 28px;
-  border-bottom: 1px solid rgba(12,37,48,0.12);
+  border-bottom: 1px solid rgba(39, 54, 75,0.12);
 }
 
 .site-footer .sf-brand {
@@ -23,12 +23,12 @@
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #0c2530;
+  color: #27364b;
   margin-bottom: 12px;
 }
 
 .site-footer .sf-desc {
-  color: #526b72;
+  color: #536176;
   font-size: .84rem;
   line-height: 1.7;
   max-width: 340px;
@@ -39,7 +39,7 @@
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #0c2530;
+  color: #27364b;
   margin-bottom: 14px;
 }
 
@@ -52,14 +52,14 @@
 
 .site-footer .sf-links a,
 .site-footer .sf-links li {
-  color: #35515a;
+  color: #3d536f;
   font-size: .82rem;
   text-decoration: none;
   transition: color .2s ease;
 }
 
 .site-footer .sf-links a:hover {
-  color: #17656f;
+  color: #3d536f;
 }
 
 .site-footer .sf-bottom {
@@ -68,7 +68,7 @@
 }
 
 .site-footer .sf-copy {
-  color: #526b72;
+  color: #536176;
   font-size: .78rem;
   letter-spacing: .02em;
 }

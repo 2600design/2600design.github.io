@@ -1,0 +1,100 @@
+/* Generated cloud artwork for inner-page headers. Homepage brand colours are the reference. */
+body.inner-art-header {
+ --inner-header-image: url('/assets/inner-header-clouds.webp');
+ --inner-header-overlay: linear-gradient(90deg,rgba(22,34,52,.58),rgba(22,34,52,.27));
+ --studio-wordmark-main: #f5f3ef;
+ --studio-wordmark-design: #ead4d9;
+ overflow-x: clip;
+}
+body.inner-art-header.ocean-ui .page-hero,
+body.inner-art-header.ocean-ui > .hero,
+body.inner-art-header.ocean-ui > header.hero {
+ background-color: #415670 !important;
+ background-image: var(--inner-header-overlay),var(--inner-header-image) !important;
+ background-size: cover !important;
+ background-position: center !important;
+ color: #fffaf7 !important;
+}
+body.inner-art-header.ocean-ui .page-hero::before,
+body.inner-art-header.ocean-ui > .hero::before,
+body.inner-art-header.ocean-ui > header.hero::before { background: none !important; }
+body.inner-art-header.ocean-ui .page-hero-title,
+body.inner-art-header.ocean-ui .hero h1 { color: #fffaf7 !important; text-shadow: 0 2px 18px rgba(18,30,47,.18) !important; }
+body.inner-art-header.ocean-ui .page-hero-title em,
+body.inner-art-header.ocean-ui .page-hero-title .highlight,
+body.inner-art-header.ocean-ui .hero h1 em { color: #f2dce2 !important; }
+body.inner-art-header.ocean-ui .page-hero-label,
+body.inner-art-header.ocean-ui .hero .eyebrow,
+body.inner-art-header.ocean-ui .page-hero-intro,
+body.inner-art-header.ocean-ui .hero-inner p,
+body.inner-art-header.ocean-ui .hero-subtitle,
+body.inner-art-header.ocean-ui .hero-copy { color: #f6efee !important; }
+body.inner-art-header.ocean-ui .page-hero-actions a { color: #fffaf7 !important; border-color: #e4d9dc !important; }
+body.inner-art-header.ocean-ui .page-hero-actions a:first-child,
+body.inner-art-header.ocean-ui .hero .btn-primary { background: #f5f3ef !important; color: #27364b !important; border-color: #f5f3ef !important; }
+body.inner-art-header.ocean-ui .hero .btn-ghost { color: #fffaf7 !important; border-color: #e4d9dc !important; }
+/* Extend artwork to the viewport edges without changing content widths or project layouts. */
+body.inner-art-header .work-intro,
+body.inner-art-header .case-heading,
+body.inner-art-header .project-hero { position: relative; isolation: isolate; }
+body.inner-art-header .work-intro::before,
+body.inner-art-header .case-heading::before,
+body.inner-art-header .project-hero::before {
+ content: ''; position: absolute; z-index: -1; pointer-events: none;
+ top: 0; bottom: 0; left: calc((100% - 100vw)/2); right: calc((100% - 100vw)/2);
+ background-color: #415670;
+ background-image: var(--inner-header-overlay),var(--inner-header-image);
+ background-size: cover; background-position: center;
+}
+body.inner-art-header.studio-project-legacy .project-hero::before { top: -150px; }
+body.inner-art-header .work-intro h1,
+body.inner-art-header .case-heading h1,
+body.inner-art-header .project-title { color: #fffaf7 !important; }
+body.inner-art-header .work-intro h1 span { color: #f2dce2 !important; }
+body.inner-art-header .work-intro-copy p,
+body.inner-art-header .work-intro-copy a,
+body.inner-art-header .case-heading .folio-eyebrow,
+body.inner-art-header .work-intro .folio-eyebrow,
+body.inner-art-header .case-heading .case-lead,
+body.inner-art-header .case-heading .case-breadcrumb,
+body.inner-art-header .case-heading .case-breadcrumb a,
+body.inner-art-header .case-facts dt,
+body.inner-art-header .case-facts dd,
+body.inner-art-header .project-description,
+body.inner-art-header .project-breadcrumb { color: #f6efee !important; }
+body.inner-art-header .case-facts { border-color: rgba(246,239,238,.32); }
+/* Wordmark colours exactly match the existing homepage; font and geometry remain unchanged. */
+body.inner-art-header.ocean-ui nav#nav,
+body.inner-art-header.ocean-ui nav#nav.scrolled,
+body.inner-art-header.studio-project-legacy nav,
+body.inner-art-header.studio-project-legacy nav.scrolled,
+body.inner-art-header.portfolio-page .studio-nav {
+ background: rgba(29,41,59,.72) !important;
+ border-bottom-color: rgba(246,239,238,.18) !important;
+}
+body.inner-art-header.ocean-ui nav#nav .nav-logo,
+body.inner-art-header.studio-project-legacy nav .nav-logo,
+body.inner-art-header.portfolio-page .studio-brand { color: var(--studio-wordmark-main) !important; }
+body.inner-art-header.ocean-ui nav#nav .nav-logo span,
+body.inner-art-header.studio-project-legacy nav .nav-logo span,
+body.inner-art-header.portfolio-page .studio-brand span { color: var(--studio-wordmark-design) !important; }
+body.inner-art-header.ocean-ui nav#nav .nav-links a,
+body.inner-art-header.studio-project-legacy nav .nav-links a,
+body.inner-art-header.portfolio-page .studio-links a,
+body.inner-art-header.portfolio-page .studio-menu { color: #f5f3ef !important; }
+body.inner-art-header.ocean-ui nav#nav .hamburger span,
+body.inner-art-header.studio-project-legacy nav .hamburger span { background: #f5f3ef !important; }
+@media(max-width:780px) {
+ body.inner-art-header { --inner-header-overlay: linear-gradient(90deg,rgba(22,34,52,.62),rgba(22,34,52,.42)); }
+ body.inner-art-header.studio-project-legacy .project-hero::before { top: -112px; }
+ body.inner-art-header.portfolio-page .studio-links { background: #26334a !important; border-color: #637088 !important; }
+ body.inner-art-header .work-intro::before,
+ body.inner-art-header .case-heading::before,
+ body.inner-art-header .project-hero::before,
+ body.inner-art-header.ocean-ui .page-hero,
+ body.inner-art-header.ocean-ui > header.hero { background-position: 60% center !important; }
+}
+@media(max-width:520px) { body.inner-art-header.studio-project-legacy .project-hero::before { top: -104px; } }
+/* Project and work introductions can have copy on the bright side of the artwork. */
+body.inner-art-header.portfolio-page { --inner-header-overlay: linear-gradient(90deg,rgba(22,34,52,.58),rgba(22,34,52,.52)); }
+@media(max-width:780px) { body.inner-art-header.portfolio-page { --inner-header-overlay: linear-gradient(90deg,rgba(22,34,52,.62),rgba(22,34,52,.52)); } }

@@ -1,0 +1,45 @@
+/* Services only: consistent photographic framing, soft edges, sharp subjects. */
+body.ocean-ui .services-page-flow .expertise-panel,
+body.ocean-ui .services-page-flow .expertise-panel[aria-hidden="true"] {
+  grid-template-columns: minmax(0,.95fr) minmax(0,.8fr) minmax(0,1.35fr);
+  gap: clamp(22px,2.4vw,34px);
+  align-items: start;
+}
+body.ocean-ui .services-page-flow .expertise-visual {
+  width: 100%; max-width: none; height: auto; min-height: 0;
+  aspect-ratio: auto; margin: 0; padding: 0; background: transparent;
+  border: 0; border-radius: 16px; overflow: visible; box-shadow: none;
+}
+body.ocean-ui .services-page-flow .expertise-visual a {
+  display: block; height: auto; border-radius: 16px; overflow: visible;
+}
+body.ocean-ui .services-page-flow .expertise-visual img {
+  display: block; width: 100%; height: auto; aspect-ratio: 3 / 2;
+  object-fit: contain; border-radius: 16px; padding: 0;
+  -webkit-mask-image: linear-gradient(to right,transparent,#000 2.5%,#000 97.5%,transparent),linear-gradient(to bottom,transparent,#000 3.5%,#000 96.5%,transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right,transparent,#000 2.5%,#000 97.5%,transparent),linear-gradient(to bottom,transparent,#000 3.5%,#000 96.5%,transparent);
+  mask-composite: intersect;
+}
+body.ocean-ui .services-page-flow .expertise-visual a:focus-visible {
+  outline: 2px solid #795362; outline-offset: 5px;
+}
+body.ocean-ui .services-page-flow .brand-concept figcaption {
+  margin-top: 8px; font-size: 10px; color: #74666b;
+}
+@media(max-width:1050px) {
+  body.ocean-ui .services-page-flow .expertise-panel,
+  body.ocean-ui .services-page-flow .expertise-panel[aria-hidden="true"] {
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  }
+  body.ocean-ui .services-page-flow .expertise-visual {
+    grid-column: 1 / -1; width: min(100%,640px); justify-self: center;
+  }
+}
+@media(max-width:560px) {
+  body.ocean-ui .services-page-flow .expertise-panel,
+  body.ocean-ui .services-page-flow .expertise-panel[aria-hidden="true"] {
+    grid-template-columns: minmax(0,1fr); gap: 22px;
+  }
+  body.ocean-ui .services-page-flow .expertise-visual { grid-column: 1; width: 100%; }
+}

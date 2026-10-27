@@ -1,0 +1,241 @@
+/* Homepage rhythm: content-led sections and compact transitions on small screens. */
+body.ocean-theme {
+  --home-section-space: clamp(32px, 3.5vw, 52px);
+  --home-gutter: clamp(20px, 4vw, 56px);
+}
+body.ocean-theme main > .section,
+body.ocean-theme #process,
+body.ocean-theme #pricing {
+  padding-block: var(--home-section-space);
+}
+body.ocean-theme #work {
+  padding-block: var(--home-section-space);
+}
+body.ocean-theme #contact {
+  padding-block: var(--home-section-space) !important;
+}
+body.ocean-theme .section-wave-divider {
+  height: clamp(24px, 2.5vw, 38px);
+}
+body.ocean-theme .immersive-media {
+  --media-fade: clamp(44px, 5vw, 76px);
+  --media-gap: clamp(10px, 1.5vw, 22px);
+}
+body.ocean-theme .framedreaming-media-secondary {
+  --media-fade: clamp(40px, 4.5vw, 68px);
+  padding-top: 8px;
+}
+body.ocean-theme #process .label-row { margin-bottom: 24px; }
+body.ocean-theme #process .process-sub { margin-bottom: 24px; }
+body.ocean-theme #process .process-step { padding: 28px 24px; }
+body.ocean-theme #process .step-n { margin-bottom: 16px; }
+body.ocean-theme #pricing .label-row { margin-bottom: 28px; }
+body.ocean-theme .featured-work-section .portfolio-header { margin-bottom: 22px; }
+body.ocean-theme .home-work-grid { row-gap: 30px; }
+body.ocean-theme .faq-heading { margin-bottom: 24px; }
+body.ocean-theme .faq-heading .label-row { margin-bottom: 20px; }
+body.ocean-theme .site-footer { padding-top: 44px; }
+
+@media (max-width: 780px) {
+  body.ocean-theme {
+    --home-section-space: clamp(24px, 6vw, 32px);
+    --home-gutter: clamp(18px, 5vw, 28px);
+  }
+  body.ocean-theme main > .section,
+  body.ocean-theme #process,
+  body.ocean-theme #pricing,
+  body.ocean-theme #work {
+    padding-inline: var(--home-gutter);
+  }
+  body.ocean-theme .section-wave-divider { height: 24px; }
+
+  /* The opening grows with its text instead of clipping to a fixed phone height. */
+  body.ocean-theme .hero {
+    height: auto;
+    min-height: 0;
+  }
+  body.ocean-theme .hero-content {
+    position: relative;
+    inset: auto;
+    height: auto;
+    min-height: 0;
+    padding: clamp(104px, 15svh, 132px) var(--home-gutter) 90px;
+  }
+  body.ocean-theme .hero-eyebrow {
+    max-width: 100%;
+    margin-bottom: 14px;
+    font-size: clamp(9px, 2.5vw, 12px);
+    letter-spacing: .18em;
+    line-height: 1.6;
+  }
+  body.ocean-theme .hero h1 {
+    font-size: clamp(32px, 8.5vw, 48px);
+    line-height: 1.1;
+  }
+  body.ocean-theme .hero p {
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.65;
+    max-width: 38ch;
+  }
+  body.ocean-theme .hero-actions {
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin-top: 24px;
+  }
+  body.ocean-theme .hero .btn-primary {
+    min-width: 0;
+    max-width: 100%;
+    min-height: 44px;
+    padding: 14px 24px;
+  }
+  body.ocean-theme .hero .btn-ghost { min-height: 44px; padding: 12px; }
+  body.ocean-theme .scroll-cue { left: var(--home-gutter); bottom: 18px; transform: none; font-size: 10px; gap: 6px; }
+  body.ocean-theme .scroll-cue .line { height: 22px; }
+  body.ocean-theme .sky-controls {
+    left: 0;
+    right: 0;
+    bottom: 16px;
+    max-width: 100%;
+    padding-inline: var(--home-gutter);
+    justify-content: center;
+    transform: none;
+  }
+
+  body.ocean-theme #process .label-row { margin-bottom: 18px; }
+  body.ocean-theme #process .process-title { margin-bottom: 10px; }
+  body.ocean-theme #process .process-sub { margin-bottom: 18px; }
+  body.ocean-theme .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  body.ocean-theme #process .process-step { padding: 20px 16px; }
+  body.ocean-theme #process .step-n { font-size: 10px; line-height: 1.5; margin-bottom: 10px; }
+  body.ocean-theme #process .step-name { font-size: 14px; margin-bottom: 8px; }
+  body.ocean-theme #process .step-desc { font-size: 12px; line-height: 1.65; }
+  body.ocean-theme .process-cta { margin-top: 18px; }
+
+  body.ocean-theme .services-studio { display: block; min-height: 0; }
+  body.ocean-theme .services-studio-media {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+  body.ocean-theme .services-media-copy {
+    position: relative;
+    inset: auto;
+    padding: 32px var(--home-gutter) 24px;
+  }
+  body.ocean-theme .services-media-copy h2 {
+    margin: 14px 0 16px;
+    font-size: clamp(44px, 13vw, 68px);
+    line-height: .95;
+  }
+  body.ocean-theme .services-media-bottom {
+    position: relative;
+    inset: auto;
+    padding: 0 var(--home-gutter) 22px;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+  body.ocean-theme .services-studio-panel { padding: 0; }
+  body.ocean-theme .service-row-trigger {
+    grid-template-columns: 28px minmax(0, 1fr) 30px;
+    min-height: 72px;
+    padding: 18px var(--home-gutter);
+    gap: 12px;
+  }
+  body.ocean-theme .service-row.is-open .service-row-trigger {
+    min-height: 0;
+    padding-top: 24px;
+    padding-bottom: 20px;
+  }
+  body.ocean-theme .service-row-title,
+  body.ocean-theme .service-row.is-open .service-row-title {
+    font-size: clamp(22px, 6.3vw, 34px);
+    line-height: 1.16;
+    overflow-wrap: anywhere;
+  }
+  body.ocean-theme .service-row-panel-inner,
+  body.ocean-theme .service-row.is-open .service-row-panel-inner {
+    display: block;
+    min-height: 0;
+    padding: 0 var(--home-gutter) 0;
+  }
+  body.ocean-theme .service-row.is-open .service-row-panel-inner { padding-bottom: 22px; }
+  body.ocean-theme .service-row-panel-inner p { margin-bottom: 14px; }
+  body.ocean-theme .service-row-panel-inner ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 0;
+    padding: 0;
+    margin: 0 0 14px;
+  }
+  body.ocean-theme .service-row-link { display: inline-flex; min-height: 44px; align-items: center; }
+
+  body.ocean-theme .home-work-grid { gap: 26px; }
+  body.ocean-theme .featured-work-section .portfolio-header { margin-bottom: 18px; }
+  body.ocean-theme .home-work-card .work-meta { margin-top: 12px; }
+  body.ocean-theme .home-work-card h3 { margin-top: 10px; }
+
+  body.ocean-theme .immersive-media { --media-fade: 44px; --media-gap: 10px; }
+  body.ocean-theme .framedreaming-media-secondary { --media-fade: 40px; padding-top: 4px; }
+  body.ocean-theme .immersive-media-visual,
+  body.ocean-theme .framedreaming-media-secondary .immersive-media-visual {
+    display: flex;
+    align-items: flex-end;
+    height: auto;
+    min-height: clamp(340px, 90vw, 440px);
+  }
+  body.ocean-theme .framedreaming-media-secondary .immersive-media-visual {
+    min-height: clamp(290px, 78vw, 380px);
+  }
+  body.ocean-theme .immersive-media-caption,
+  body.ocean-theme .framedreaming-media-secondary .immersive-media-caption {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    max-width: none;
+    padding: 64px var(--home-gutter) 58px;
+    text-align: left;
+  }
+  body.ocean-theme .immersive-media-kicker { margin-bottom: 12px; }
+  body.ocean-theme .immersive-media-caption h2,
+  body.ocean-theme .framedreaming-media-secondary .immersive-media-caption h2 {
+    font-size: clamp(32px, 10vw, 46px);
+    line-height: 1.04;
+  }
+  body.ocean-theme .immersive-media-caption p { margin-top: 14px; line-height: 1.65; }
+  body.ocean-theme .immersive-media-link { min-height: 44px; margin-top: 10px; }
+
+  body.ocean-theme #pricing .label-row { margin-bottom: 20px; }
+  body.ocean-theme .pricing-header { gap: 8px; margin-bottom: 14px; }
+  body.ocean-theme .pricing-grid { gap: 12px; margin-bottom: 18px; }
+  body.ocean-theme .pricing-cta { margin-top: 0; }
+  body.ocean-theme .faq-heading { margin-bottom: 20px; }
+  body.ocean-theme .faq-heading .label-row { margin-bottom: 16px; }
+  body.ocean-theme .faq-list { gap: 8px; }
+  body.ocean-theme #contact {
+    padding: 30px var(--home-gutter) !important;
+  }
+  body.ocean-theme #contact .contact-inner { gap: 24px; }
+  body.ocean-theme #contact .label-row { margin-bottom: 20px; }
+  body.ocean-theme #contact .contact-info-title { margin-bottom: 18px; font-size: clamp(36px, 10vw, 52px) !important; }
+  body.ocean-theme #contact .contact-info-text { margin-bottom: 24px; }
+  body.ocean-theme #contact .contact-form { padding: 22px 18px !important; }
+  body.ocean-theme .site-footer { padding: 30px var(--home-gutter) 22px; }
+  body.ocean-theme .site-footer .sf-grid { gap: 24px; padding-bottom: 22px; }
+  body.ocean-theme :is(#process, #services, #work, #pricing, #faq, #contact) {
+    scroll-margin-top: 72px;
+  }
+}
+@media (max-width: 420px) {
+  body.ocean-theme .hero-actions { flex-direction: column; gap: 4px; }
+}
+@media (max-width: 359px) {
+  body.ocean-theme .process-grid { grid-template-columns: 1fr; }
+}
